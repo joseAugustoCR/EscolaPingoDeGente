@@ -1,0 +1,635 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/10/2015, 21:03:34
+    Author     : guto
+*/
+
+
+h1 {
+    margin: 0;
+}
+
+body {
+    font-family:Arial, Sans-Serif; background: url(../img/gplaypattern.png);
+    
+   
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a1dbff+0,cbebff+29,f0f9ff+68 */
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eab16b+0,f6e6b4+48 */
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bddd49+0,e3f5ab+30,f8ffe8+100 */
+
+}
+
+html,body{height:100%; margin-top: 0px; padding-top: 0px; }
+
+
+/* Cabeçalho */
+.tb-header {
+    height: 150px;
+    top: 0px;
+    left: 0px;
+    //background-color: #003399;
+    //background-color: #FFBB34;
+    //background-color: white;
+
+    width: 100%;
+    //opacity: 0.9;
+    background: url(../img/gplaypattern.png);
+
+}
+
+.tb-header .container-fluid{
+        padding:0px 0px 0px 0px;
+      
+}
+
+#col_header{
+    padding:0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+
+.tb-img {
+    background: url('../img/logo.png') no-repeat scroll 40% 0% transparent;
+      
+        
+    min-height: 120px;
+   
+    margin-top: 0px;
+    margin-left: 0px;
+    
+    margin-top: 10px;
+}
+
+
+.tb-titulo {
+    text-align: center;
+    padding-top: 30px; 
+}
+
+
+.tb-social {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    list-style: outside none none;
+    text-align: center;
+}
+
+.endereco_contato_header{
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+.tb-titulo a {
+    width: 550px;
+    height: 50px;
+    background: transparent url("images/tb-logo-header.png") no-repeat scroll center center / contain;
+    color: #003399;
+    /*font-family: 'Indie Flower', cursive;*/
+    font-family: 'Great Vibes', cursive;
+    font-size: 35px;
+   // padding-top: 5px;
+    //font-weight: bold;
+}
+
+.tb-titulo div {
+    width: 550px;
+    height: 30px;
+    background: transparent url("images/tb-logo-header.png") no-repeat scroll center center / contain;
+    color: #003399;
+    /*font-family: 'Indie Flower', cursive;*/
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+    margin: 0 auto;
+    //font-weight: bold;
+}
+
+
+.tb-titulo a, .tb-social a, tb-titulo div {
+    display: inline-block;
+    //text-indent: -9999px;
+    overflow: hidden;
+}
+
+
+.container-fluid{padding-bottom: 0; margin-bottom: 0;width: 100%; max-width: 1000px; padding-left: 0px; padding-right:0px;  }
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-inverse {
+    border:none;
+    color: white;
+    border-radius: 0px;
+    background-color: #003399;
+    
+     box-shadow: 0px -5px 25px #888888;
+    -moz-box-shadow: 0px -5px 25px #888888;
+        -webkit-box-shadow: 0px -5px 25px #888888;
+ 
+   
+    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+/* title */
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-inverse .navbar-brand:active {
+    background-color: #395FA9;
+
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus,.navbar-default .navbar-nav > li > a:enabled {
+    background-color: #395FA9;
+    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    color: white;
+    transition: background-color 0.7s;
+    transition-timing-function: linear;
+    -webkit-transition: background-color 0.7s;
+    -webkit-transition-timing-function: linear;
+
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.navbar-inverse .navbar-nav > .active > a{
+    //border-bottom: 3px solid black;
+    background-color: #3366FF;
+
+    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+}
+
+.navbar-collapse{
+    padding: 0px;
+
+}
+
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
+.fill{width:100%;height:100%;background-position: center;background-size:cover; background-color: black; }
+
+.carousel-inner img {
+    margin:0 auto;
+}
+
+
+.carousel .item {
+    width: 100%; /*slider width*/
+    max-height: 450px; /*slider height*/
+
+}
+
+
+.carousel .item img {
+    width: 100%; /*img width*/
+    max-width: 1000px;
+    //height: 100%;
+    /* max-height: 600px;
+     min-height: 600px;
+     top: 200px; */
+    // position: fixed;
+    //bottom: 100px;;
+    //vertical-align:middle;
+
+    // background-repeat: no-repeat;
+    //background-attachment: fixed;
+    //background-position: center;
+
+}
+
+
+
+.carousel-inner>.item>img {
+    margin: 0 auto;
+    height: 400px;
+}
+
+#row_carousel{
+    margin: 0 auto;
+    
+}
+
+#col_carousel{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#carousel{
+    background-color: #3366FF;
+    background-image: url(../img/food.png);
+  
+    box-shadow: 0px 5px 15px #888888;
+    -moz-box-shadow: 0px 5px 15px #888888;
+        -webkit-box-shadow: 0px 5px 15px #888888;
+}
+
+
+/*full width container*/
+@media (max-width: 767px) {
+    .block {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+/* .carousel-caption{
+     background-color: rgba(0,0,0,0.85);
+     border-radius: 10px;
+ }*/
+
+.carousel-caption {
+    background-color: rgba(0,0,0,0.65);
+    max-width: 1000px;
+
+    padding: 0 20px;
+    margin:0 auto;
+    margin-top: 200px;
+    text-align:center;
+}
+
+.carousel-indicators{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    bottom:0px;
+    background-color: rgba(0,0,0,0.65);
+}
+
+
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+
+
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+#content{
+    
+
+
+    /*background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+    
+    background-color: white;
+
+
+
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    
+    box-shadow: 5px 5px 15px #888888;
+    -moz-box-shadow: 5px 5px 15px #888888;
+        -webkit-box-shadow: 5px 5px 15px #888888;
+        max-width: 1000px;
+        margin-top:50px;
+        margin-bottom:50px;
+    
+ 
+}
+
+/*
+.content-inner > .container > .container-fluid{
+    margin: 0 auto;
+}
+
+.content-inner{
+
+    width: 970px; 
+    background: white;
+    margin: 0 auto;
+   // border: solid 1px black;
+    border-radius: 10px;
+    padding-bottom:30px;
+    padding-top:0px;
+   
+    
+}
+*/
+
+.container{
+    padding-top:20px;
+    margin: 0 auto;
+    max-width: 950px;
+}
+
+
+.jumbotron{
+    background-image: url("http://www.optimistmcr.com/uploads/3/9/3/1/39316493/4704152.jpg");
+    max-height: 350px;
+    margin-top:0px;
+    padding-top:20px;
+    
+}
+
+.row .thumbnail {
+    border:0;
+    box-shadow:0;
+    border-radius:0;
+}
+
+
+
+.quemSomos{
+   width: 500px;
+}
+
+
+
+#bottom{
+
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    //background-color: #B5CB61;
+   // background-color: #85C032;
+    background-color: #FF751A;
+    border-bottom: 5px white solid;
+    color: white;
+    //height: 200px;
+    //border-top: 1px solid rgba(20, 20, 20, 0.8);
+    //border-radius: 10px;
+    padding-top:20px;
+    padding-bottom: 30px;
+    box-shadow: 0px -5px 10px #888888;
+    -moz-box-shadow: 0px -5px 10px #888888;
+        -webkit-box-shadow: 0px -5px 10px #888888;
+}
+
+#bottom>fieldset>*{
+    color:white;
+}
+
+#bottom_item{
+    margin: 0 auto;
+    width: 75%;
+    height: 65%;
+}
+
+#bottom_item > div{
+    margin: 0 auto;
+}
+
+.well-sm{
+    background-color:white; 
+}
+
+.titulo{
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px;
+    padding-top: 20px;
+}
+
+
+.footer{
+    background-color: #003399;
+    
+    height: 80px;
+
+
+}
+
+.footer>.container{
+    text-align: center; padding-top:10px; color:white; 
+}
+
+
+.Flexible-container-maps {
+    position: relative;
+    padding-bottom: 38.25%;
+    padding-top: 25px;
+    height: 0;
+    overflow: hidden;
+
+}
+
+.Flexible-container-video {
+    position: relative;
+    padding-bottom: 62.25%;
+    padding-top: 25px;
+    height: 0;
+    overflow: hidden;
+
+}
+
+.Flexible-container-maps iframe,   
+.Flexible-container-maps object,  
+.Flexible-container-maps embed, 
+.Flexible-container-video iframe,   
+.Flexible-container-video object,  
+.Flexible-container-video embed{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 20px;
+
+}
+
+.endereco_contato{
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/* Sobre */
+
+.sobre{
+    padding-right: 40px;
+    
+}
+
+.sobre>p{
+    width: 900px;
+} 
+
+.row .thumbnail {
+    border:0;
+    box-shadow:0;
+    border-radius:0;
+}
+
+
+
+
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}
+
+.img-circle{
+    width: 200px;
+    height: 200px;        
+}
+
+.thumbnail{
+    border-radius: 20px;padding-bottom: 20px;border: solid 1px #126257;
+}
+
+.thumbnail>fieldset{
+    text-decoration: #126257; font-family: cursive; color: #126257; padding-left: 15px;
+}
+
+
+
+
+/* Contato*/
+.bigicon {
+    font-size: 35px;
+
+    color: #003399;
+}
+
+.glyphicon{
+    color: #003399;
+
+
+}
+.btn {
+    background-color:  #003399;
+    border-color: #003399;
+    color:white;
+}
+
+
+
+
+#ul_gallery {         
+    padding:0 0 0 0;
+    margin-left: 0px;
+}
+#ul_gallery > li {     
+    list-style:none;
+    margin-bottom:25px; 
+    margin-left: 0px;
+    padding-left: 0px;
+}
+#ul_gallery > li img {
+    cursor: pointer;
+}
+.modal-body {
+    padding:5px !important;
+}
+.modal-content {
+    border-radius:0;
+}
+.modal-dialog img {
+    text-align:center;
+    margin:0 auto;
+}
+.controls{          
+  width:50px;
+  display:block;
+  font-size:11px;
+  padding-top:8px;
+  font-weight:bold;          
+}
+.next {
+  float:right;
+  text-align:right;
+}
+/*override modal for demo only*/
+.modal-dialog {
+    max-width:500px;
+    padding-top: 150px;
+}
+@media screen and (min-width: 768px){
+    .modal-dialog {
+        width:500px;
+        padding-top: 150px;
+    }          
+}
+@media screen and (max-width:1500px){
+    #ads {
+        display:none;
+    }
+}
+#row_gallery{
+    text-align:center; border-bottom:1px dashed #ccc;  padding:20px 0 20px 0; margin-bottom:40px;
+}
+
+#row_gallery > h3 {
+    font-family:'Indie Flower'; font-size:30px;
+}
+
+
+.input{
+    width:80%;
+    
+}

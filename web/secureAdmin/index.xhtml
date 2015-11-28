@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+            
+    <meta charset="UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    
+       
+    
+    
+    <link href="../css/animate.min.css" rel="stylesheet"/>
+    <link href="../css/myStyle.css" rel="stylesheet"/>
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    
+        <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
+     
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css"/>
+     
+    <!--  jQuery 1.7+  -->
+    <script src="jquery-1.9.1.min.js"></script>
+     
+    <!-- Include js plugin -->
+    <script src="assets/owl-carousel/owl.carousel.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>Pingo de Gente</title>
+    </head>
+  <h:body>
+  <header class="tb-header">
+        <div class="container-fluid">
+        <div class="col-md-12" id="col_header">
+            
+            <div class="col-md-2">
+                <div class="tb-img"></div>
+            </div>
+            <div class="col-md-8">
+                <div class="tb-titulo"><a href="index.xhtml" >Escola de Educação Infantil Pingo de Gente</a>
+                    <div>Aqui sua criança aprende brincando!</div></div>
+            </div>
+            <div class="col-md-2">
+                <div class="tb-social">
+                     <div style="margin-top: 20px" class="wow bounceInRight" >
+                                <a href="https://www.facebook.com/educacaoinfantil.pingodegente?fref=ts"> <i class="fa fa-facebook-official fa-3x"  ></i> </a>
+                                <a href="https://www.youtube.com/?gl=BR"> <i class="fa fa-youtube-play fa-3x"  ></i> </a>
+                            </div>
+                    <address class="endereco_contato_header">
+                               
+                                <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
+                            </address>
+                    
+                </div>
+            </div>
+            
+        </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.xhtml">Início <span class="sr-only">(current)</span></a></li>
+                    <li><a href="sobre.xhtml">A escola</a></li>
+                    <li><a href="galeria.xhtml">Galeria de Fotos</a></li>
+                    <li><a href="noticias.xhtml">Notícias</a></li>
+                    <li><a href="calendario.xhtml">Calendário</a></li>
+                    <li><a href="contato.xhtml">Contato</a></li>  
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <h:form class="navbar-form navbar-left">
+                        
+                        <!--<button type="submit" class="btn btn-default">Pesquisar</button>-->
+                        <h:commandButton action="#{authBackingBean.logout}" value="Logout" class="btn btn-default" />
+                    </h:form>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+            <!-- /.container-fluid -->
+        </div>  
+    </nav>
+      
+      <div class="container-fluid" id="content">
+
+            <fieldset>
+                <legend class="titulo">Bem-vindo, Administrador!</legend>
+            </fieldset>
+
+          
+          <h5>Aqui você pode administrar o seu site, editando o conteúdo que é exibido aos visitantes.</h5>          
+          <h5>Ao final da sessão, realize o logout!</h5> 
+            
+           <br/>
+      
+
+
+        </div>
+      
+      <div class="container-fluid" id="content">
+
+            <fieldset>
+                <legend class="titulo">Edite aqui o conteúdo da página inicial!</legend>
+            </fieldset>
+
+          
+          <h:form>
+              Quem somos: <h:inputTextarea rows="5" value="" class="input"/><br/><br/>
+              Qualidade: <h:inputTextarea rows="3" value="" class="input"/><br/><br/>
+              Estrutura: <h:inputTextarea rows="3" value="" class="input"/><br/><br/>
+              Nossa Missão: <h:inputTextarea rows="3" value="" class="input"/><br/><br/><br/><br/>
+              <h:commandButton value="Confirmar" action="#" class="btn btn-primary btn-lg" />
+          </h:form>
+      
+
+
+        </div>
+</h:body>
+</html>

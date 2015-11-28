@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+ <h:body>
+  <p>Login to access secure pages:</p>
+  <form method="post" action="j_security_check">
+    <h:panelGrid columns="2">
+      <h:outputLabel for="j_username" value="Username" />
+      <input type="text" name="j_username" />
+
+      <h:outputLabel for="j_password" value="Password" />
+      <input type="password" name="j_password" />
+
+      <h:outputText value="" />
+      <h:panelGrid columns="2">
+        <input type="submit" name="submit" value="Login" />
+        <h:button outcome="index" value="Cancel" />
+      </h:panelGrid>
+    </h:panelGrid>
+  </form>
+</h:body>
+</html>
