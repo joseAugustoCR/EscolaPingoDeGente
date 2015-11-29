@@ -147,11 +147,11 @@ and open the template in the editor.
 
           
           <h:form>
-              Quem somos: <h:inputTextarea rows="5" value="" class="input"/><br/><br/>
-              Qualidade: <h:inputTextarea rows="3" value="" class="input"/><br/><br/>
-              Estrutura: <h:inputTextarea rows="3" value="" class="input"/><br/><br/>
-              Nossa Missão: <h:inputTextarea rows="3" value="" class="input"/><br/><br/><br/><br/>
-              <h:commandButton value="Confirmar" action="#" class="btn btn-primary btn-lg" />
+              Quem somos: <h:inputTextarea rows="5" value="#{inicioBD.quemSomos}" class="input"/><br/><br/>
+              Qualidade: <h:inputTextarea rows="3" value="#{inicioBD.qualidade}" class="input"/><br/><br/>
+              Estrutura: <h:inputTextarea rows="3" value="#{inicioBD.estrutura}" class="input"/><br/><br/>
+              Nossa Missão: <h:inputTextarea rows="3" value="#{inicioBD.missao}" class="input"/><br/><br/><br/><br/>
+              <h:commandButton value="Confirmar" action="#{inicioBD.atualizar}" class="btn btn-primary btn-lg" />
           </h:form>
       
 

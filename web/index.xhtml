@@ -196,7 +196,7 @@
                             Quem somos?
                         </h2>
                         <p>
-                            This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+                            <h:outputText value="#{inicioBD.quemSomos}" /><br/>
                         </p>
                         <p>
                             <a class="btn btn-primary btn-large" href="#">Learn more</a>
@@ -220,7 +220,7 @@
                                         Qualidade
                                     </h3>
                                     <p>
-                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                        <h:outputText value="#{inicioBD.qualidade}" /><br/>
                                     </p>
                                     <p>
                                         <a class="btn btn-primary" href="sobre.xhtml">Ler mais</a> 
@@ -238,7 +238,7 @@
                                         Estrutura
                                     </h3>
                                     <p>
-                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                        <h:outputText value="#{inicioBD.estrutura}" /><br/>
                                     </p>
                                     <p>
                                         <a class="btn btn-primary" href="sobre.xhtml">Ler mais</a>
@@ -256,7 +256,7 @@
                                         Nossa Missão
                                     </h3>
                                     <p>
-                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                        <h:outputText value="#{inicioBD.missao}" /><br/>
                                     </p>
                                     <p>
                                         <a class="btn btn-primary" href="sobre.xhtml">Ler mais</a>
@@ -342,7 +342,7 @@
     <script>
         $(document).ready(function () {
             var i = 0;
-            var colors = ["#FFFF66", "#fe9314", "#FF6699", "#8AE68A"];
+            var colors = ["#FF751A", "#FFFF66", "#FF6699", "#8AE68A"];
 
             $("#carousel").css("backgroundColor", colors[0]);
 
