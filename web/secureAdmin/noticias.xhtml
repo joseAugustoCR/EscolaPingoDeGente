@@ -133,11 +133,11 @@ and open the template in the editor.
 
           
           <h:form>
-              Título: <h:inputText value="" class="input"/><br/><br/>
-              Descrição: <h:inputTextarea rows="7" value="" class="input"/><br/><br/>
+              Título: <h:inputText value="#{noticiasBD.titulo}" class="input"/><br/><br/>
+              Texto <h:inputTextarea rows="7" value="#{noticiasBD.texto}" class="input"/><br/><br/>
               
-              Imagem: <h:inputFile value="" class="input"/><br/><br/><br/><br/>
-              <h:commandButton value="Confirmar" action="#" class="btn btn-primary btn-lg" />
+              <!--Imagem: <h:inputFile value="" class="input"/><br/><br/><br/><br/> -->
+              <h:commandButton value="Confirmar" action="#{noticiasBD.inserir}" class="btn btn-primary btn-lg" />
           </h:form>
       
 

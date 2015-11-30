@@ -7,8 +7,13 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets" >
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <f:metadata>
+        <f:viewParam name="id" value="#{noticiasBD.noticiaId}" />
+        <f:event type="preRenderView" listener="#{noticiasBD.buscar}" />
+    </f:metadata>
+    
     <head>
         <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
@@ -108,47 +113,46 @@ and open the template in the editor.
         <div class="container-fluid" id="content">
 
             <fieldset>
-                <legend class="titulo">Notícias</legend>
+                <legend class="titulo">#{noticiasBD.titulo} <span class="subtitle">#{noticiasBD.timestamp}</span></legend>
+                
             </fieldset>
-
-
-
-
-            <ul>
-                <ui:repeat value="#{noticiasBD.noticias}" var="valor">
-                    <li class="noticia">
-                        <div class="titulo_noticia">
-                            <h:link value="#{valor.titulo}" outcome="noticia"> 
-                                <f:param name="id" value="#{valor.id}" />
-                                
-                            </h:link>
-                        </div>
-                        <div class="data_noticia">#{valor.timestamp}</div>
-
-                    </li>
-                </ui:repeat>
-            </ul>
-
-
             
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <p>#{noticiasBD.texto}</p>
 
+
+           
+
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+      
 
 
         </div>

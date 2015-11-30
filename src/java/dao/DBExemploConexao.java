@@ -6,6 +6,12 @@
 package dao;
 
 import apresentacao.Inicio;
+import static java.awt.font.GlyphMetrics.WHITESPACE;
+
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -39,14 +45,30 @@ public class DBExemploConexao {
 		System.out.println("Listando todos os clientes novamente...");
 		for (Inicio temp : cs.buscarTodos())
 			System.out.println(temp.getId() + " - " + temp.getQuemSomos());
+                
+                System.out.println(makeSlug("Minha Primeira Notícia"));
 
 		/*System.out.println("Alterando o cliente 1...");
 		c1.setNome("Fulano de Tal");
 		cs.alterar(c1);
+                
+                
 
 		System.out.println("Listando todos os clientes novamente...");
 		for (Cliente temp : cs.buscarTodos())
 			System.out.println(temp.getCodigo() + " - " + temp.getNome());*/
+                
+ 
 
 	}
+        
+  private static final Pattern NONLATIN = Pattern.compile("[^\\w_-]");  
+  private static final Pattern SEPARATORS = Pattern.compile("[\\s\\p{Punct}&&[^-]]");  
+
+  public static String makeSlug(String input) {  
+    String noseparators = SEPARATORS.matcher(input).replaceAll("-");
+    String normalized = Normalizer.normalize(noseparators, Form.NFD);
+    String slug = NONLATIN.matcher(normalized).replaceAll("");
+    return slug.toLowerCase(Locale.ENGLISH).replaceAll("-{2,}","-").replaceAll("^-|-$","");
+  }
 }

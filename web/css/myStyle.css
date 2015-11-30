@@ -633,3 +633,26 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     width:80%;
     
 }
+
+.noticia{
+    height: 50px;
+    margin: auto;
+    padding: 10px;
+}
+
+
+.titulo_noticia{
+    font-size: 20px;
+    float: left;
+    
+}
+
+.data_noticia{
+    font-size: 10px;
+    float: right;
+  
+    
+    
+}
+
+fieldset legend .subtitle { font-size: 60%; float:right; }
