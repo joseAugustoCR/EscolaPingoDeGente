@@ -5,13 +5,13 @@
  */
 package apresentacao;
 
+
 import dao.InicioDAO;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.logging.Logger;
 
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
