@@ -174,6 +174,15 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 }
 
+.navbar-inverse .navbar-nav > #active > a{
+    //border-bottom: 3px solid black;
+    background-color: #3366FF;
+
+    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+}
+
 .navbar-collapse{
     padding: 0px;
 
@@ -638,21 +647,40 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     height: 50px;
     margin: auto;
     padding: 10px;
+   // padding-bottom: 20px;
+    //margin-bottom: 20px;
 }
 
 
 .titulo_noticia{
     font-size: 20px;
-    float: left;
+    //float: left;
     
 }
 
 .data_noticia{
-    font-size: 10px;
-    float: right;
+    font-size: 13px;
+    //float: right;
   
     
     
 }
 
 fieldset legend .subtitle { font-size: 60%; float:right; }
+
+
+.ui-paginator-page{
+        background-color:gray !important;
+        border:none;
+       
+      }
+      .ui-paginator{ 
+          background-color:white !important;
+          border:none;
+          
+      }
+      
+      .ui-widget-content {
+          border:none;
+      }
+    

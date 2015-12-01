@@ -6,13 +6,20 @@
 package apresentacao;
 
 import dao.NoticiasDAO;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.Map;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
+
 
 /**
  *
@@ -20,11 +27,12 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "noticiasBD")
 @SessionScoped
-public class NoticiasBD {
+public class NoticiasBD implements Serializable{
 
     NoticiasDAO dao;
     Noticia noticia;
     private Integer noticiaId;
+  
 
   
 
@@ -34,6 +42,7 @@ public class NoticiasBD {
     public NoticiasBD() {
         dao = new NoticiasDAO();
         noticia = new Noticia();
+        
     }
 
     public Integer getId() {
@@ -75,14 +84,34 @@ public class NoticiasBD {
     //set imagem
     
     
-    public void inserir() {
+    public String inserir() {
         dao.inserir(noticia);
+        return "noticias.xhtml" + "?faces-redirect=true";
     }
 
     public Collection<Noticia> getNoticias() {
 
         return dao.buscarTodos();
     }
+    
+    public String editar() throws IOException{
+        dao.editar(noticia);
+         return "noticias.xhtml" + "?faces-redirect=true";
+    }
+    
+    public void excluir(){
+        Map<String,String> params = javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	  String id = params.get("noticiaId");
+          setNoticiaId(Integer.valueOf(id));
+            dao.excluir(noticiaId);
+       
+    }
+    
+    public void novaNoticia(){
+        noticia = new Noticia();
+    }
+    
+  
     
     public void buscar(){
         if (noticiaId == null) {
@@ -93,6 +122,7 @@ public class NoticiasBD {
         }
 
         noticia = null;
+        
         noticia = dao.buscar(noticiaId);
         
         if (noticia == null) {

@@ -51,7 +51,7 @@ public class NoticiasDAO {
 		}
 	}
 
-	public void alterar(Noticia c) {
+	public void editar(Noticia c) {
 		Connection conexao = abrir();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
@@ -68,19 +68,19 @@ public class NoticiasDAO {
 		}
 	}
 
-	/*public void excluir(Inicio c) {
+	public void excluir(Integer id) {
 		Connection conexao = abrir();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
-					"DELETE FROM clientes WHERE codigo = ?");
-			ps.setInt(1, c.getCodigo());
+					"DELETE FROM Noticias WHERE id = ?");
+			ps.setInt(1, id);
 			ps.execute();
 			ps.close();
 			conexao.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 
 	public Noticia buscar(Integer id) {
 		Connection conexao = abrir();
@@ -112,7 +112,7 @@ public class NoticiasDAO {
 		Collection<Noticia> noticias = new ArrayList<Noticia>();
 		try {
 			Statement s = conexao.createStatement();
-			ResultSet rs = s.executeQuery("SELECT * FROM Noticias");
+			ResultSet rs = s.executeQuery("SELECT * FROM Noticias ORDER BY timestamp DESC");
 			while (rs.next()) {
 				Noticia temp = new Noticia();
 				temp.setId(rs.getInt("id"));

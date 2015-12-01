@@ -6,6 +6,7 @@
 package dao;
 
 import apresentacao.Inicio;
+import apresentacao.Noticia;
 import static java.awt.font.GlyphMetrics.WHITESPACE;
 
 import java.text.Normalizer;
@@ -19,9 +20,9 @@ import java.util.regex.Pattern;
  */
 public class DBExemploConexao {
     	public static void main(String[] args){
-		InicioDAO cs = new InicioDAO();
+		NoticiasDAO cs = new NoticiasDAO();
 		
-		System.out.println("Listando todos os clientes...");
+		System.out.println("Listando todos as noticias...");
                 
 		/*Inicio temp = cs.buscar(1);
 			System.out.println(temp.getId() + " - " + temp.getQuemSomos()+ " - " + temp.getQualidade()+ " - " + temp.getEstrutura()+ " - " + temp.getMissao());*/
@@ -42,11 +43,19 @@ public class DBExemploConexao {
 		cs.inserir(c2);
 		cs.inserir(c3);*/
 				
-		System.out.println("Listando todos os clientes novamente...");
-		for (Inicio temp : cs.buscarTodos())
-			System.out.println(temp.getId() + " - " + temp.getQuemSomos());
+		
+		for (Noticia temp : cs.buscarTodos())
+			System.out.println(temp.getId() + " - " + temp.getTitulo());
                 
-                System.out.println(makeSlug("Minha Primeira Notícia"));
+                System.out.println("apagando noticia 5");
+                
+                cs.excluir(5);
+                
+                System.out.println("listando de novo");
+                for (Noticia temp : cs.buscarTodos())
+			System.out.println(temp.getId() + " - " + temp.getTitulo());
+                
+                
 
 		/*System.out.println("Alterando o cliente 1...");
 		c1.setNome("Fulano de Tal");
