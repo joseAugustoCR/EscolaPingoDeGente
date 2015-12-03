@@ -7,15 +7,16 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    
-     <f:metadata>
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:metadata>
         <f:event type="preRenderView" listener="#{noticiasBD.novaNoticia}" />
     </f:metadata>
-    
-    <head>
 
-        <meta charset="UTF-8"/>
+    <h:head>
+
+             <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -27,29 +28,20 @@ and open the template in the editor.
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
-     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-
-
-        <link href="../css/animate.min.css" rel="stylesheet"/>
         <link href="../css/myStyle.css" rel="stylesheet"/>
-        <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-        <!-- Important Owl stylesheet -->
-        <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
-
-        <!-- Default Theme -->
-        <link rel="stylesheet" href="owl-carousel/owl.theme.css"/>
-
-        <!--  jQuery 1.7+  -->
-        <script src="jquery-1.9.1.min.js"></script>
-
-        <!-- Include js plugin -->
-        <script src="assets/owl-carousel/owl.carousel.js"></script>
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -59,8 +51,8 @@ and open the template in the editor.
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>Pingo de Gente</title>
-    </head>
-    <h:body>
+    </h:head>
+    <body>
         <header class="tb-header">
             <div class="container-fluid">
                 <div class="col-md-12" id="col_header">
@@ -110,8 +102,20 @@ and open the template in the editor.
                     <ul class="nav navbar-nav">
                         <li><a href="index.xhtml">Início </a></li>
                         <li><a href="sobre.xhtml">A escola</a></li>
-                        <li><a href="galeria.xhtml">Galeria de Fotos</a></li>
-                    
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galeria de Fotos<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="novaImagem.xhtml">Inserir imagens</a>
+                                </li>
+                                <li>
+                                    <a href="galeria.xhtml">Editar imagens</a>
+                                </li>    
+                            </ul>
+
+                        </li>
+
+
                         <li class="dropdown" id="active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notícias<span class="sr-only">(current)</span><strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -123,10 +127,10 @@ and open the template in the editor.
                                 </li>    
                             </ul>
                         </li>
-                       
+
                         <li><a href="calendario.xhtml">Calendário</a></li>
                         <li><a href="contato.xhtml">Contato</a></li>  
-                   
+
 
 
                     </ul>
@@ -153,16 +157,26 @@ and open the template in the editor.
             </fieldset>
 
 
-            <h:form>
-                Título: <h:inputText value="#{noticiasBD.titulo}"  class="input"/><br/><br/>
-                Texto <h:inputTextarea rows="7" value="#{noticiasBD.texto}"  class="input"/><br/><br/>
+            <h:form>    
+                 Título: <h:inputText value="#{noticiasBD.titulo}"  class="input"/><br/><br/>
+                 <p:editor id="editor" widgetVar="editorWidget" value="#{noticiasBD.texto}" />
+                
+                <h:panelGrid columns="2" style="margin-top: 10px">
+                    <p:commandButton value="Salvar" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="#{noticiasBD.inserir}" />
 
-                <!--Imagem: <h:inputFile value="" class="input"/><br/><br/><br/><br/> -->
-                <h:commandButton value="Confirmar" action="#{noticiasBD.inserir}" class="btn btn-primary btn-lg" />
-            </h:form>
+                    <p:commandButton value="Limpar" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+                </h:panelGrid>
+
+                <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+                    <h:outputText id="display" value="#{editorView.text}" escape="false" />
+                </p:dialog>
+            </h:form> 
 
 
 
         </div>
-    </h:body>
+         
+          <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../js/bootstrap.min.js"></script>
+    </body>
 </html>

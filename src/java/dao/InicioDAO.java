@@ -94,6 +94,7 @@ public class InicioDAO {
 					"SELECT * FROM Inicio WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
+                        
                         if(rs != null && rs.next()){  
                             inicio.setId(rs.getInt("id"));
                             inicio.setQuemSomos(rs.getString("quemSomos"));

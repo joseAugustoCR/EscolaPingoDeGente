@@ -129,4 +129,27 @@ public class NoticiasDAO {
 		}
 		return noticias;
 	}
+        
+        public Collection<Noticia> buscarUltimas() {
+		Connection conexao = abrir();
+		Collection<Noticia> noticias = new ArrayList<Noticia>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Noticias ORDER BY timestamp DESC LIMIT 5");
+			while (rs.next()) {
+				Noticia temp = new Noticia();
+				temp.setId(rs.getInt("id"));
+                                temp.setTitulo(rs.getString("titulo"));
+                                temp.setTexto(rs.getString("texto"));
+                               // temp.setImagem(rs.getString("estrutura"));
+                                temp.setTimestamp(rs.getString("timestamp"));
+				noticias.add(temp);
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return noticias;
+	}
 }

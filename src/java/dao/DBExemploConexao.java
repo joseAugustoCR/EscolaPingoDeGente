@@ -20,9 +20,9 @@ import java.util.regex.Pattern;
  */
 public class DBExemploConexao {
     	public static void main(String[] args){
-		NoticiasDAO cs = new NoticiasDAO();
+		GaleriaDAO cs = new GaleriaDAO();
 		
-		System.out.println("Listando todos as noticias...");
+		System.out.println("Listando todos as fotos...");
                 
 		/*Inicio temp = cs.buscar(1);
 			System.out.println(temp.getId() + " - " + temp.getQuemSomos()+ " - " + temp.getQualidade()+ " - " + temp.getEstrutura()+ " - " + temp.getMissao());*/
@@ -44,16 +44,13 @@ public class DBExemploConexao {
 		cs.inserir(c3);*/
 				
 		
-		for (Noticia temp : cs.buscarTodos())
-			System.out.println(temp.getId() + " - " + temp.getTitulo());
+		for (Integer temp : cs.buscarIds())
+			System.out.println(temp);
                 
-                System.out.println("apagando noticia 5");
                 
-                cs.excluir(5);
+            
                 
-                System.out.println("listando de novo");
-                for (Noticia temp : cs.buscarTodos())
-			System.out.println(temp.getId() + " - " + temp.getTitulo());
+              
                 
                 
 

@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
-    <head>
+    <h:head>
         <title>Listar dados do BD</title>
         <link rel="stylesheet" type="text/css" href="repeticao.css"/>
-    </head>
+    </h:head>
     <body>
         
-       
-        <h:outputText value="#{inicioBD.quemSomos}" /><br/>
-        <h:outputText value="#{inicioBD.qualidade}" /><br/>
-        <h:outputText value="#{inicioBD.estrutura}" /><br/>
-        <h:outputText value="#{inicioBD.missao}" /><br/>
+        <h:form prependId="false">
+            <h:inputText id="texto" value="#{teste.texto}">
+                
+            </h:inputText>
+            <h:outputText id="mostraTexto" value="#{teste.texto}" />
+            <h:commandButton value="Confirmar" class="btn btn-primary btn-lg">
+                <f:ajax execute="texto" render="mostraTexto"/>
+            </h:commandButton>
+            
+            
+        </h:form>
      
     </body>
         

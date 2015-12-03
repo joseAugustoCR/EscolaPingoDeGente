@@ -92,6 +92,12 @@ public class NoticiasBD implements Serializable{
         return dao.buscarTodos();
     }
     
+    public Collection<Noticia> getUltimasNoticias() {
+        return dao.buscarUltimas();
+    }
+    
+    
+    
     public String editar() throws IOException{
         dao.editar(noticia);
          return "noticias.xhtml" + "?faces-redirect=true";

@@ -6,8 +6,12 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <head>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
         <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -30,9 +34,9 @@ and open the template in the editor.
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>Galeria de Fotos</title>
-    </head>
+    </h:head>
     <body>
-       
+
         <header class="tb-header">
             <div class="container-fluid">
                 <div class="col-md-12" id="col_header">
@@ -107,8 +111,8 @@ and open the template in the editor.
                 <legend class="titulo">Nossa Galeria de Fotos!</legend>
             </fieldset>
 
-            <ul class="row" id="ul_gallery">
-                <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+            <ul class="row" id="ul_gallery"> <!--
+               <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
                     <img class="img-responsive" src="images/photodune-174908-rocking-the-night-away-xs.jpg"/>
                 </li>
                 <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
@@ -179,8 +183,26 @@ and open the template in the editor.
                 </li>
                 <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
                     <img class="img-responsive" src="images/photodune-682990-online-search-xs.jpg"/>
-                </li>
-            </ul>             
+                </li>-->
+                <ui:repeat value="#{galeriaBD.ids}" var="id">
+                    <li class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
+
+                        <p:graphicImage class="img-responsive" value="#{galeriaBD.imagem}">
+                            <f:param name="imagemId" value="#{id}" />
+                        </p:graphicImage>
+                    </li>
+
+                </ui:repeat>
+
+
+            </ul>       
+
+
+
+
+
+
+
         </div> <!-- /container -->
 
 

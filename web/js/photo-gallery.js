@@ -58,13 +58,13 @@ $(document).on('click', 'a.controls', function(){
 	if(total === newNextIndex){
 		$('a.next').hide();
 	}else{
-		$('a.next').show()
+		$('a.next').show();
 	}            
 	//hide previous button
 	if(newPrevIndex === 0){
 		$('a.previous').hide();
 	}else{
-		$('a.previous').show()
+		$('a.previous').show();
 	}
 	
 	

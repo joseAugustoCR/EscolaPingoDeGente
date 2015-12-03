@@ -28,6 +28,19 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
         <link href="css/myStyle.css" rel="stylesheet"/>
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -133,48 +146,71 @@ and open the template in the editor.
                                 
                             </ui:repeat>
             -->
+           
+            <p:dataTable class="noticia" value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="10" emptyMessage="Não foram encontradas notícias." style="th{background-color: red;}">
 
-            <p:dataList value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="15" >
 
 
-
-                <div class="titulo_noticia">
+                <p:column>
+                    <div class="titulo_noticia">
                     <h:link value="#{valor.titulo}" outcome="noticia"> 
                         <f:param name="id" value="#{valor.id}" />
 
                     </h:link>
-                </div>
-                <div class="data_noticia">#{valor.timestamp}</div>
+                        </div>
+                    <div class="data_noticia">#{valor.timestamp}</div>
+                </p:column>>
+                
 
 
 
 
-            </p:dataList>
+            </p:dataTable>
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-
-
-
-
-
-
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
 
 
 
@@ -191,6 +227,8 @@ and open the template in the editor.
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        
+        
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
     </body>
