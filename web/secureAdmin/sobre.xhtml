@@ -158,15 +158,15 @@ and open the template in the editor.
 
           
           <h:form>
-              Quem somos: <h:inputTextarea rows="5" value="" class="input"/><br/><br/>
-              História: <h:inputTextarea rows="5" value="" class="input"/><br/><br/>
-              Missão <h:inputTextarea rows="2" value="" class="input"/><br/><br/>
-              Visão: <h:inputTextarea rows="2" value="" class="input"/><br/><br/>
-              Valores: <h:inputTextarea rows="2" value="" class="input"/><br/><br/>
-              Estrutura <h:inputTextarea rows="5" value="" class="input"/><br/><br/>
+              Quem somos: <h:inputTextarea rows="5" value="#{sobreBD.quemSomos}" class="input"/><br/><br/>
+              História: <h:inputTextarea rows="5" value="#{sobreBD.historia}" class="input"/><br/><br/>
+              Missão <h:inputTextarea rows="2" value="#{sobreBD.missao}" class="input"/><br/><br/>
+              Visão: <h:inputTextarea rows="2" value="#{sobreBD.visao}" class="input"/><br/><br/>
+              Valores: <h:inputTextarea rows="2" value="#{sobreBD.valores}" class="input"/><br/><br/>
+              Estrutura <h:inputTextarea rows="5" value="#{sobreBD.estrutura}" class="input"/><br/><br/>
               
               <br/><br/>
-              <h:commandButton value="Confirmar" action="#" class="btn btn-primary btn-lg" />
+              <h:commandButton value="Confirmar" action="#{sobreBD.atualizar}" class="btn btn-primary btn-lg" />
           </h:form>
       
 
