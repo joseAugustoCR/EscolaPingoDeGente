@@ -152,14 +152,14 @@ and open the template in the editor.
 
 
                 <p:column>
-                    <div class="titulo_noticia">
+                    <div class="titulo_noticia" style="width: 80%">
                     <h:link value="#{valor.titulo}" outcome="noticia"> 
                         <f:param name="id" value="#{valor.id}" />
 
                     </h:link>
                         </div>
-                    <div class="data_noticia">#{valor.timestamp}</div>
-                </p:column>>
+                    <div class="data_noticia" style="width: 20%">#{valor.timestamp}</div><br/><br/>
+                </p:column>
                 
 
 
@@ -167,9 +167,6 @@ and open the template in the editor.
 
             </p:dataTable>
 
-<br/>
-<br/>
-<br/>
 <br/>
 <br/>
 <br/>

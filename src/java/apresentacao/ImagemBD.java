@@ -6,22 +6,27 @@
 package apresentacao;
 
 import dao.GaleriaDAO;
+import dao.ImagemDAO;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Map;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import org.primefaces.model.UploadedFile;
 
 /**
  *
  * @author guto
  */
-@Named(value = "imagemBD")
-@RequestScoped
+@ManagedBean(name = "imagemBD")
+@SessionScoped
 public class ImagemBD implements Serializable{
-GaleriaDAO dao; 
+    ImagemDAO dao; 
 
     public ImagemBD() {
-        dao = new GaleriaDAO();
+        dao = new ImagemDAO();
     }
     
     
@@ -36,4 +41,12 @@ GaleriaDAO dao;
     public void setFile(UploadedFile file){
         dao.setFile(file);
     }
+    
+    public void excluir(){
+        Map<String,String> params = javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	  Integer id = Integer.valueOf(params.get("imagemId"));
+          dao.excluirFoto(id);
+    }
+    
+   
 }

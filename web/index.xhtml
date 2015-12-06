@@ -59,13 +59,16 @@
                 <div class="col-md-12" id="col_header">
 
                     <div class="col-md-2">
+                        <div class="hidden-md">
                         <div class="tb-img"></div>
+                    </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tb-titulo"><a href="index.xhtml" >Escola de Educação Infantil Pingo de Gente</a>
                             <div>Aqui sua criança aprende brincando!</div></div>
                     </div>
                     <div class="col-md-2">
+                        <div class="hidden-md">
                         <div class="tb-social">
                             <div style="margin-top: 20px" class="wow bounceInRight" >
                                 <a href="https://www.facebook.com/educacaoinfantil.pingodegente?fref=ts"> <i class="fa fa-facebook-official fa-3x"  ></i> </a>
@@ -76,6 +79,7 @@
                                 <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
                             </address>
 
+                        </div>
                         </div>
                     </div>
 
@@ -296,22 +300,28 @@
                                 <legend class="text-center header" style="color:black;" >Últimas notícias</legend>
                             </fieldset>
                             <div class="Flexible-container-video">
-                                <p:dataList value="#{noticiasBD.ultimasNoticias}" var="valor" >
+                                <p:dataTable class="noticia" value="#{noticiasBD.ultimasNoticias}" var="valor" emptyMessage="Não foram encontradas notícias.">
 
 
 
-                                    <div class="titulo_noticia">
-                                        <h:link value="#{valor.titulo}" outcome="noticia"> 
-                                            <f:param name="id" value="#{valor.id}" />
+                                    <p:column>
+                                        <div class="titulo_noticia" style="width: 75%;">
+                                            <h:link value="#{valor.titulo}" outcome="noticia"> 
+                                                <f:param name="id" value="#{valor.id}" />
 
-                                        </h:link>
-                                    </div>
-                                    <div class="data_noticia">#{valor.timestamp}</div>
+                                            </h:link>
+                                        </div>
+                                        <div class="data_noticia" style="width: 20%">#{valor.timestamp}</div>                   
+                                        <br/>
+                                        <br/>
+
+                                    </p:column>>
 
 
 
 
-                                </p:dataList>
+
+                                </p:dataTable>
 
                             </div>
                         </div>

@@ -44,7 +44,7 @@ private GaleriaDAO dao = new GaleriaDAO();
         }
     }
     
-    public Collection<Integer> getIds(){
+     public Collection<Integer> getIds(){
         return dao.buscarIds();
     }
     

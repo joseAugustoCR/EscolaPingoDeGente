@@ -5,6 +5,9 @@
  */
 package apresentacao;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author guto
@@ -58,8 +61,16 @@ public class Noticia {
     }
 
     public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+        String ano = timestamp.substring(0, 4);
+        String mes = timestamp.substring(5, 7);
+        String dia = timestamp.substring(8, 10);
+        
+        this.timestamp = dia+"/"+mes+"/"+ano;
     }
 
+    private String toDate(long timestamp) {
+    Date date = new Date (timestamp * 1000);
+    return new SimpleDateFormat("yyyy-MM-dd").format(date);
+}
 
 }

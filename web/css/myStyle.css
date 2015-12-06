@@ -15,11 +15,11 @@ h1 {
 
 body {
     font-family:Arial, Sans-Serif; background: url(../img/gplaypattern.png);
-    
-   
+
+
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a1dbff+0,cbebff+29,f0f9ff+68 */
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eab16b+0,f6e6b4+48 */
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bddd49+0,e3f5ab+30,f8ffe8+100 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eab16b+0,f6e6b4+48 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bddd49+0,e3f5ab+30,f8ffe8+100 */
 
 }
 
@@ -42,8 +42,8 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
 }
 
 .tb-header .container-fluid{
-        padding:0px 0px 0px 0px;
-      
+    padding:0px 0px 0px 0px;
+
 }
 
 #col_header{
@@ -54,13 +54,13 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
 
 .tb-img {
     background: url('../img/logo.png') no-repeat scroll 40% 0% transparent;
-      
-        
+
+
     min-height: 120px;
-   
+
     margin-top: 0px;
     margin-left: 0px;
-    
+
     margin-top: 10px;
 }
 
@@ -94,7 +94,7 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
     /*font-family: 'Indie Flower', cursive;*/
     font-family: 'Great Vibes', cursive;
     font-size: 35px;
-   // padding-top: 5px;
+    // padding-top: 5px;
     //font-weight: bold;
 }
 
@@ -113,12 +113,16 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
 
 .tb-titulo a, .tb-social a, tb-titulo div {
     display: inline-block;
-    //text-indent: -9999px;
+    
     overflow: hidden;
 }
 
 
+
+
 .container-fluid{padding-bottom: 0; margin-bottom: 0;width: 100%; max-width: 1000px; padding-left: 0px; padding-right:0px;  }
+
+
 
 .navbar {
     margin-bottom: 0;
@@ -129,12 +133,13 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
     color: white;
     border-radius: 0px;
     background-color: #003399;
-    
-     box-shadow: 0px -5px 25px #888888;
+    position: relative;
+
+    box-shadow: 0px -5px 25px #888888;
     -moz-box-shadow: 0px -5px 25px #888888;
-        -webkit-box-shadow: 0px -5px 25px #888888;
- 
-   
+    -webkit-box-shadow: 0px -5px 25px #888888;
+
+
     background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
@@ -230,7 +235,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 #row_carousel{
     margin: 0 auto;
-    
+
 }
 
 #col_carousel{
@@ -241,10 +246,10 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 #carousel{
     background-color: #3366FF;
     background-image: url(../img/food.png);
-  
+
     box-shadow: 0px 5px 15px #888888;
     -moz-box-shadow: 0px 5px 15px #888888;
-        -webkit-box-shadow: 0px 5px 15px #888888;
+    -webkit-box-shadow: 0px 5px 15px #888888;
 }
 
 
@@ -339,7 +344,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 
 #content{
-    
+
 
 
     /*background-attachment: fixed;
@@ -347,7 +352,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;*/
-    
+
     background-color: white;
 
 
@@ -357,15 +362,15 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
-    
+
     box-shadow: 5px 5px 15px #888888;
     -moz-box-shadow: 5px 5px 15px #888888;
-        -webkit-box-shadow: 5px 5px 15px #888888;
-        max-width: 1000px;
-        margin-top:50px;
-        margin-bottom:50px;
-    
- 
+    -webkit-box-shadow: 5px 5px 15px #888888;
+    max-width: 1000px;
+    margin-top:50px;
+    margin-bottom:50px;
+
+
 }
 
 /*
@@ -399,7 +404,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     max-height: 350px;
     margin-top:0px;
     padding-top:20px;
-    
+
 }
 
 .row .thumbnail {
@@ -411,7 +416,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 
 .quemSomos{
-   width: 500px;
+    width: 500px;
 }
 
 
@@ -423,7 +428,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     bottom: 0px;
     left: 0px;
     //background-color: #B5CB61;
-   // background-color: #85C032;
+    // background-color: #85C032;
     background-color: #FF751A;
     border-bottom: 5px white solid;
     color: white;
@@ -434,7 +439,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     padding-bottom: 30px;
     box-shadow: 0px -5px 10px #888888;
     -moz-box-shadow: 0px -5px 10px #888888;
-        -webkit-box-shadow: 0px -5px 10px #888888;
+    -webkit-box-shadow: 0px -5px 10px #888888;
 }
 
 #bottom>fieldset>*{
@@ -466,7 +471,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .footer{
     background-color: #003399;
-    
+
     height: 80px;
 
 
@@ -520,7 +525,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .sobre{
     padding-right: 40px;
-    
+
 }
 
 .sobre>p{
@@ -603,15 +608,15 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     margin:0 auto;
 }
 .controls{          
-  width:50px;
-  display:block;
-  font-size:11px;
-  padding-top:8px;
-  font-weight:bold;          
+    width:50px;
+    display:block;
+    font-size:11px;
+    padding-top:8px;
+    font-weight:bold;          
 }
 .next {
-  float:right;
-  text-align:right;
+    float:right;
+    text-align:right;
 }
 /*override modal for demo only*/
 .modal-dialog {
@@ -640,7 +645,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .input{
     width:80%;
-    
+
 }
 
 .noticia{
@@ -648,27 +653,38 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     margin: auto;
     padding: 10px;
     list-style-type: none;
-    
+
 }
 
 
 .titulo_noticia{
     font-size: 20px;
     float: left;
-    width:70%;
+    width:75%;
     list-style-type: none;
-    
+    overflow: hidden;
+    white-space: nowrap;
+
 }
 
 .data_noticia{
     font-size: 14px;
-    float: right;
-    width:20%;
+    float: left;
+    width:15%;
     list-style-type: none;
-  
-    
-    
+    padding-left: 10px;
+
+
+
 }
+
+.botao_apagaNoticia{
+    float: left;
+    width:5%;
+    list-style-type: none;
+
+}
+
 
 .tabela_noticias{
     color:red;
@@ -677,8 +693,8 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 }
 
 .ui-datatable thead th{
- 
-  display: none;
+
+    display: none;
 }
 
 .ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th{
@@ -693,17 +709,49 @@ fieldset legend .subtitle { font-size: 60%; float:right; }
 
 
 .ui-paginator-page{
-        background-color:gray !important;
-        border:none;
-       
-      }
-      .ui-paginator{ 
-          background-color:white !important;
-          border:none;
-          
-      }
-      
-      .ui-widget-content {
-          border:none;
-      }
+    background-color:gray !important;
+    border:none;
+
+}
+.ui-paginator{ 
+    background-color:white !important;
+    border:none;
+
+}
+
+.ui-widget-content {
+    border:none;
+}
+
+.edita_galeria{
+   
+    width: 100%;
+    margin: auto;
     
+}
+
+#imagem_editaGaleria{
+    max-height: 200px;
+    max-width: 200px;
+    float:left;
+}
+
+.botao_apagaImagem{
+    width: 10%;
+    float:left;
+  
+    
+    
+}
+
+#imagem_galeria{
+    list-style-type: none;
+   
+}
+
+#next, #prev{
+    color:white;
+    background-color: white;
+}
+
+

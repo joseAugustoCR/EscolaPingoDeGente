@@ -113,7 +113,7 @@ and open the template in the editor.
                     <ul class="nav navbar-nav">
                         <li><a href="index.xhtml">Início </a></li>
                         <li><a href="sobre.xhtml">A escola</a></li>
-                           <li class="dropdown">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galeria de Fotos<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -123,9 +123,9 @@ and open the template in the editor.
                                     <a href="galeria.xhtml">Editar imagens</a>
                                 </li>    
                             </ul>
-                        
+
                         </li>
-                  
+
 
                         <li class="dropdown" id="active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notícias<span class="sr-only">(current)</span><strong class="caret"></strong></a>
@@ -164,53 +164,58 @@ and open the template in the editor.
                 <legend class="titulo">Notícias</legend>
             </fieldset>
 
+            <p:dataTable class="noticia" value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="10" emptyMessage="Não foram encontradas notícias.">
+
+                <p:column>
+                    <div class="titulo_noticia">
+                        <h:link value="#{valor.titulo}" outcome="editaNoticia"> 
+                            <f:param name="id" value="#{valor.id}" />
+
+                        </h:link>
+                    </div>
+                    <div class="data_noticia">#{valor.timestamp}</div>
+                    <div class="botao_apagaNoticia">
+                        <h:form>
+                            <h:commandButton value="x" action="#{noticiasBD.excluir()}" class="btn btn-danger btn-sm">
+                                <f:param name="noticiaId" value="#{valor.id}" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                    <br/>
+                    <br/>
+                    
+                </p:column>>
+
+            </p:dataTable>
 
 
-            <!--
-                        
-                            <ui:repeat class="noticia" value="#{noticiasBD.noticias}" var="valor">
-                                
-                                    <li class="titulo_noticia">
-                                        <h:link value="#{valor.titulo}" outcome="noticia"> 
-                                            <f:param name="id" value="#{valor.id}" />
-            
-                                        </h:link>
-                                    </li>
-                                    <div class="data_noticia">#{valor.timestamp}</div>
-            
-                                
-                            </ui:repeat>
-            -->
-
-            <p:dataList class="noticia" value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="15" style="repeatLayout:flow" >
-
-
-
-                <div class="titulo_noticia">
-                    <h:link value="#{valor.titulo}" outcome="editaNoticia"> 
-                        <f:param name="id" value="#{valor.id}" />
-
-                    </h:link>
-                   
-                </div>
-                <div class="data_noticia">#{valor.timestamp}</div>
-                 <h:form>
-                    <h:commandButton value="x" action="#{noticiasBD.excluir()}" class="btn-danger">
-                        <f:param name="noticiaId" value="#{valor.id}" />
-                    </h:commandButton>
-                </h:form><br/>
-
-
-
-            </p:dataList>
-
-
-
-
-
-
-
-
+           
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <br/>
             <br/>
             <br/>

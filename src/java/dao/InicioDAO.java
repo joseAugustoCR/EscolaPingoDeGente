@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -133,4 +135,7 @@ public class InicioDAO {
 		}
 		return inicio;
 	}
+        
+       
+    
 }

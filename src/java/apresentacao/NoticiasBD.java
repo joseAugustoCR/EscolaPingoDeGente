@@ -135,5 +135,7 @@ public class NoticiasBD implements Serializable{
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
         }
     }
+    
+    
 
 }

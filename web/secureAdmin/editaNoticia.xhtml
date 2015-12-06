@@ -161,7 +161,7 @@ and open the template in the editor.
                  <p:editor id="editor" widgetVar="editorWidget" value="#{noticiasBD.texto}" />
                 
                 <h:panelGrid columns="2" style="margin-top: 10px">
-                    <p:commandButton value="Salvar" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="#{noticiasBD.inserir}" />
+                    <p:commandButton value="Salvar" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="#{noticiasBD.editar}" />
 
                     <p:commandButton value="Limpar" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
                 </h:panelGrid>

@@ -49,7 +49,13 @@ public class DBExemploConexao {
                 
                 
             
+                System.out.println("apaga 8");
+               ImagemDAO im = new ImagemDAO();
+                im.excluirFoto(8);
+                System.out.println("Listando todos as fotos...");
                 
+                for (Integer temp : cs.buscarIds())
+			System.out.println(temp);
               
                 
                 
