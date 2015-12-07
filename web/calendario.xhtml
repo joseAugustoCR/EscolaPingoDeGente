@@ -6,8 +6,9 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <head>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
         <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,7 +22,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
         <link href="css/myStyle.css" rel="stylesheet"/>
-
+        
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,8 +30,10 @@ and open the template in the editor.
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <title>Calendário</title>
-    </head>
+        <title>Calendário!</title>
+
+
+    </h:head>
     <body>
         
         <div class="visible-lg visible-md">
@@ -119,7 +122,19 @@ and open the template in the editor.
                             </div>
                             <div id="janeiro" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosJaneiro}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +144,19 @@ and open the template in the editor.
                             </div>
                             <div id="fevereiro" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosFevereiro}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +166,19 @@ and open the template in the editor.
                             </div>
                             <div id="marco" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosMarco}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +188,19 @@ and open the template in the editor.
                             </div>
                             <div id="abril" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosAbril}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +210,19 @@ and open the template in the editor.
                             </div>
                             <div id="maio" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosMaio}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +232,19 @@ and open the template in the editor.
                             </div>
                             <div id="junho" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosJunho}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +254,19 @@ and open the template in the editor.
                             </div>
                             <div id="julho" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosJulho}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +276,19 @@ and open the template in the editor.
                             </div>
                             <div id="agosto" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosAgosto}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -199,7 +298,19 @@ and open the template in the editor.
                             </div>
                             <div id="setembro" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosSetembro}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +320,19 @@ and open the template in the editor.
                             </div>
                             <div id="outubro" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosOutubro}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -219,7 +342,19 @@ and open the template in the editor.
                             </div>
                             <div id="novembro" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche...
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosNovembro}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
@@ -228,8 +363,20 @@ and open the template in the editor.
                                 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-363272" href="#dezembro">Dezembro</a>
                             </div>
                             <div id="dezembro" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche...
+                                <div class="panel-body"> 
+                                    <p:dataTable class="evento" value="#{calendarioDB.eventosDezembro}" var="valor" rows="3" emptyMessage="Não foram encontrados eventos nesse mês.">
+
+                                        <p:column>
+                                            <h:outputText value="#{valor.evento}" />
+                                        </p:column>
+                                        <p:column>
+                                            <h:outputText value="#{valor.descricao}" />
+                                        </p:column>    
+                                        <p:column>    
+                                            <h:outputText value="#{valor.date1}" />
+                                        </p:column>
+
+                                    </p:dataTable>
                                 </div>
                             </div>
                         </div>
