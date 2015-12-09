@@ -23,6 +23,7 @@ and open the template in the editor.
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
         <link href="css/myStyle.css" rel="stylesheet"/>
 
@@ -37,7 +38,7 @@ and open the template in the editor.
     </h:head>
     <body>
 
-       <div class="visible-lg visible-md">
+        <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
@@ -115,44 +116,131 @@ and open the template in the editor.
 
 
 
+            <h:form prependId="false">
+                <p:outputLabel for="selecionaAlbum" value="Selecione um álbum:  " />
+                <p:selectOneMenu id="selecionaAlbum" value="#{galeriaBD.albumId}" style="width: 200px; padding:0; margin-left: 10px;margin-right: 0px;">
+                    <p:ajax update="manuelSwitcher" listener="#{galeriaBD.stateChangeListener}"/>
+                    <f:selectItem itemLabel="--- Todas as fotos ---" itemValue="0" />
+                    <f:selectItems value="#{albumBD.albuns}" var="album"
+                                   itemValue="#{album.id}" itemLabel="#{album.titulo}" />
 
-            <div class="row">
-                <div class="col-md-12">
+                </p:selectOneMenu>
+                <br/>
 
-                    <p:imageSwitch effect="shuffle" widgetVar="switcher" id="manuelSwitcher"  speed="500" 
-                                   slideshowAuto="false" class="img-responsive">
-                        <ui:repeat value="#{galeriaBD.ids}" var="id" id="manuelSwitcherImages">
-                            <p:graphicImage class="img-responsive" value="#{galeriaBD.imagem}" id="imagem">
-                                <f:param name="imagemId" value="#{id}" />
-                            </p:graphicImage>
-                        </ui:repeat>
-                    </p:imageSwitch>
+
+                <p:imageSwitch effect="shuffle" widgetVar="switcher" id="manuelSwitcher"  speed="400" 
+                               slideshowAuto="false" class="img-responsive">
+
+                    <ui:repeat value="#{galeriaBD.imagens}" var="imagem" id="manuelSwitcherImages">
+                        <p:graphicImage class="img-responsive" value="#{galeriaBD.imagem}" id="imagem" cache="false">
+                            <f:param name="imagemId" value="#{imagem.id}" />
+                        </p:graphicImage>
+                    </ui:repeat>
+
+                </p:imageSwitch>
+
+                <div style="width:80px;margin: 0 auto;">
+                    <p:commandButton type="button" onclick="PF('switcher').previous();PF('switcherLegenda').previous();"  
+                                     icon="ui-icon-circle-triangle-w" id="prev"/>
+                    <p:commandButton type="button" onclick="PF('switcher').next();PF('switcherLegenda').next();"
+                                     icon="ui-icon-circle-triangle-e" id="next"/>
                 </div>
-            </div>
 
+            </h:form>
 
-
-
-            <div class="row">
-                <div style="width:80px;; margin: 0 auto;">
-                
-                    <h:form>
-                        <p:commandButton type="button" onclick="PF('switcher').previous();"
-                                         icon="ui-icon-circle-triangle-w" id="prev"/>
-                        <p:commandButton type="button" onclick="PF('switcher').next();"
-                                         icon="ui-icon-circle-triangle-e" id="next"/>
-                    </h:form>
-                </div>
-                </div>
-           
+            <!--
             
-
-
-
-
-
-
-
+                        <h:form prependId="false">
+            
+                            <p:imageSwitch effect="shuffle" widgetVar="switcher" id="manuelSwitcher"  speed="500" 
+                                           slideshowAuto="false" class="img-responsive">
+                                <ui:repeat value="#{galeriaBD.imagens}" var="imagem" id="manuelSwitcherImages">
+                                    <p:graphicImage class="img-responsive" value="#{galeriaBD.imagem}" id="imagem" cache="false">
+                                        <f:param name="imagemId" value="#{imagem.id}" />
+                                    </p:graphicImage>
+                                </ui:repeat>
+                            </p:imageSwitch>
+            
+                            <div class="row">
+                                <div style="width:80px;margin: 0 auto;">
+            
+                                    <h:form>
+                                        <p:commandButton type="button" onclick="PF('switcher').previous();PF('switcherLegenda').previous();"  
+                                                         icon="ui-icon-circle-triangle-w" id="prev"/>
+                                        <p:commandButton type="button" onclick="PF('switcher').next();PF('switcherLegenda').next();"
+                                                         icon="ui-icon-circle-triangle-e" id="next"/>
+                                    </h:form>
+                                </div>
+                            </div>
+            
+                        </h:form>
+            
+            
+            
+                        <br/>
+                        <br/>
+            
+            
+            
+            
+                        <div class="row">
+                            <div class="col-md-12">
+            
+                                <p:imageSwitch effect="shuffle" widgetVar="switcher" id="manuelSwitcher"  speed="500" 
+                                               slideshowAuto="false" class="img-responsive">
+                                    <ui:repeat value="#{galeriaBD.imagens}" var="imagem" id="manuelSwitcherImages">
+                                        <p:graphicImage class="img-responsive" value="#{galeriaBD.imagem}" id="imagem" cache="false">
+                                            <f:param name="imagemId" value="#{imagem.id}" />
+                                        </p:graphicImage>
+            
+            
+                                    </ui:repeat>
+            
+                                </p:imageSwitch>
+            
+                                <p:imageSwitch effect="none" widgetVar="switcherLegenda" id="manuelSwitcher2"  speed="500" 
+                                               slideshowAuto="false" class="img-responsive">
+                                    <ui:repeat value="#{galeriaBD.imagens}" var="imagem" id="manuelSwitcherImages">
+                                        <h:outputText id="display" value="#{imagem.legenda} - #{imagem.data}" escape="false"/>
+                                    </ui:repeat>
+                                </p:imageSwitch>
+            
+            
+            
+            
+            
+            
+            
+                            </div>
+                        </div>
+            
+            
+            
+            
+            
+                        <br/>
+            
+                        <div class="row">
+                            <div style="width:80px;margin: 0 auto;">
+            
+                                <h:form>
+                                    <p:commandButton type="button" onclick="PF('switcher').previous();PF('switcherLegenda').previous();"  
+                                                     icon="ui-icon-circle-triangle-w" id="prev"/>
+                                    <p:commandButton type="button" onclick="PF('switcher').next();PF('switcherLegenda').next();"
+                                                     icon="ui-icon-circle-triangle-e" id="next"/>
+                                </h:form>
+                            </div>
+                        </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            -->
 
 
 

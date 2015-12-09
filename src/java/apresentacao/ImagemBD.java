@@ -23,15 +23,19 @@ import org.primefaces.model.UploadedFile;
 @ManagedBean(name = "imagemBD")
 @SessionScoped
 public class ImagemBD implements Serializable{
-    ImagemDAO dao; 
+    private ImagemDAO dao; 
+    
 
     public ImagemBD() {
         dao = new ImagemDAO();
     }
     
+
+
     
-    public void inserir(){
-        dao.inserir();
+    /*
+    public void inserir(Integer albumId){
+        dao.inserir(albumId);
     }
     
     public UploadedFile getFile(){
@@ -40,13 +44,16 @@ public class ImagemBD implements Serializable{
     
     public void setFile(UploadedFile file){
         dao.setFile(file);
-    }
+    }*/
     
     public void excluir(){
         Map<String,String> params = javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	  Integer id = Integer.valueOf(params.get("imagemId"));
           dao.excluirFoto(id);
     }
+    
+    
+        
     
    
 }

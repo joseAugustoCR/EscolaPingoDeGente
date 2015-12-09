@@ -5,12 +5,15 @@
  */
 package apresentacao;
 
+import dao.ImagemDAO;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import org.primefaces.event.FileUploadEvent;
 
 /**
@@ -19,22 +22,43 @@ import org.primefaces.event.FileUploadEvent;
  */
 @ManagedBean
 @SessionScoped
-public class FileUpload implements Serializable{
+public class FileUpload implements Serializable {
 
     private List<String> nomes; //to remember which files have been uploaded
     private List<FileUpload> arquivos;
-    ImagemBD dao = new ImagemBD();
+    private ImagemDAO dao = new ImagemDAO();
+    private Integer albumId = 0;
+    private String legenda;
 
+    public String getLegenda() {
+        return legenda;
+    }
 
-    public void handleFileUpload(FileUploadEvent event) { 
-       // String filename = event.getFile().getFileName();
-       // System.out.println("INCOMING FILE: " + filename);
+    public void setLegenda(String legenda) {
+        this.legenda = legenda;
+    }
+
+    public Integer getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(Integer albumId) {
+        this.albumId = albumId;
+    }
+
+    public void handleFileUpload(FileUploadEvent event) {
+        // String filename = event.getFile().getFileName();
+        // System.out.println("INCOMING FILE: " + filename);
         //names.add(filename);
-        dao.setFile(event.getFile());
-        dao.inserir();
-     
-   }  
 
+        if (albumId == 0) {
+            FacesMessage errorMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Selecione um álbum para inserir fotos", "");
+            FacesContext.getCurrentInstance().addMessage(null, errorMsg);
+        } else {
+            //dao.setFile(event.getFile());
+            dao.inserir(albumId,event.getFile());
+        }
 
+    }
 
 }

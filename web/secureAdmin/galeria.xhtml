@@ -23,30 +23,9 @@ and open the template in the editor.
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>  
-
-
-        <link href="../css/animate.min.css" rel="stylesheet"/>
         <link href="../css/myStyle.css" rel="stylesheet"/>
-        <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-        <!-- Important Owl stylesheet -->
-        <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
-
-        <!-- Default Theme -->
-        <link rel="stylesheet" href="owl-carousel/owl.theme.css"/>
-
-        <!--  jQuery 1.7+  -->
-        <script src="jquery-1.9.1.min.js"></script>
-
-        <!-- Include js plugin -->
-        <script src="assets/owl-carousel/owl.carousel.js"></script>
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -58,7 +37,7 @@ and open the template in the editor.
         <title>Pingo de Gente</title>
     </h:head>
     <h:body>
-       <div class="visible-lg visible-md">
+        <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
@@ -163,30 +142,59 @@ and open the template in the editor.
                 <legend class="titulo">Exclua imagens da galeria</legend>
             </fieldset>
             <br/>
+            <h:form prependId="false">
+                <div class="select_album">
+                    <p:outputLabel for="selecionaAlbum" value="Selecione um álbum:  " />
+                    <p:selectOneMenu id="selecionaAlbum"  value="#{galeriaBD.albumId_excluirFotos}" style="width: 200px; padding:0; margin-left: 10px;margin-right: 0px;">
+                        <p:ajax update="imagensExcluir" listener="#{galeriaBD.stateChangeListenerExcluir}" />
+                        <f:selectItem itemLabel="--- Ver todas as fotos ---" itemValue="0" />
 
-            <p:dataTable value="#{galeriaBD.ids}" var="id" paginator="true" rows="8" emptyMessage="Não foram encontradas imagens." style="margin: 0 auto;width:50%;">
+                        <f:selectItems value="#{albumBD.albuns}" var="album"
+                                       itemValue="#{album.id}" itemLabel="#{album.titulo}" />
 
-                <p:column colspan="2">
+                    </p:selectOneMenu>
+       
 
-                    <p:graphicImage class="img-responsive" value="#{galeriaBD.imagem}" id="imagem_editaGaleria" style="max-height: 300px;max-width: 300px;">
-                        <f:param name="imagemId" value="#{id}" />
-                    </p:graphicImage>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
 
-                </p:column >
-                <p:column>
-                    <div class="botao_apagaImagem">
-                        <h:form>
-                            <h:commandButton value="x" action="#{imagemBD.excluir()}" class="btn btn-danger btn-sm">
+                <p:dataTable  id="imagensExcluir" value="#{galeriaBD.idsParaExcluir}" var="id" paginator="true" rows="8" emptyMessage="Não foram encontradas imagens." style="margin: 0 auto;width:50%;">
+
+                    <p:column colspan="2">
+
+                        <p:graphicImage class="img-responsive" value="#{galeriaBD.imagem}" id="imagem_editaGaleria" style="max-height: 300px;max-width: 300px;">
+                            <f:param name="imagemId" value="#{id}" />
+                        </p:graphicImage>
+
+                    </p:column >
+                    <p:column>
+                        <div class="botao_apagaImagem">
+
+                            <p:commandButton value="x" action="#{galeriaBD.excluir}" class="btn-danger btn-sm" update="imagensExcluir">
                                 <f:param name="imagemId" value="#{id}" />
-                            </h:commandButton>
-                        </h:form>
-                    </div>
-                </p:column>
+                               
+                            </p:commandButton>
 
-            </p:dataTable>
+                        </div>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+
+
+
+
 
         </div>
-        
-        
+
+
     </h:body>
 </html>

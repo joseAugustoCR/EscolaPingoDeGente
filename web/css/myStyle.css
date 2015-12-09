@@ -754,4 +754,18 @@ fieldset legend .subtitle { font-size: 60%; float:right; }
     background-color: white;
 }
 
+.semBorda tr, .semBorda td {
+	border: none !important;
+}
+
+.select_album{
+    float:left;
+    padding-right: 15px;
+}
+
+.botao_Album{
+    float:left;
+    
+}
+
 

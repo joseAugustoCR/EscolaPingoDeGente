@@ -12,7 +12,7 @@ and open the template in the editor.
 
     <h:head>
 
-             <meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -26,19 +26,19 @@ and open the template in the editor.
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
 
         <link href="../css/myStyle.css" rel="stylesheet"/>
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -50,7 +50,7 @@ and open the template in the editor.
         <title>Pingo de Gente</title>
     </h:head>
     <h:body>
-       <div class="visible-lg visible-md">
+        <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
@@ -153,27 +153,77 @@ and open the template in the editor.
                 <legend class="titulo">Adicione imagens à galeria!</legend>
             </fieldset>
 
-            <!--
-            <h:form>
-           
-         
-          
-   
-          <p:fileUpload value="" mode="advanced" dragDropSupport="true"
-                    multiple="true" update="messages" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/><br/><br/>
-   
-          <p:commandButton value="Submit" ajax="false" actionListener="" class="btn btn-primary btn-default" /><br/><br/><br/>
-   </h:form>
-            -->
 
+
+
+
+
+
+            <h:form prependId="false">
+                <div class="select_album">
+                    <p:outputLabel for="selecionaAlbum" value="Selecione um álbum:  " />
+                    <p:selectOneMenu id="selecionaAlbum" value="#{fileUpload.albumId}" style="width: 200px; padding:0; margin-left: 10px;margin-right: 0px;">
+                        <p:ajax listener="#{albumBD.setIdExcluir(fileUpload.albumId)}" />
+                        <f:selectItem itemLabel="--- Selecione um álbum para inserir fotos ---" itemValue="0" />
+                        <f:selectItems value="#{albumBD.albuns}" var="album"
+                                       itemValue="#{album.id}" itemLabel="#{album.titulo}" />
+
+                    </p:selectOneMenu>
+                </div>
             
+                <h:commandButton styleClass="botao_Album" value="Excluir Álbum" action="#" class="btn btn-primary btn-sm" style="background-color: #d43f3a; border-color:#d43f3a;margin-right: 7px;">
+                    <p:ajax  listener="#{albumBD.excluir}" update="selecionaAlbum"/>
+                </h:commandButton>
 
-            <h:form>
+                <h:commandButton styleClass="botao_Album" value="Novo Álbum" action="#{albumBD.mostraNovoAlbum}" class="btn btn-primary btn-sm">
+                    <p:ajax update="novoAlbum"/>
+                </h:commandButton>
+                
+                <br/>
+                <br/>
+
+                <p:panel id="novoAlbum" styleClass="semBorda">
+                    <p:panel header="Informações do novo álbum" styleClass="semBorda" rendered="#{albumBD.novoAlbum}">
+                        <p:panelGrid style="margin-bottom:20px;" styleClass="semBorda" rendered="#{albumBD.novoAlbum}" columns="2">
+
+
+                            <h:outputLabel for="tituloAlbum" value="Título:" rendered="#{albumBD.novoAlbum}"/>
+                            <h:inputText id="tituloAlbum" value="#{albumBD.titulo}" class="input" rendered="#{albumBD.novoAlbum}" style="width:260px;"/>
+
+
+                            <h:outputLabel for="descricaoAlbum" value="Descrição" rendered="#{albumBD.novoAlbum}"/>
+                            <h:inputTextarea id="descricaoAlbum" value="#{albumBD.descricao}" class="input" rendered="#{albumBD.novoAlbum}" rows="3" style="width:260px;"/>
+
+
+                        </p:panelGrid>
+                        <h:commandButton value="Salvar" class="btn btn-primary btn-sm" style="margin-right: 10px;">
+                            <f:ajax execute="tituloAlbum descricaoAlbum" listener="#{albumBD.insere}" render="selecionaAlbum novoAlbum"/>
+                        </h:commandButton>
+                       
+                        <h:commandButton value="Cancelar" class="btn btn-danger btn-sm" style="background-color: #d43f3a; border-color:#d43f3a" action="#{albumBD.escondeNovoAlbum}">
+                            
+                        </h:commandButton>
+
+                        <p:separator rendered="#{albumBD.novoAlbum}"/>
+                    </p:panel>
+                </p:panel>
+                
+                 
+
+
+
+
+                
+            </h:form>
+            
+            <h:form enctype="multipart/form-data">
                 <p:fileUpload fileUploadListener="#{fileUpload.handleFileUpload}" mode="advanced" dragDropSupport="true"
-                              multiple="true" update="messages" sizeLimit="10000000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                          multiple="true" update="messages" sizeLimit="10000000" label="Escolher imagens" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
                 <p:growl id="messages" showDetail="true" />
             </h:form>
+
+
 
 
 
