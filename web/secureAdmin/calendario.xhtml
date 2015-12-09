@@ -146,21 +146,18 @@ and open the template in the editor.
 
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:outputLabel for="event" value="Selecione a Data:" />
-                    <p:calendar id="event" value="#{calendarView.date4}">
-                        <p:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="msgs" />
+                    <p:calendar id="event" value="#{calendarioDB.date1}">
+                        <p:ajax event="dateSelect" listener="#{calendarioDB.onDateSelect}" update="msgs" />
                     </p:calendar>
                     Título do Evento: <p:inputText value="#{calendarioDB.evento}" />
-                    
-                </h:panelGrid>
-                <h:panelGrid columns="6" cellpadding="5">
                     Descrição do Evento: <p:inputTextarea value="#{calendarioDB.descricao}" />
                 </h:panelGrid>
-                <p:commandButton value="Salvar" update="msgs" actionListener="#{calendarView.click}" icon="ui-icon-disk" />
+                <p:commandButton value="Salvar" update="msgs" actionListener="#{calendarioDB.click}" icon="ui-icon-disk" />
 
-                <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+                <p:dialog modal="true" resizable="false" header="Detalhes do Evento" widgetVar="dlg" showEffect="fold">
                     <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                        <h:outputText value="Event:" />
-                        <h:outputText value="#{calendarView.date4}">
+                        <h:outputText value="Data do Evento:" />
+                        <h:outputText value="#{calendarioDB.date1}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:outputText>
                     </p:panelGrid>

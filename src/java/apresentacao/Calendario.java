@@ -6,11 +6,9 @@
 package apresentacao;
  
 
-import java.sql.Date;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
- 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date; 
 
 /**
  *
@@ -21,18 +19,18 @@ public class Calendario {
     private Integer id;
     private String evento;
     private String descricao;
-    private Date data;
+    private Date date1;
     
         
 
     public Calendario() {
     }
 
-    public Calendario(Integer id, String evento, String descricao, Date data) {
+    public Calendario(Integer id, String evento, String descricao, Date date1) {
         this.id = id;
         this.evento = evento;
         this.descricao = descricao;
-        this.data = data;
+        this.date1 = date1;
     }
 
     public Integer getId() {
@@ -59,12 +57,13 @@ public class Calendario {
         this.descricao = descricao;
     }
 
-    public Date getData() {
-        return data;
+    public Date getDate1() {
+        return date1;
     }
-
-    public void setData(Date data) {
-        this.data = data;
+    
+      
+    public void setDate1(Date date1) {
+        this.date1 = date1;
     }
              
 }

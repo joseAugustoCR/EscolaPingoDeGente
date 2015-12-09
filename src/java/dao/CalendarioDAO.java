@@ -7,6 +7,7 @@ package dao;
 
 import apresentacao.Calendario;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,10 +40,10 @@ public class CalendarioDAO {
 		Connection conexao = abrir();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
-					"INSERT INTO Calendario (evento, descricao, data) VALUES (?, ?, ?)");
+					"INSERT INTO Calendario (titulo, descricao, date) VALUES (?, ?, ?)");
 			ps.setString(1, c.getEvento());
 			ps.setString(2, c.getDescricao());
-                        ps.setDate(3, c.getData());
+                        ps.setDate(3, new java.sql.Date(c.getDate1().getTime()));
 			ps.execute();
 			ps.close();
 			conexao.close();
@@ -55,10 +56,10 @@ public class CalendarioDAO {
 		Connection conexao = abrir();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
-					"UPDATE Calendario SET evento = ?, descricao = ?, data = ? WHERE id = ?");
+					"UPDATE Calendario SET evento = ?, descricao = ?, date = ? WHERE id = ?");
 			ps.setString(1, c.getEvento());
 			ps.setString(2, c.getDescricao());
-                        ps.setDate(3, c.getData());
+                        ps.setDate(3, (java.sql.Date) c.getDate1());
                         ps.setInt(4, c.getId());
 			ps.execute();
 			ps.close();
@@ -95,7 +96,7 @@ public class CalendarioDAO {
                             mes.setId(rs.getInt("id"));
                             mes.setEvento(rs.getString("evento"));
                             mes.setDescricao(rs.getString("descricao"));
-                            mes.setData(rs.getDate("data"));
+                            mes.setDate1(rs.getDate("date"));
                         }
 			rs.close();
 			ps.close();
@@ -106,19 +107,309 @@ public class CalendarioDAO {
 		return mes;
 	}
 
-	public Collection<Calendario> buscarTodos() {
+        public Collection<Calendario> buscarJaneiro() {
 		Connection conexao = abrir();
 		Collection<Calendario> eventos = new ArrayList<Calendario>();
 		try {
 			Statement s = conexao.createStatement();
 			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
 			while (rs.next()) {
 				Calendario temp = new Calendario();
 				temp.setId(rs.getInt("id"));
-                                temp.setEvento(rs.getString("evento"));
+                                temp.setEvento(rs.getString("titulo"));
                                 temp.setDescricao(rs.getString("descricao"));
-                                temp.setData(rs.getDate("data"));
-				eventos.add(temp);
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 0){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarFevereiro() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 1){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarMarco() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 2){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarAbril() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 3){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarMaio() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 4){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarJunho() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 5){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarJulho() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 6){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarAgosto() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 7){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarSetembro() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 8){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarOutubro() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 9){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+        public Collection<Calendario> buscarNovembro() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 10){
+                                    eventos.add(temp);
+                                }
+			}
+			rs.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return eventos;
+	}
+        
+	public Collection<Calendario> buscarDezembro() {
+		Connection conexao = abrir();
+		Collection<Calendario> eventos = new ArrayList<Calendario>();
+		try {
+			Statement s = conexao.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM Calendario");
+                        int month = 0;
+			while (rs.next()) {
+				Calendario temp = new Calendario();
+				temp.setId(rs.getInt("id"));
+                                temp.setEvento(rs.getString("titulo"));
+                                temp.setDescricao(rs.getString("descricao"));
+                                temp.setDate1(rs.getDate("date"));
+                                month = rs.getDate("date").getMonth();
+				if (month == 11){
+                                    eventos.add(temp);
+                                }
 			}
 			rs.close();
 			conexao.close();

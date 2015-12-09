@@ -9,7 +9,7 @@ import dao.CalendarioDAO;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Map;
 import javax.inject.Named;
 import javax.faces.application.FacesMessage;
@@ -17,7 +17,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
+import java.text.SimpleDateFormat;
+ 
+import org.primefaces.context.RequestContext;
+import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -55,8 +58,8 @@ public class CalendarioDB implements Serializable{
         return calendario.getDescricao();
     }
 
-    public Date getData() {
-        return calendario.getData();
+    public Date getDate1() {
+        return calendario.getDate1();
     }
 
     public void setEvento(String evento) {
@@ -67,8 +70,8 @@ public class CalendarioDB implements Serializable{
         calendario.setDescricao(descricao);
     }
     
-    public void setDate(Date data) {
-        calendario.setData(data);
+    public void setDate1(Date date1) {
+        calendario.setDate1(date1);
     }
     
       public Integer getCalendarioId() {
@@ -87,24 +90,83 @@ public class CalendarioDB implements Serializable{
     public void inserir() {
         dao.inserir(calendario);
     }
-      
-    public void buscar(){
-        if (calendarioId == null) {
-            String message = "Bad request. Utilize um link válido";
-            FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
-            return;
-        }
+     
+    public Collection<Calendario> getEventosJaneiro() {
 
-        calendario = null;
+        return dao.buscarJaneiro();
+    }
+    
+    public Collection<Calendario> getEventosFevereiro() {
+
+        return dao.buscarFevereiro();
+    }
+    
+    public Collection<Calendario> getEventosMarco() {
+
+        return dao.buscarMarco();
+    }
+    
+    public Collection<Calendario> getEventosAbril() {
+
+        return dao.buscarAbril();
+    }
+    
+    public Collection<Calendario> getEventosMaio() {
+
+        return dao.buscarMaio();
+    }
+    
+    public Collection<Calendario> getEventosJunho() {
+
+        return dao.buscarJunho();
+    }
+    
+    public Collection<Calendario> getEventosJulho() {
+
+        return dao.buscarJulho();
+    }
+    
+    public Collection<Calendario> getEventosAgosto() {
+
+        return dao.buscarAgosto();
+    }
+    
+    public Collection<Calendario> getEventosSetembro() {
+
+        return dao.buscarSetembro();
+    }
+    
+    public Collection<Calendario> getEventosOutubro() {
+
+        return dao.buscarOutubro();
+    }
+    
+    public Collection<Calendario> getEventosNovembro() {
+
+        return dao.buscarNovembro();
+    }
+    
+    public Collection<Calendario> getEventosDezembro() {
+
+        return dao.buscarDezembro();
+    }
         
-        calendario = dao.buscar(calendarioId);
+    
+    public void onDateSelect(SelectEvent event) {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Data Selecionada:", format.format(event.getObject())));
+    }
+     
+    public void click() {
         
-        if (calendario == null) {
-            String message = "Bad request. Notícia Inválida.";
-            FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
-        }
+        dao.inserir(calendario);
+        RequestContext requestContext = RequestContext.getCurrentInstance();
+         
+        requestContext.update("form:display");
+        requestContext.execute("PF('dlg').show()");
+        
+        
     }
 
 }
