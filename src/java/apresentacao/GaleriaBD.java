@@ -5,6 +5,7 @@
  */
 package apresentacao;
 
+import dao.AlbumDAO;
 import dao.GaleriaDAO;
 import dao.ImagemDAO;
 import java.io.ByteArrayInputStream;
@@ -32,19 +33,23 @@ public class GaleriaBD implements Serializable {
     private GaleriaDAO dao;
     private ImagemDAO imgDao;
     private Imagem img;
+    private Album album;
+    private AlbumDAO albumDao;
     private Integer albumId;
     private Integer albumId_excluirFotos;
-    Collection<Imagem> imagens = new ArrayList<Imagem>();
-    Collection<Imagem> imagensParaExcluir = new ArrayList<Imagem>();
-    Collection<Integer> ids = new ArrayList<Integer>();
-    Collection<Integer> idsParaExcluir = new ArrayList<Integer>();
+    private Collection<Imagem> imagens = new ArrayList<Imagem>();
+    private Collection<Imagem> imagensParaExcluir = new ArrayList<Imagem>();
+    private Collection<Integer> ids = new ArrayList<Integer>();
+    private Collection<Integer> idsParaExcluir = new ArrayList<Integer>();
 
     public GaleriaBD() {
         this.dao = new GaleriaDAO();
         this.imgDao = new ImagemDAO();
         this.img = new Imagem();
+        this.album = new Album();
+        this.albumDao = new AlbumDAO();
         albumId = 0;
-        albumId_excluirFotos=0;
+        albumId_excluirFotos = 0;
         imagens = dao.buscarTodos();
         imagensParaExcluir = dao.buscarTodos();
         for (Imagem temp : imagens) {
@@ -84,8 +89,6 @@ public class GaleriaBD implements Serializable {
     public Collection<Integer> getIds() {
         return ids;
     }
-    
-    
 
     public void setIds() {
         ids = new ArrayList<Integer>();
@@ -93,39 +96,34 @@ public class GaleriaBD implements Serializable {
             ids.add(temp.getId());
         }
     }
-    
+
     public void setIdsParaExcluir() {
-        
+
         idsParaExcluir = new ArrayList<Integer>();
         for (Imagem temp : imagensParaExcluir) {
             idsParaExcluir.add(temp.getId());
         }
     }
-    
+
     public Collection<Integer> getIdsParaExcluir() {
         return idsParaExcluir;
     }
-    
-    
 
     public Integer getId() {
         return img.getId();
     }
-    
-    
-    public Collection<Integer> getTodosIds(){
+
+    public Collection<Integer> getTodosIds() {
         return dao.buscarIds();
     }
 
     public Collection<Imagem> getImagens() {
         return imagens;
     }
-    
+
     public Collection<Imagem> getImagensParaExcluir() {
         return imagensParaExcluir;
     }
-    
-    
 
     public Integer getAlbumId() {
         return albumId;
@@ -133,6 +131,15 @@ public class GaleriaBD implements Serializable {
 
     public void setAlbumId(Integer albumId) {
         this.albumId = albumId;
+        setAlbum();
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum() {
+        this.album = albumDao.buscar(albumId);
     }
 
     public Integer getAlbumId_excluirFotos() {
@@ -142,8 +149,6 @@ public class GaleriaBD implements Serializable {
     public void setAlbumId_excluirFotos(Integer albumId_excluirFotos) {
         this.albumId_excluirFotos = albumId_excluirFotos;
     }
-    
-    
 
     /* public Collection<Imagem> getImagensPorAlbum() {
         if (albumId == 0) {
@@ -162,8 +167,8 @@ public class GaleriaBD implements Serializable {
         }
 
     }
-    
-     public void stateChangeListenerExcluir() {
+
+    public void stateChangeListenerExcluir() {
         if (albumId_excluirFotos != null) {
             if (albumId_excluirFotos == 0) {
                 imagensParaExcluir = dao.buscarTodos();
@@ -174,12 +179,12 @@ public class GaleriaBD implements Serializable {
         }
 
     }
-     
-      public void excluir(){
-        Map<String,String> params = javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-	  Integer id = Integer.valueOf(params.get("imagemId"));
-          imgDao.excluirFoto(id);
-          stateChangeListenerExcluir();
+
+    public void excluir() {
+        Map<String, String> params = javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        Integer id = Integer.valueOf(params.get("imagemId"));
+        imgDao.excluirFoto(id);
+        stateChangeListenerExcluir();
     }
 
 }

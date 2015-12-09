@@ -69,8 +69,8 @@ public class DBExemploConexao {
         
         
         
-        
-        albumDao.inserir(new Album(5, "aa", "aa"));
+        Album a = new Album(10, "teste", "teste");
+        albumDao.inserir(a);
         
         
         

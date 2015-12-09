@@ -768,4 +768,20 @@ fieldset legend .subtitle { font-size: 60%; float:right; }
     
 }
 
+.titulo_album{
+    font-family: 'Indie Flower', cursive;
+    
+    font-size: 24px;
+    padding: 5px;
+    padding-top: 20px;
+    padding-left: 0px;
+}
 
+.descricao_album{
+    font-family: 'Indie Flower', cursive;
+    
+    font-size: 20px;
+    padding: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+}

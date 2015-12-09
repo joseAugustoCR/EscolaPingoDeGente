@@ -74,8 +74,8 @@ public class AlbumDAO {
             ps.execute();
             ps.close();
             conexao.close();
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Álbum salvo!", "");
-            FacesContext.getCurrentInstance().addMessage(null, msg);
+            //FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Álbum salvo!", "");
+            //FacesContext.getCurrentInstance().addMessage(null, msg);
         } catch (SQLException e) {
             e.printStackTrace();
             FacesMessage errorMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao salvar álbum", e.getMessage());
@@ -101,5 +101,29 @@ public class AlbumDAO {
             }
         }
     }
+    
+    public Album buscar(Integer id) {
+		Connection conexao = abrir();
+               
+		Album album = new Album();
+		try {
+			PreparedStatement ps = conexao.prepareStatement(
+					"SELECT * FROM Album WHERE PK_Album = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+                        if(rs != null && rs.next()){  
+                            album.setId(rs.getInt("PK_Album"));
+                            album.setTitulo(rs.getString("titulo"));
+                            album.setDescricao(rs.getString("descricao"));
+                 
+                        }
+			rs.close();
+			ps.close();
+			conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return album;
+	}
 
 }
