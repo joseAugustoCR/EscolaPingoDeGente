@@ -82,7 +82,7 @@ public class AlbumBD {
     public void insere() {
         dao.inserir(album);
         novoAlbum = false;
-        album = new Album();
+       // album = new Album();
     }
 
     public void excluir() {

@@ -789,3 +789,7 @@ fieldset legend .subtitle { font-size: 60%; float:right; }
 .ui-confirmdialog-yes{
     margin-right: 10px;
 }
+
+.column_grid {
+     width: 20%;
+}

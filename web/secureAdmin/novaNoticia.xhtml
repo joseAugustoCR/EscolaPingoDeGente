@@ -156,7 +156,8 @@ and open the template in the editor.
                 Título: <h:inputText value="#{noticiasBD.titulo}"  class="input"/><br/><br/><br/>
                 
                <p:growl id="messages" showDetail="true" />
-               <p:fileUpload value="#{noticiasBD.imagemNoticia}" mode="simple" skinSimple="true" sizeLimit="1000000"/>
+               
+               <p:fileUpload id="selecionaImagem" label="Selecionar imagem" value="#{noticiasBD.imagemNoticia}" mode="simple" skinSimple="true" sizeLimit="1000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
                 
                 
 
