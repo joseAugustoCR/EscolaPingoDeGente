@@ -6,6 +6,7 @@
 package dao;
 
 import apresentacao.Noticia;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -37,31 +39,56 @@ public class NoticiasDAO {
 		return c;
 	}
 
-	public void inserir(Noticia c) {
+	public void inserir(Noticia c, UploadedFile imagem) throws IOException {
 		Connection conexao = abrir();
-		try {
+		try {/*
 			PreparedStatement ps = conexao.prepareStatement(
 					"INSERT INTO Noticias (titulo, texto, imagem, timestamp) VALUES (?, ?, ?, null)");
-			ps.setString(1, c.getTitulo());
-			ps.setString(2, c.getTexto());
-			ps.setString(3, null);  //colocar imagem
+                        
+			
+                        ps.setString(1, c.getTitulo());
+			ps.setString(2, c.getTexto()); 
+                        ps.setBinaryStream(3, null);  //colocar imagem
+			
+                        
 			ps.execute();
 			ps.close();
-			conexao.close();
+			conexao.close();*/
+                     PreparedStatement statement = conexao.prepareStatement("INSERT INTO Noticias (titulo, texto, imagem, timestamp) VALUES (?, ?, ?, null)");
+                // Set file data
+                statement.setString(1, c.getTitulo());
+                statement.setString(2, c.getTexto());
+                statement.setBinaryStream(3, imagem.getInputstream());
+               
+                
+
+                // Insert data to the database
+                statement.executeUpdate();
+
+                // Commit & close
+                //conexao.commit();    // when autocommit=false
+                conexao.close();
+                
+                FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notícia Salva!", "");
+                FacesContext.getCurrentInstance().addMessage(null, msg);
 		} catch (SQLException e) {
 			e.printStackTrace();
+                        FacesMessage errorMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Upload error", e.getMessage());
+                FacesContext.getCurrentInstance().addMessage(null, errorMsg);
 		}
 	}
 
-	public void editar(Noticia c) {
+	public void editar(Noticia c, UploadedFile imagem) throws IOException {
 		Connection conexao = abrir();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
 					"UPDATE Noticias SET titulo = ?, texto = ?, imagem = ?, timestamp = null WHERE id = ?");
 			ps.setString(1, c.getTitulo());
 			ps.setString(2, c.getTexto());
-			ps.setString(3, null); //colocar
+			ps.setBinaryStream(3, imagem.getInputstream());
                         ps.setInt(4, c.getId());
+                        
+                        
 			ps.execute();
 			ps.close();
 			conexao.close();
@@ -97,7 +124,7 @@ public class NoticiasDAO {
                             noticia.setId(rs.getInt("id"));
                             noticia.setTitulo(rs.getString("titulo"));
                             noticia.setTexto(rs.getString("texto"));
-                            //noticia.(rs.getString("estrutura"));
+                            noticia.setImagem(rs.getBytes("imagem"));
                             noticia.setTimestamp(rs.getString("timestamp"));
                         }
 			rs.close();

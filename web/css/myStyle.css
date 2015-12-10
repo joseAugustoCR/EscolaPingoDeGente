@@ -785,3 +785,7 @@ fieldset legend .subtitle { font-size: 60%; float:right; }
     padding-top: 20px;
     padding-left: 20px;
 }
+
+.ui-confirmdialog-yes{
+    margin-right: 10px;
+}

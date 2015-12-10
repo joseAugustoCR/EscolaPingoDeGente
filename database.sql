@@ -110,7 +110,7 @@ CREATE TABLE `Noticias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(150) NOT NULL,
   `texto` text NOT NULL,
-  `imagem` blob,
+  `imagem` mediumblob,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;

@@ -74,12 +74,13 @@ public class AlbumDAO {
             ps.execute();
             ps.close();
             conexao.close();
-            //FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Álbum salvo!", "");
-            //FacesContext.getCurrentInstance().addMessage(null, msg);
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo!", "Álbum " + c.getTitulo() + " foi salvo."));
+            
         } catch (SQLException e) {
             e.printStackTrace();
-            FacesMessage errorMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao salvar álbum", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, errorMsg);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao salvar álbum", e.getMessage()));
+       
         }
     }
 

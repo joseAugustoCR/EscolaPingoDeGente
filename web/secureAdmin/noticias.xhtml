@@ -26,30 +26,9 @@ and open the template in the editor.
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>   
-
-
-        <link href="../css/animate.min.css" rel="stylesheet"/>
         <link href="../css/myStyle.css" rel="stylesheet"/>
-        <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-        <!-- Important Owl stylesheet -->
-        <link rel="stylesheet" href="owl-carousel/owl.carousel.css"/>
-
-        <!-- Default Theme -->
-        <link rel="stylesheet" href="owl-carousel/owl.theme.css"/>
-
-        <!--  jQuery 1.7+  -->
-        <script src="jquery-1.9.1.min.js"></script>
-
-        <!-- Include js plugin -->
-        <script src="assets/owl-carousel/owl.carousel.js"></script>
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -166,7 +145,7 @@ and open the template in the editor.
                 <legend class="titulo">Notícias</legend>
             </fieldset>
 
-            <p:dataTable class="noticia" value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="10" emptyMessage="Não foram encontradas notícias.">
+            <p:dataTable id="noticias" class="noticia" value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="10" emptyMessage="Não foram encontradas notícias.">
 
                 <p:column>
                     <div class="titulo_noticia">
@@ -178,15 +157,21 @@ and open the template in the editor.
                     <div class="data_noticia">#{valor.timestamp}</div>
                     <div class="botao_apagaNoticia">
                         <h:form>
-                            <h:commandButton value="x" action="#{noticiasBD.excluir()}" class="btn btn-danger btn-sm">
+                            <p:commandButton value="x" action="#{noticiasBD.excluir()}" class="btn btn-danger btn-sm" update="noticias">
                                 <f:param name="noticiaId" value="#{valor.id}" />
-                            </h:commandButton>
+                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir essa notícia?" icon="ui-icon-alert" />
+                            </p:commandButton>
+                            
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
                         </h:form>
                     </div>
                     <br/>
                     <br/>
                     
-                </p:column>>
+                </p:column>
 
             </p:dataTable>
 
@@ -249,9 +234,7 @@ and open the template in the editor.
             </div>
         </footer>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
+       
+   
     </body>
 </html>

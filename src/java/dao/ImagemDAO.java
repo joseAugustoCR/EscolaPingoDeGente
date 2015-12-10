@@ -49,7 +49,7 @@ public class ImagemDAO {
      
             try {
 
-                PreparedStatement statement = conexao.prepareStatement("INSERT INTO Imagem (imagem, legenda, data, FK_Album) VALUES (?, null, null, ?)");
+                PreparedStatement statement = conexao.prepareStatement("INSERT INTO Imagem (imagem, data, FK_Album) VALUES (?, null, ?)");
                 // Set file data
                 statement.setBinaryStream(1, file.getInputstream());
                 statement.setInt(2, album);

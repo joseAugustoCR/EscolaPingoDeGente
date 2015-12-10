@@ -10,6 +10,7 @@ import apresentacao.Imagem;
 import apresentacao.Inicio;
 import apresentacao.Noticia;
 import static java.awt.font.GlyphMetrics.WHITESPACE;
+import java.io.IOException;
 
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
@@ -24,12 +25,13 @@ import java.util.regex.Pattern;
  */
 public class DBExemploConexao {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         GaleriaDAO cs = new GaleriaDAO();
         Collection<Imagem> imagens = new ArrayList<Imagem>();
         Collection<Integer> ids = new ArrayList<Integer>();
         ImagemDAO imgDAO = new ImagemDAO();
         AlbumDAO albumDao = new AlbumDAO();
+        NoticiasDAO noticiaDao = new NoticiasDAO();
 
         /*Inicio temp = cs.buscar(1);
 			System.out.println(temp.getId() + " - " + temp.getQuemSomos()+ " - " + temp.getQualidade()+ " - " + temp.getEstrutura()+ " - " + temp.getMissao());*/
@@ -69,8 +71,10 @@ public class DBExemploConexao {
         
         
         
-        Album a = new Album(10, "teste", "teste");
-        albumDao.inserir(a);
+       // Album a = new Album(10, "teste", "teste");
+        //albumDao.inserir(a);
+        
+       // noticiaDao.inserir(new Noticia(5, "iiiiii",null, "", null));
         
         
         

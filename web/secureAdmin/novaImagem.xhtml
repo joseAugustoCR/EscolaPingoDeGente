@@ -159,8 +159,8 @@ and open the template in the editor.
 
 
 
-            <h:form prependId="false">
-                <div class="select_album">
+            <h:form prependId="false" id="myForm">
+                <div class="select_album" id="select_album">
                     <p:outputLabel for="selecionaAlbum" value="Selecione um álbum:  " />
                     <p:selectOneMenu id="selecionaAlbum" value="#{fileUpload.albumId}" style="width: 200px; padding:0; margin-left: 10px;margin-right: 0px;">
                         <p:ajax listener="#{albumBD.setIdExcluir(fileUpload.albumId)}" />
@@ -170,56 +170,63 @@ and open the template in the editor.
 
                     </p:selectOneMenu>
                 </div>
-            
-                <h:commandButton styleClass="botao_Album" value="Excluir Álbum" action="#" class="btn btn-primary btn-sm" style="background-color: #d43f3a; border-color:#d43f3a;margin-right: 7px;">
-                    <p:ajax  listener="#{albumBD.excluir}" update="selecionaAlbum"/>
-                </h:commandButton>
 
-                <h:commandButton styleClass="botao_Album" value="Novo Álbum" action="#{albumBD.mostraNovoAlbum}" class="btn btn-primary btn-sm">
+                <p:commandButton styleClass="botao_Album" value="Excluir Álbum" action="#{albumBD.excluir}" class="btn-danger btn-sm" style="margin-right: 7px;">          
+                    <p:confirm header="Confirmação" message="Tem certeza que deseja excluir esse álbum?" icon="ui-icon-alert"/>
+                    <f:ajax render="selecionaAlbum"/>
+                </p:commandButton>
+
+                <h:commandButton styleClass="botao_Album" value="Novo Álbum" action="#{albumBD.mostraNovoAlbum}" class="btn-primary btn-sm">
                     <p:ajax update="novoAlbum"/>
                 </h:commandButton>
-                
+
                 <br/>
                 <br/>
 
                 <p:panel id="novoAlbum" styleClass="semBorda">
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                     <p:panel header="Informações do novo álbum" styleClass="semBorda" rendered="#{albumBD.novoAlbum}">
                         <p:panelGrid style="margin-bottom:20px;" styleClass="semBorda" rendered="#{albumBD.novoAlbum}" columns="2">
-
 
                             <h:outputLabel for="tituloAlbum" value="Título:" rendered="#{albumBD.novoAlbum}"/>
                             <h:inputText id="tituloAlbum" value="#{albumBD.titulo}" class="input" rendered="#{albumBD.novoAlbum}" style="width:260px;"/>
 
-
                             <h:outputLabel for="descricaoAlbum" value="Descrição" rendered="#{albumBD.novoAlbum}"/>
                             <h:inputTextarea id="descricaoAlbum" value="#{albumBD.descricao}" class="input" rendered="#{albumBD.novoAlbum}" rows="3" style="width:260px;"/>
 
-
                         </p:panelGrid>
-                        
+
                         <h:commandButton value="Salvar" class="btn btn-primary btn-sm" style="margin-right: 10px;">
                             <f:ajax execute="tituloAlbum descricaoAlbum" listener="#{albumBD.insere}" render="selecionaAlbum novoAlbum"/>
                         </h:commandButton>
-                       
+
                         <h:commandButton value="Cancelar" class="btn btn-danger btn-sm" style="background-color: #d43f3a; border-color:#d43f3a" action="#{albumBD.escondeNovoAlbum}">
-                            
+
                         </h:commandButton>
 
                         <p:separator rendered="#{albumBD.novoAlbum}"/>
                     </p:panel>
                 </p:panel>
-                
-                 
-
-
-
-
-                
             </h:form>
             
+            
+            <h:form prependId="false">
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" severity="alert">
+                
+                    <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check">
+                        <f:ajax render="selecionaAlbum"/>
+                    </p:commandButton>
+ 
+                    <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>  
+                
+                </p:confirmDialog>
+            </h:form>
+            
+            
+
             <h:form enctype="multipart/form-data">
                 <p:fileUpload fileUploadListener="#{fileUpload.handleFileUpload}" mode="advanced" dragDropSupport="true"
-                          multiple="true" update="messages" sizeLimit="10000000" label="Escolher imagens" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                              multiple="true" update="messages" sizeLimit="10000000" label="Escolher imagens" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
                 <p:growl id="messages" showDetail="true" />
             </h:form>

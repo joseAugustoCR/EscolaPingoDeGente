@@ -153,7 +153,7 @@ and open the template in the editor.
                                        itemValue="#{album.id}" itemLabel="#{album.titulo}" />
 
                     </p:selectOneMenu>
-       
+
 
                 </div>
                 <br/>
@@ -175,8 +175,13 @@ and open the template in the editor.
 
                             <p:commandButton value="x" action="#{galeriaBD.excluir}" class="btn-danger btn-sm" update="imagensExcluir">
                                 <f:param name="imagemId" value="#{id}" />
-                               
+                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir essa foto?" icon="ui-icon-alert" />
+
                             </p:commandButton>
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                            </p:confirmDialog>
 
                         </div>
                     </p:column>

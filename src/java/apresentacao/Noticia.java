@@ -7,6 +7,8 @@ package apresentacao;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -18,16 +20,17 @@ public class Noticia {
     private String titulo;
     private String texto;
     private String timestamp;
-    //imagem;
+    private byte[] imagem;
     
      public Noticia() {
     }
     
-    public Noticia(Integer id, String titulo, String texto, String timestamp) {
+    public Noticia(Integer id, String titulo, byte[] imagem, String texto, String timestamp) {
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
         this.timestamp = timestamp;
+        this.imagem = imagem;
     }
 
    
@@ -67,10 +70,17 @@ public class Noticia {
         
         this.timestamp = dia+"/"+mes+"/"+ano;
     }
+    
+     public byte[] getImagem() {
+        
+        return imagem;
+    }
+ 
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
 
-    private String toDate(long timestamp) {
-    Date date = new Date (timestamp * 1000);
-    return new SimpleDateFormat("yyyy-MM-dd").format(date);
-}
+    
+
 
 }

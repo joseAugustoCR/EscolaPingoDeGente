@@ -27,6 +27,7 @@ public class FileUpload implements Serializable {
     private List<String> nomes; //to remember which files have been uploaded
     private List<FileUpload> arquivos;
     private ImagemDAO dao = new ImagemDAO();
+    private NoticiasBD noticiaDao = new NoticiasBD();
     private Integer albumId = 0;
     private String legenda;
 
@@ -61,4 +62,15 @@ public class FileUpload implements Serializable {
 
     }
 
+    public void handleFileUploadNoticia(FileUploadEvent event) {
+        // String filename = event.getFile().getFileName();
+        // System.out.println("INCOMING FILE: " + filename);
+        //names.add(filename);
+
+       
+            //dao.setFile(event.getFile());
+            dao.inserir(albumId,event.getFile());
+        
+
+    }
 }

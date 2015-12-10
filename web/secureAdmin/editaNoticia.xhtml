@@ -17,8 +17,8 @@ and open the template in the editor.
     
     
     <h:head>
-            
-           <meta charset="UTF-8"/>
+    
+        <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -32,6 +32,7 @@ and open the template in the editor.
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
 
         <link href="../css/myStyle.css" rel="stylesheet"/>
+
         
         
         
@@ -159,24 +160,29 @@ and open the template in the editor.
          
 
           
-           <h:form>    
+           <h:form enctype="multipart/form-data">    
                  Título: <h:inputText value="#{noticiasBD.titulo}"  class="input"/><br/><br/>
+                 
+                 <p:growl id="messages" showDetail="true" />
+               <p:fileUpload value="#{noticiasBD.imagemNoticia}" mode="simple" skinSimple="true" sizeLimit="1000000"/>
+                
+                <br/>
+                <br/>
+                <br/>
                  <p:editor id="editor" widgetVar="editorWidget" value="#{noticiasBD.texto}" />
                 
                 <h:panelGrid columns="2" style="margin-top: 10px">
-                    <p:commandButton value="Salvar" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="#{noticiasBD.editar}" />
+                    <p:commandButton value="Salvar"  ajax="false" icon="ui-icon-disk" action="#{noticiasBD.editar}" />
 
                     <p:commandButton value="Limpar" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
                 </h:panelGrid>
 
-                <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-                    <h:outputText id="display" value="#{editorView.text}" escape="false" />
-                </p:dialog>
+                
             </h:form> 
       
 
 
         </div>
-         <script src="../js/bootstrap.min.js"></script>
+         
 </body>
 </html>

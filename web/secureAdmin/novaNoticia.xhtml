@@ -16,7 +16,7 @@ and open the template in the editor.
 
     <h:head>
 
-             <meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -27,12 +27,13 @@ and open the template in the editor.
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
 
         <link href="../css/myStyle.css" rel="stylesheet"/>
-        
-        
-       
-        
+
+
+
+
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -44,7 +45,7 @@ and open the template in the editor.
         <title>Pingo de Gente</title>
     </h:head>
     <body>
-       <div class="visible-lg visible-md">
+        <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
@@ -150,26 +151,40 @@ and open the template in the editor.
             </fieldset>
 
 
-            <h:form>    
-                 Título: <h:inputText value="#{noticiasBD.titulo}"  class="input"/><br/><br/>
-                 <p:editor id="editor" widgetVar="editorWidget" value="#{noticiasBD.texto}" />
+            <h:form enctype="multipart/form-data">   
                 
+                Título: <h:inputText value="#{noticiasBD.titulo}"  class="input"/><br/><br/><br/>
+                
+               <p:growl id="messages" showDetail="true" />
+               <p:fileUpload value="#{noticiasBD.imagemNoticia}" mode="simple" skinSimple="true" sizeLimit="1000000"/>
+                
+                
+
+                
+    
+                <br/>
+                <br/>
+                <br/>
+                
+                <p:editor id="editor" widgetVar="editorWidget" value="#{noticiasBD.texto}" />
+                
+
                 <h:panelGrid columns="2" style="margin-top: 10px">
-                    <p:commandButton value="Salvar" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="#{noticiasBD.inserir}" />
+                    <p:commandButton value="Salvar" ajax="false" icon="ui-icon-disk" action="#{noticiasBD.inserir}" />
 
                     <p:commandButton value="Limpar" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
                 </h:panelGrid>
 
-                <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-                    <h:outputText id="display" value="#{editorView.text}" escape="false" />
-                </p:dialog>
+               
             </h:form> 
+            
+       
 
 
 
         </div>
-         
-          <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        
     </body>
 </html>

@@ -78,9 +78,7 @@ public class GaleriaBD implements Serializable {
         }
     }
 
-    public String getLegenda() {
-        return img.getLegenda();
-    }
+
 
     public String getData() {
         return img.getData();

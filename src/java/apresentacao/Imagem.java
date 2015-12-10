@@ -14,14 +14,14 @@ import org.primefaces.model.UploadedFile;
 public class Imagem {
     private Integer id;
     private byte[] imagem;
-    private String legenda;
+
     private String data;
     private String album;
 
-    public Imagem(Integer id, byte[] imagem, String legenda, String data, String album) {
+    public Imagem(Integer id, byte[] imagem, String data, String album) {
         this.id = id;
         this.imagem = imagem;
-        this.legenda = legenda;
+ 
         String ano = data.substring(0, 4);
         String mes = data.substring(5, 7);
         String dia = data.substring(8, 10);
@@ -51,13 +51,7 @@ public class Imagem {
         this.imagem = imagem;
     }
 
-    public String getLegenda() {
-        return legenda;
-    }
 
-    public void setLegenda(String legenda) {
-        this.legenda = legenda;
-    }
 
     public String getData() {
         return data;

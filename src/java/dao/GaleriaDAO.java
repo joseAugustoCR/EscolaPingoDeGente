@@ -52,11 +52,11 @@ public class GaleriaDAO {
         Collection<Imagem> imagens = new ArrayList<Imagem>();
         try {
             Statement s = conexao.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM Imagem");
+            ResultSet rs = s.executeQuery("SELECT * FROM Imagem ORDER BY data DESC");
             Imagem img = null;
 
             while (rs.next()) {
-                img = new Imagem(rs.getInt("id"), rs.getBytes("imagem"), rs.getString("legenda"), rs.getString("data"), rs.getString("FK_Album"));
+                img = new Imagem(rs.getInt("id"), rs.getBytes("imagem"), rs.getString("data"), rs.getString("FK_Album"));
                 imagens.add(img);
             }
 
@@ -83,7 +83,7 @@ public class GaleriaDAO {
             Imagem img = null;
 
             while (rs.next()) {
-                img = new Imagem(rs.getInt("id"), rs.getBytes("imagem"), rs.getString("legenda"), rs.getString("data"), rs.getString("FK_Album"));
+                img = new Imagem(rs.getInt("id"), rs.getBytes("imagem"), rs.getString("data"), rs.getString("FK_Album"));
                 imagens.add(img);
             }
 
@@ -129,7 +129,7 @@ public class GaleriaDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                img = new Imagem(id, rs.getBytes("imagem"), rs.getString("legenda"), rs.getString("data"), rs.getString("FK_Album"));
+                img = new Imagem(id, rs.getBytes("imagem"), rs.getString("data"), rs.getString("FK_Album"));
                 
 
             }
@@ -149,7 +149,7 @@ public class GaleriaDAO {
         Collection<Integer> ids = new ArrayList<Integer>();
         try {
             Statement s = conexao.createStatement();
-            ResultSet rs = s.executeQuery("SELECT id FROM Imagem");
+            ResultSet rs = s.executeQuery("SELECT id FROM Imagem ORDER BY data DESC");
 
             while (rs.next()) {
 
@@ -166,12 +166,13 @@ public class GaleriaDAO {
         return ids;
     }
     
+    /*
     public Collection<String> buscarLegendas() {
         Connection conexao = abrir();
         Collection<String> ids = new ArrayList<String>();
         try {
             Statement s = conexao.createStatement();
-            ResultSet rs = s.executeQuery("SELECT legenda FROM Imagem");
+            ResultSet rs = s.executeQuery("SELECT legenda FROM Imagem ORDER BY data DESC");
 
             while (rs.next()) {
 
@@ -187,7 +188,7 @@ public class GaleriaDAO {
             e.printStackTrace();
         }
         return ids;
-    }
+    }*/
 
     
 

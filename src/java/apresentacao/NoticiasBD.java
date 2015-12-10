@@ -6,6 +6,7 @@
 package apresentacao;
 
 import dao.NoticiasDAO;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
@@ -16,6 +17,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+import org.primefaces.model.UploadedFile;
 
 
 
@@ -27,9 +33,10 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class NoticiasBD implements Serializable{
 
-    NoticiasDAO dao;
-    Noticia noticia;
+    private NoticiasDAO dao;
+   private  Noticia noticia;
     private Integer noticiaId;
+    private UploadedFile imagemNoticia;
   
 
   
@@ -71,6 +78,8 @@ public class NoticiasBD implements Serializable{
         noticia.setTexto(texto);
     }
     
+    
+    
       public Integer getNoticiaId() {
         return noticiaId;
     }
@@ -79,11 +88,26 @@ public class NoticiasBD implements Serializable{
         this.noticiaId = noticiaId;
     }
 
-    //set imagem
+    public void setImagem(byte[] imagem){
+        noticia.setImagem(imagem);
+    }
+    
+    public byte[] getImagem(){
+        return noticia.getImagem();
+    }
+
+    public UploadedFile getImagemNoticia() {
+        return imagemNoticia;
+    }
+
+    public void setImagemNoticia(UploadedFile imagemNoticia) {
+        this.imagemNoticia = imagemNoticia;
+    }
     
     
-    public String inserir() {
-        dao.inserir(noticia);
+    
+    public String inserir() throws IOException {
+        dao.inserir(noticia, imagemNoticia);
         return "noticias.xhtml" + "?faces-redirect=true";
     }
 
@@ -99,7 +123,7 @@ public class NoticiasBD implements Serializable{
     
     
     public String editar() throws IOException{
-        dao.editar(noticia);
+        dao.editar(noticia, imagemNoticia);
          return "noticias.xhtml" + "?faces-redirect=true";
     }
     
@@ -133,6 +157,29 @@ public class NoticiasBD implements Serializable{
             String message = "Bad request. Notícia Inválida.";
             FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
+        }
+    }
+    
+    public void handleFileUpload(FileUploadEvent event) {
+      
+         byte[] file = new byte[event.getFile().getContents().length];
+         System.arraycopy(event.getFile().getContents(),0,file,0,event.getFile().getContents().length);
+         setImagem(file);      
+      
+   }
+    
+     public StreamedContent getImagemParaExibir() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            // So, we're rendering the view. Return a stub StreamedContent so that it will generate right URL.
+            return new DefaultStreamedContent();
+        } else {
+            // So, browser is requesting the image. Return a real StreamedContent with the image bytes.
+            String id = context.getExternalContext().getRequestParameterMap().get("imagemId");
+
+            noticia = dao.buscar(Integer.valueOf(id));
+            return new DefaultStreamedContent(new ByteArrayInputStream(noticia.getImagem()));
         }
     }
     
