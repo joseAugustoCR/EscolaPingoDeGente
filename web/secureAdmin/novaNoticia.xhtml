@@ -152,23 +152,26 @@ and open the template in the editor.
 
 
             <h:form enctype="multipart/form-data">   
-                
-                Título: <h:inputText value="#{noticiasBD.titulo}"  class="input"/><br/><br/><br/>
-                
-               <p:growl id="messages" showDetail="true" />
-               
-               <p:fileUpload id="selecionaImagem" label="Selecionar imagem" value="#{noticiasBD.imagemNoticia}" mode="simple" skinSimple="true" sizeLimit="1000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-                
-                
+                <p:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
 
-                
-    
+                    <p:outputLabel for="titulo_input" value="Título:"/>
+                    <p:inputText id="titulo_input" value="#{noticiasBD.titulo}"  class="input" maxlength="150" required="true" 
+                                 requiredMessage="Campo obrigatório"/>
+
+                    <p:growl id="messages" showDetail="true" />
+
+                    <p:fileUpload id="selecionaImagem" label="Selecionar imagem" value="#{noticiasBD.imagemNoticia}" mode="simple" skinSimple="true" sizeLimit="1000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+                    <p:outputLabel for="url_input" value="Vídeo URL:"/> 
+                    <p:inputText id="url_input" value="#{noticiasBD.url}"  class="input" maxlength="254"/>
+
+
+                </p:panelGrid>
                 <br/>
-                <br/>
-                <br/>
-                
+
+
                 <p:editor id="editor" widgetVar="editorWidget" value="#{noticiasBD.texto}" />
-                
+
 
                 <h:panelGrid columns="2" style="margin-top: 10px">
                     <p:commandButton value="Salvar" ajax="false" icon="ui-icon-disk" action="#{noticiasBD.inserir}" />
@@ -176,16 +179,16 @@ and open the template in the editor.
                     <p:commandButton value="Limpar" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
                 </h:panelGrid>
 
-               
+
             </h:form> 
-            
-       
+
+
 
 
 
         </div>
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        
+
     </body>
 </html>

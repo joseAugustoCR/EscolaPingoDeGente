@@ -37,6 +37,7 @@ public class NoticiasBD implements Serializable{
    private  Noticia noticia;
     private Integer noticiaId;
     private UploadedFile imagemNoticia;
+    
   
 
   
@@ -76,6 +77,14 @@ public class NoticiasBD implements Serializable{
 
     public void setTexto(String texto) {
         noticia.setTexto(texto);
+    }
+
+    public String getUrl() {
+        return noticia.getUrl();
+    }
+    
+    public void setUrl(String url){
+        noticia.setUrl(url);
     }
     
     
@@ -120,6 +129,12 @@ public class NoticiasBD implements Serializable{
         return dao.buscarUltimas();
     }
     
+    public Boolean getImagemSet(){
+        return noticia.getImagemSet();
+    }
+    
+    
+    
     
     
     public String editar() throws IOException{
@@ -149,7 +164,7 @@ public class NoticiasBD implements Serializable{
             return;
         }
 
-        noticia = null;
+        noticia = new Noticia();
         
         noticia = dao.buscar(noticiaId);
         
@@ -179,6 +194,10 @@ public class NoticiasBD implements Serializable{
             String id = context.getExternalContext().getRequestParameterMap().get("imagemId");
 
             noticia = dao.buscar(Integer.valueOf(id));
+            if (noticia.getImagem()==null){
+                return null;
+            }
+            
             return new DefaultStreamedContent(new ByteArrayInputStream(noticia.getImagem()));
         }
     }

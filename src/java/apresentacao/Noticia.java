@@ -21,19 +21,41 @@ public class Noticia {
     private String texto;
     private String timestamp;
     private byte[] imagem;
+    private Boolean imagemSet;
+    private String url;
     
      public Noticia() {
+         url = null;
+         imagem = null;
+         imagemSet = true;
     }
     
-    public Noticia(Integer id, String titulo, byte[] imagem, String texto, String timestamp) {
+    public Noticia(Integer id, String titulo, byte[] imagem, String texto, String timestamp, String url) {
         this.id = id;
         this.titulo = titulo;
         this.texto = texto;
         this.timestamp = timestamp;
         this.imagem = imagem;
+        this.url = url;
     }
 
-   
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Boolean getImagemSet() {
+        return imagemSet;
+    }
+
+    public void setImagemSet(Boolean imagemSet) {
+        this.imagemSet = imagemSet;
+    }
+
+    
 
     public Integer getId() {
         return id;

@@ -31,13 +31,17 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
     height: 150px;
     top: 0px;
     left: 0px;
-    //background-color: #003399;
-    //background-color: #FFBB34;
-    //background-color: white;
+    
+
+    background-color: white;
+    
 
     width: 100%;
-    //opacity: 0.9;
-    background: url(../img/gplaypattern.png);
+   // opacity: 0.9;
+    //background: url(../img/gplaypattern.png);
+    box-shadow: 0px -5px 10px #888888;
+    -moz-box-shadow: 0px -5px 10px #888888;
+    -webkit-box-shadow: 0px -5px 10px #888888;
 
 }
 
@@ -124,6 +128,7 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
 
 
 
+
 .navbar {
     margin-bottom: 0;
 }
@@ -199,6 +204,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .carousel-inner img {
     margin:0 auto;
+    
 }
 
 
@@ -419,7 +425,43 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     width: 500px;
 }
 
+.patricinadores{
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: white;
+    border-bottom: 5px white solid;
+    color: white;
+    padding-top:20px;
+    padding-bottom: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+    box-shadow: 0px -5px 10px #888888;
+    -moz-box-shadow: 0px -5px 10px #888888;
+    -webkit-box-shadow: 0px -5px 10px #888888;
+    margin:0 auto;
+    
+}
 
+
+
+#patricinador1{
+    
+    background: url('../img/Patrocinador.png') no-repeat scroll 50% 0% transparent;
+    background-size:40%;
+  
+}
+
+#patricinador2{
+    background: url('../img/Patrocinador.png') no-repeat scroll 50% 0% transparent;
+    background-size:40%;
+}
+
+#patricinador3{
+    background: url('../img/Patrocinador.png') no-repeat scroll 50% 0% transparent;
+    background-size:40%;
+}
 
 #bottom{
 
@@ -427,14 +469,9 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     right: 0px;
     bottom: 0px;
     left: 0px;
-    //background-color: #B5CB61;
-    // background-color: #85C032;
     background-color: #FF751A;
     border-bottom: 5px white solid;
     color: white;
-    //height: 200px;
-    //border-top: 1px solid rgba(20, 20, 20, 0.8);
-    //border-radius: 10px;
     padding-top:20px;
     padding-bottom: 30px;
     box-shadow: 0px -5px 10px #888888;
@@ -792,4 +829,7 @@ fieldset legend .subtitle { font-size: 60%; float:right; }
 
 .column_grid {
      width: 20%;
+}
+.column_grid_video_imagem{
+    width: 50%;
 }

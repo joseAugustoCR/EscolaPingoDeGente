@@ -162,17 +162,21 @@ and open the template in the editor.
             <h:form>
                 <p:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
                     <p:outputLabel for="quemSomos_input" value="Quem somos:"/>
-                    <p:inputTextarea id="quemSomos_input" rows="5" value="#{inicioBD.quemSomos}" class="input"/>
+                    <p:inputTextarea id="quemSomos_input" rows="5" value="#{inicioBD.quemSomos}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
 
 
                     <p:outputLabel for="qualidade_input" value="Qualidade:"/>
-                    <p:inputTextarea id="qualidade_input" rows="3" value="#{inicioBD.qualidade}" class="input"/>
+                    <p:inputTextarea id="qualidade_input" rows="3" value="#{inicioBD.qualidade}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
 
                     <p:outputLabel for="estrutura_input" value="Estrutura:"/>
-                    <p:inputTextarea id="estrutura_input" rows="3" value="#{inicioBD.estrutura}" class="input"/>
+                    <p:inputTextarea id="estrutura_input" rows="3" value="#{inicioBD.estrutura}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
 
                     <p:outputLabel for="missao_input" value="Missão:"/>
-                    <p:inputTextarea id="missao_input" rows="3" value="#{inicioBD.missao}" class="input"/>
+                    <p:inputTextarea id="missao_input" rows="3" value="#{inicioBD.missao}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
 
                 </p:panelGrid>
                 <br/>
