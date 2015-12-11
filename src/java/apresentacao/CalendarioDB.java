@@ -88,7 +88,51 @@ public class CalendarioDB implements Serializable{
     }
     
     public void inserir() {
+        
         dao.inserir(calendario);
+        RequestContext requestContext = RequestContext.getCurrentInstance();
+         
+        requestContext.update("form:display");
+        requestContext.execute("PF('dlg').show()");
+        calendario = new Calendario();
+        
+    }
+        
+    public String editar() {
+        dao.editar(calendario);
+         return "eventos.xhtml" + "?faces-redirect=true";
+    }
+    
+    public void excluir(){
+        Map<String,String> params = javax.faces.context.FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+	  String id = params.get("calendarioId");
+          setCalendarioId(Integer.valueOf(id));
+            dao.excluir(calendarioId);
+       
+    }  
+    
+    public void buscarId(){
+        if (calendarioId == null) {
+            String message = "Bad request. Utilize um link válido";
+            FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
+            return;
+        }
+
+        calendario = new Calendario();
+        
+        calendario = dao.buscarEvento(calendarioId);
+        
+        if (calendario == null) {
+            String message = "Bad request. Notícia Inválida.";
+            FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
+        }
+    }
+    
+    public Collection<Calendario> getEventos() {
+
+        return dao.buscar();
     }
      
     public Collection<Calendario> getEventosJaneiro() {
@@ -157,16 +201,5 @@ public class CalendarioDB implements Serializable{
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Data Selecionada:", format.format(event.getObject())));
     }
-     
-    public void click() {
-        
-        dao.inserir(calendario);
-        RequestContext requestContext = RequestContext.getCurrentInstance();
-         
-        requestContext.update("form:display");
-        requestContext.execute("PF('dlg').show()");
-        
-        
-    }
-
+      
 }

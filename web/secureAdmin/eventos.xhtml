@@ -6,15 +6,11 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:corejsf="http://corejsf.com"
-      xmlns:p="http://primefaces.org/ui" >
-
-
-
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
+
         <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -38,12 +34,9 @@ and open the template in the editor.
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>Pingo de Gente</title>
-
-
     </h:head>
-    <body>
-
-      <div class="visible-lg visible-md">
+    <h:body>
+       <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
@@ -93,7 +86,9 @@ and open the template in the editor.
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="index.xhtml">Início </a></li>
-                        <li><a href="sobre.xhtml">A escola</a></li>
+                        <li><a href="sobre.xhtml">A escola </a></li>
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galeria de Fotos<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -107,8 +102,7 @@ and open the template in the editor.
 
                         </li>
 
-
-                        <li class="dropdown" id="active">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notícias<span class="sr-only">(current)</span><strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -118,8 +112,8 @@ and open the template in the editor.
                                     <a href="noticias.xhtml">Editar notícias</a>
                                 </li>    
                             </ul>
-                        </li>
 
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Calendário<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -150,27 +144,28 @@ and open the template in the editor.
             </div>  
         </nav>
 
+
         <div class="container-fluid" id="content">
 
             <fieldset>
-                <legend class="titulo">Notícias</legend>
+                <legend class="titulo"> Exclua e edite eventos do calendário!</legend>
             </fieldset>
 
-            <p:dataTable id="noticias" class="noticia" value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="10" emptyMessage="Não foram encontradas notícias.">
+
+            <p:dataTable id="eventos" class="noticia" value="#{calendarioDB.eventos}" var="valor" paginator="true" rows="10" emptyMessage="Não foram encontradas notícias.">
 
                 <p:column>
                     <div class="titulo_noticia">
-                        <h:link value="#{valor.titulo}" outcome="editaNoticia"> 
+                        <h:link value="#{valor.evento}" outcome="editaEvento"> 
                             <f:param name="id" value="#{valor.id}" />
 
                         </h:link>
                     </div>
-                    <div class="data_noticia">#{valor.timestamp}</div>
                     <div class="botao_apagaNoticia">
                         <h:form>
-                            <p:commandButton value="x" action="#{noticiasBD.excluir()}" class="btn btn-danger btn-sm" update="noticias">
-                                <f:param name="noticiaId" value="#{valor.id}" />
-                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir essa notícia?" icon="ui-icon-alert" />
+                            <p:commandButton value="x" action="#{calendarioDB.excluir()}" class="btn btn-danger btn-sm" update="eventos">
+                                <f:param name="calendarioId" value="#{valor.id}" />
+                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir esse evento?" icon="ui-icon-alert" />
                             </p:commandButton>
                             
                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
@@ -185,9 +180,7 @@ and open the template in the editor.
                 </p:column>
 
             </p:dataTable>
-
-
-           
+            
             <br/>
             <br/>
             <br/>
@@ -231,21 +224,8 @@ and open the template in the editor.
             <br/>
             <br/>
             <br/>
-
 
 
         </div>
-
-
-
-        <footer class="footer">
-            <div class="container">
-                <p> <strong>Desenvolvido por Bernardo Favero Andreeti e José Augusto Comiotto Rottini</strong></p>
-                <p>Engenharia de Computação - UFSM</p>
-            </div>
-        </footer>
-
-       
-   
-    </body>
+    </h:body>
 </html>

@@ -6,15 +6,16 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:corejsf="http://corejsf.com"
-      xmlns:p="http://primefaces.org/ui" >
-
-
-
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <f:metadata>
+        <f:viewParam name="id" value="#{calendarioDB.calendarioId}" />
+        <f:event type="preRenderView" listener="#{calendarioDB.buscarId}" />
+    </f:metadata>
     <h:head>
+
         <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -38,12 +39,9 @@ and open the template in the editor.
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <title>Pingo de Gente</title>
-
-
     </h:head>
-    <body>
-
-      <div class="visible-lg visible-md">
+    <h:body>
+       <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
@@ -93,7 +91,9 @@ and open the template in the editor.
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="index.xhtml">Início </a></li>
-                        <li><a href="sobre.xhtml">A escola</a></li>
+                        <li><a href="sobre.xhtml">A escola </a></li>
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galeria de Fotos<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -107,9 +107,8 @@ and open the template in the editor.
 
                         </li>
 
-
-                        <li class="dropdown" id="active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notícias<span class="sr-only">(current)</span><strong class="caret"></strong></a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notícias<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="novaNoticia.xhtml">Nova notícia</a>
@@ -118,10 +117,10 @@ and open the template in the editor.
                                     <a href="noticias.xhtml">Editar notícias</a>
                                 </li>    
                             </ul>
-                        </li>
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Calendário<strong class="caret"></strong></a>
+                        </li>
+                        <li class="dropdown" id="active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Calendário<span class="sr-only">(current)</span><strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="calendario.xhtml">Inserir Eventos</a>
@@ -150,102 +149,37 @@ and open the template in the editor.
             </div>  
         </nav>
 
+
         <div class="container-fluid" id="content">
 
             <fieldset>
-                <legend class="titulo">Notícias</legend>
+                <legend class="titulo"> Edite aqui o calendário da escola!</legend>
             </fieldset>
 
-            <p:dataTable id="noticias" class="noticia" value="#{noticiasBD.noticias}" var="valor" paginator="true" rows="10" emptyMessage="Não foram encontradas notícias.">
 
-                <p:column>
-                    <div class="titulo_noticia">
-                        <h:link value="#{valor.titulo}" outcome="editaNoticia"> 
-                            <f:param name="id" value="#{valor.id}" />
+            <h:form>
+                <p:growl id="msgs" showDetail="true" />
 
-                        </h:link>
-                    </div>
-                    <div class="data_noticia">#{valor.timestamp}</div>
-                    <div class="botao_apagaNoticia">
-                        <h:form>
-                            <p:commandButton value="x" action="#{noticiasBD.excluir()}" class="btn btn-danger btn-sm" update="noticias">
-                                <f:param name="noticiaId" value="#{valor.id}" />
-                                <p:confirm header="Confirmação" message="Tem certeza que deseja excluir essa notícia?" icon="ui-icon-alert" />
-                            </p:commandButton>
-                            
-                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-                            </p:confirmDialog>
-                        </h:form>
-                    </div>
-                    <br/>
-                    <br/>
-                    
-                </p:column>
-
-            </p:dataTable>
-
-
-           
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+                <h:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
+                    <p:outputLabel for="event" value="Selecione a Data:" />
+                    <p:calendar id="event" value="#{calendarioDB.date1}" required="true" requiredMessage="Campo obrigatório">
+                        <p:ajax event="dateSelect" listener="#{calendarioDB.onDateSelect}" update="msgs" />
+                    </p:calendar>
+                    <p:outputLabel for="titulo" value="Título do Evento:" />
+                    <p:inputTextarea id="titulo" rows="1" value="#{calendarioDB.evento}" maxlength="80" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
+                    <p:outputLabel for="desc" value="Descrição do Evento:" />
+                    <p:inputTextarea id="desc" value="#{calendarioDB.descricao}" maxlength="200" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
+                </h:panelGrid>
+                <br/>
+                <br/>
+                <p:commandButton value="Salvar" actionListener="#{calendarioDB.editar}" icon="ui-icon-check" />
+                
+            </h:form>
 
 
 
         </div>
-
-
-
-        <footer class="footer">
-            <div class="container">
-                <p> <strong>Desenvolvido por Bernardo Favero Andreeti e José Augusto Comiotto Rottini</strong></p>
-                <p>Engenharia de Computação - UFSM</p>
-            </div>
-        </footer>
-
-       
-   
-    </body>
+    </h:body>
 </html>

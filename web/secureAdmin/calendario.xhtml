@@ -7,9 +7,12 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{calendarioDB.novoCalendario}" />
+    </f:metadata>
     <h:head>
 
         <meta charset="UTF-8"/>
@@ -26,6 +29,7 @@ and open the template in the editor.
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
 
         <link href="../css/myStyle.css" rel="stylesheet"/>
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -114,7 +118,18 @@ and open the template in the editor.
                             </ul>
 
                         </li>
-                        <li class="active"><a href="calendario.xhtml">Calendário <span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown" id="active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Calendário<span class="sr-only">(current)</span><strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="calendario.xhtml">Inserir Eventos</a>
+                                </li>
+                                <li>
+                                    <a href="eventos.xhtml">Editar Eventos</a>
+                                </li>    
+                            </ul>
+                        
+                        </li>
                         <li><a href="contato.xhtml">Contato</a></li>  
 
 
@@ -137,27 +152,41 @@ and open the template in the editor.
         <div class="container-fluid" id="content">
 
             <fieldset>
-                <legend class="titulo"> Edite aqui o calendário da escola!</legend>
+                <legend class="titulo"> Insira eventos no calendário!</legend>
             </fieldset>
 
 
-            <h:form id="form">
+            <h:form>
                 <p:growl id="msgs" showDetail="true" />
 
-                <h:panelGrid columns="2" cellpadding="5">
+                <h:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
                     <p:outputLabel for="event" value="Selecione a Data:" />
-                    <p:calendar id="event" value="#{calendarioDB.date1}">
+                    <p:calendar id="event" value="#{calendarioDB.date1}" required="true" requiredMessage="Campo obrigatório">
                         <p:ajax event="dateSelect" listener="#{calendarioDB.onDateSelect}" update="msgs" />
                     </p:calendar>
-                    Título do Evento: <p:inputText value="#{calendarioDB.evento}" />
-                    Descrição do Evento: <p:inputTextarea value="#{calendarioDB.descricao}" />
+                    <p:outputLabel for="titulo" value="Título do Evento:" />
+                    <p:inputTextarea id="titulo" rows="1" value="#{calendarioDB.evento}" maxlength="80" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
+                    <p:outputLabel for="desc" value="Descrição do Evento:" />
+                    <p:inputTextarea id="desc" value="#{calendarioDB.descricao}" maxlength="200" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
                 </h:panelGrid>
-                <p:commandButton value="Salvar" update="msgs" actionListener="#{calendarioDB.click}" icon="ui-icon-disk" />
+                <br/>
+                <br/>
+                <p:commandButton value="Salvar" update="msgs" actionListener="#{calendarioDB.inserir}" icon="ui-icon-check" />
 
                 <p:dialog modal="true" resizable="false" header="Detalhes do Evento" widgetVar="dlg" showEffect="fold">
                     <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                        <h:outputText value="Data do Evento:" />
+                        <h:outputText value="Data:"/>
                         <h:outputText value="#{calendarioDB.date1}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="Titulo:"/>
+                        <h:outputText value="#{calendarioDB.evento}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="Descrição:"/>
+                        <h:outputText value="#{calendarioDB.descricao}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:outputText>
                     </p:panelGrid>

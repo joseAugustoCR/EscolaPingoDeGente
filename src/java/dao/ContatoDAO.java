@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 /**
  *
  * @author bernardo
@@ -36,6 +38,7 @@ public class ContatoDAO {
 
 	public void inserir(Contato c) {
 		Connection conexao = abrir();
+                FacesContext facesContext = FacesContext.getCurrentInstance();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
 					"INSERT INTO Contato (endereco, fone1, fone2, fone3) VALUES (?, ?, ?, ?)");
@@ -46,8 +49,10 @@ public class ContatoDAO {
 			ps.execute();
 			ps.close();
 			conexao.close();
+                        
 		} catch (SQLException e) {
 			e.printStackTrace();
+                        //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao salvar informações.", e.getMessage()));
 		}
 	}
 

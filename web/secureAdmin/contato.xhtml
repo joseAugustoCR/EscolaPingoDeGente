@@ -24,7 +24,8 @@ and open the template in the editor.
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"/>
 
         <link href="../css/myStyle.css" rel="stylesheet"/>
-        
+
+
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -111,7 +112,18 @@ and open the template in the editor.
                             </ul>
                       
                         </li>
-                    <li><a href="calendario.xhtml">Calendário</a></li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Calendário<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="calendario.xhtml">Inserir Eventos</a>
+                                </li>
+                                <li>
+                                    <a href="eventos.xhtml">Editar Eventos</a>
+                                </li>    
+                            </ul>
+                        
+                        </li>
                     <li class="active"><a href="contato.xhtml">Contato <span class="sr-only">(current)</span></a></li>  
 
 
@@ -139,15 +151,23 @@ and open the template in the editor.
 
           
           <h:form>
-              <h:panelGrid columns="2" cellpadding="5">
-                Endereço:   <p:inputText value="#{contatoBD.endereco}" class="input"/>
-                Telefone 1: <p:inputText value="#{contatoBD.fone1}" class="input"/>
-                Telefone 2: <p:inputText value="#{contatoBD.fone2}" class="input"/>
-                Telefone 3: <p:inputText value="#{contatoBD.fone3}" class="input"/>
-
-                <br/><br/>
+              <h:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
+                <p:outputLabel for="endereco_input" value="Endereço:"/>
+                    <p:inputTextarea id="endereco_input" rows="5" value="#{contatoBD.endereco}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
+                <p:outputLabel for="fone1_input" value="Telefone 1:"/>
+                    <p:inputTextarea id="fone1_input" rows="5" value="#{contatoBD.fone1}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
+                <p:outputLabel for="fone2_input" value="Telefone 2:"/>
+                    <p:inputTextarea id="fone2_input" rows="5" value="#{contatoBD.fone2}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>
+                <p:outputLabel for="fone3_input" value="Telefone 3:"/>
+                    <p:inputTextarea id="fone3_input" rows="5" value="#{contatoBD.fone3}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>    
               </h:panelGrid>
-              <p:commandButton value="Salvar" icon="ui-icon-disk" action="#{contatoBD.atualizar}" />
+              <br/>
+              <br/>
+              <p:commandButton value="Salvar" icon="ui-icon-disk" action="#{contatoBD.atualizar}" /> 
               
           </h:form>
       
