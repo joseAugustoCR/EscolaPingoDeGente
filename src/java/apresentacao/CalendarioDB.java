@@ -6,20 +6,16 @@
 package apresentacao;
 
 import dao.CalendarioDAO;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
-import javax.inject.Named;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import java.text.SimpleDateFormat;
  
-import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 
 /**
@@ -86,18 +82,7 @@ public class CalendarioDB implements Serializable{
     public void novoCalendario(){
         calendario = new Calendario();
     }
-    
-    public void inserir() {
-        
-        dao.inserir(calendario);
-        RequestContext requestContext = RequestContext.getCurrentInstance();
-         
-        requestContext.update("form:display");
-        requestContext.execute("PF('dlg').show()");
-        calendario = new Calendario();
-        
-    }
-        
+                
     public String editar() {
         dao.editar(calendario);
          return "eventos.xhtml" + "?faces-redirect=true";
@@ -194,12 +179,14 @@ public class CalendarioDB implements Serializable{
 
         return dao.buscarDezembro();
     }
-        
-    
-    public void onDateSelect(SelectEvent event) {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Data Selecionada:", format.format(event.getObject())));
+       
+            
+    public void inserir() {
+        dao.inserir(calendario);
+        calendario = new Calendario();
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Evento adicionado com sucesso!"));
+      
+               
     }
       
 }

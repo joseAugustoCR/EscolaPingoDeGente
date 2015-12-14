@@ -9,10 +9,12 @@ import dao.ContatoDAO;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
 
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 /**
  *
  * @author bernardo
@@ -67,5 +69,6 @@ public class ContatoBD implements Serializable{
     
     public void atualizar(){
         dao.alterar(contato);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Informações alteradas com sucesso!"));
     }
 }

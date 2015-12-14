@@ -156,41 +156,23 @@ and open the template in the editor.
             </fieldset>
 
 
-            <h:form>
-                <p:growl id="msgs" showDetail="true" />
+            <h:form id="form">
+                <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
 
-                <h:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
-                    <p:outputLabel for="event" value="Selecione a Data:" />
-                    <p:calendar id="event" value="#{calendarioDB.date1}" required="true" requiredMessage="Campo obrigatório">
-                        <p:ajax event="dateSelect" listener="#{calendarioDB.onDateSelect}" update="msgs" />
-                    </p:calendar>
+                <p:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
+                    <p:outputLabel for="popup" value="Selecione a Data:" />
+                    <p:calendar id="popup" value="#{calendarioDB.date1}" required="true" requiredMessage="Campo obrigatório"/>
                     <p:outputLabel for="titulo" value="Título do Evento:" />
                     <p:inputTextarea id="titulo" rows="1" value="#{calendarioDB.evento}" maxlength="80" required="true" 
                                      requiredMessage="Campo obrigatório"/>
                     <p:outputLabel for="desc" value="Descrição do Evento:" />
                     <p:inputTextarea id="desc" value="#{calendarioDB.descricao}" maxlength="200" required="true" 
                                      requiredMessage="Campo obrigatório"/>
-                </h:panelGrid>
+                </p:panelGrid>
                 <br/>
                 <br/>
                 <p:commandButton value="Salvar" update="msgs" actionListener="#{calendarioDB.inserir}" icon="ui-icon-check" />
-
-                <p:dialog modal="true" resizable="false" header="Detalhes do Evento" widgetVar="dlg" showEffect="fold">
-                    <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                        <h:outputText value="Data:"/>
-                        <h:outputText value="#{calendarioDB.date1}">
-                            <f:convertDateTime pattern="dd/MM/yyyy" />
-                        </h:outputText>
-                        <h:outputText value="Titulo:"/>
-                        <h:outputText value="#{calendarioDB.evento}">
-                            <f:convertDateTime pattern="dd/MM/yyyy" />
-                        </h:outputText>
-                        <h:outputText value="Descrição:"/>
-                        <h:outputText value="#{calendarioDB.descricao}">
-                            <f:convertDateTime pattern="dd/MM/yyyy" />
-                        </h:outputText>
-                    </p:panelGrid>
-                </p:dialog>
+                
             </h:form>
 
 

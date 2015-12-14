@@ -17,7 +17,7 @@
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-
+        
 
 
 
@@ -39,7 +39,8 @@
 
         <!-- Include js plugin -->
         <script src="assets/owl-carousel/owl.carousel.js"></script>
-
+        <!-- Icone ao lado do título -->
+        <link rel="icon" href="img/logo.png"/>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -390,10 +391,10 @@
                         <div style="float:left;margin-right: 40px; margin-top: 30px;">
                             <div class="text-center">
                                 <address class="endereco_contato">
-                                    <strong >Educação Infantil Pingo de Gente</strong><br /> Rua Nelson Ehlers, 379<br /> Erechim, RS<br /> 
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-mobile"></i> <strong> 054 92256713 </strong></div> 
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-mobile"></i> <strong> 054 99530084 </strong></div> 
+                                    <strong >Educação Infantil Pingo de Gente</strong><br /> <h:outputText value="#{contatoBD.endereco}"/><br /> Erechim, RS<br /> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-mobile"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-mobile"></i> <strong> <h:outputText value="#{contatoBD.fone3}" /> </strong></div> 
                                 </address>
                                 <div><a class="btn btn-primary" href="contato.xhtml">Entre em contato</a></div>
                                 <div style="margin-top: 20px" class="wow bounceInLeft" >

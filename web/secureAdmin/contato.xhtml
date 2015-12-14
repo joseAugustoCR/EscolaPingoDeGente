@@ -151,6 +151,7 @@ and open the template in the editor.
 
           
           <h:form>
+              <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
               <h:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
                 <p:outputLabel for="endereco_input" value="Endereço:"/>
                     <p:inputTextarea id="endereco_input" rows="5" value="#{contatoBD.endereco}" class="input" maxlength="254" required="true" 
@@ -167,7 +168,7 @@ and open the template in the editor.
               </h:panelGrid>
               <br/>
               <br/>
-              <p:commandButton value="Salvar" icon="ui-icon-disk" action="#{contatoBD.atualizar}" /> 
+              <p:commandButton value="Salvar" update="msgs" icon="ui-icon-disk" action="#{contatoBD.atualizar}" /> 
               
           </h:form>
       

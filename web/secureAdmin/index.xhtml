@@ -171,6 +171,7 @@ and open the template in the editor.
 
 
             <h:form>
+                <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
                 <p:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
                     <p:outputLabel for="quemSomos_input" value="Quem somos:"/>
                     <p:inputTextarea id="quemSomos_input" rows="5" value="#{inicioBD.quemSomos}" class="input" maxlength="254" required="true" 
@@ -193,7 +194,7 @@ and open the template in the editor.
                 <br/>
                 <br/>
 
-                <p:commandButton value="Salvar" action="#{inicioBD.atualizar}" icon="ui-icon-disk"/>
+                <p:commandButton value="Salvar" update="msgs" action="#{inicioBD.atualizar}" icon="ui-icon-disk"/>
             </h:form>
 
 
