@@ -145,7 +145,7 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
     -webkit-box-shadow: 0px -5px 25px #888888;
 
 
-    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    background-image: url(../img/black-linen.png);
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 /* title */
@@ -160,7 +160,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus,.navbar-default .navbar-nav > li > a:enabled {
     background-color: #395FA9;
-    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    background-image: url(../img/black-linen.png);
     color: white;
     transition: background-color 0.7s;
     transition-timing-function: linear;
@@ -179,7 +179,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     //border-bottom: 3px solid black;
     background-color: #3366FF;
 
-    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    background-image: url(../img/black-linen.png);
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
 }
@@ -188,7 +188,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     //border-bottom: 3px solid black;
     background-color: #3366FF;
 
-    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+    background-image: url(../img/black-linen.png);
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
 }
@@ -406,7 +406,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 
 .jumbotron{
-    background-image: url("http://www.optimistmcr.com/uploads/3/9/3/1/39316493/4704152.jpg");
+    background-image: url(../img/4704152.jpg);
     max-height: 350px;
     margin-top:0px;
     padding-top:20px;
