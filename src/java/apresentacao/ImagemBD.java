@@ -5,16 +5,15 @@
  */
 package apresentacao;
 
-import dao.GaleriaDAO;
+
 import dao.ImagemDAO;
 import java.io.Serializable;
-import java.util.Collection;
+;
 import java.util.Map;
-import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.primefaces.model.UploadedFile;
+
 
 /**
  *

@@ -10,23 +10,43 @@ and open the template in the editor.
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
+        <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+        <link href="css/myStyle.css" rel="stylesheet"/>
+        <!-- Icone ao lado do título -->
+        <link rel="icon" href="img/logo.png"/>
     </head>
- <h:body>
-  <p>Login to access secure pages:</p>
-  <form method="post" action="j_security_check">
-    <h:panelGrid columns="2">
-      <h:outputLabel for="j_username" value="Username" />
-      <input type="text" name="j_username" />
+    <h:body>
+        <div class="container-fluid" id="content">
 
-      <h:outputLabel for="j_password" value="Password" />
-      <input type="password" name="j_password" />
+            <fieldset>
+                <legend class="titulo">Login</legend>
+            </fieldset>
+           
+            <form method="post" action="j_security_check">
+                <h:panelGrid columns="2" style="margin: 0 auto;">
+                    <h:outputLabel for="j_username" value="Usuário:" style="padding-right: 20px;" />
+                    <input type="text" name="j_username" />
 
-      <h:outputText value="" />
-      <h:panelGrid columns="2">
-        <input type="submit" name="submit" value="Login" />
-        <h:button outcome="index" value="Cancel" />
-      </h:panelGrid>
-    </h:panelGrid>
-  </form>
-</h:body>
+                    <h:outputLabel for="j_password" value="Senha:" style="padding-right: 20px;" />
+                    <input type="password" name="j_password" />
+
+                   
+                </h:panelGrid>
+                <br/>
+                <br/>
+                <h:panelGrid columns="2" style="margin: 0 auto;">
+                    <input type="submit" name="submit" value="Login" />
+                    <h:button outcome="index" value="Cancel" />
+                </h:panelGrid>
+
+            </form>
+        </div>
+        <script src="js/wow.min.js"></script>
+    </h:body>
 </html>

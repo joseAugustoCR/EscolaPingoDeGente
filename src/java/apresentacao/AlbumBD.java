@@ -7,12 +7,10 @@ package apresentacao;
 
 import dao.AlbumDAO;
 import java.util.Collection;
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
-import javax.faces.application.FacesMessage;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
+
 
 /**
  *

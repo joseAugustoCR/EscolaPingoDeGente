@@ -29,7 +29,7 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-    <!--
+    
     <security-constraint>
         <display-name>AdminConstraint</display-name>
         <web-resource-collection>
@@ -43,7 +43,15 @@
             <role-name>AdminRole</role-name>
         </auth-constraint>
     </security-constraint>
-    -->
+    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>file</realm-name>
+        <form-login-config>
+            <form-login-page>/faces/login.xhtml</form-login-page>
+            <form-error-page>/faces/loginError.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
     <security-role>
         <description>Administrador</description>
         <role-name>AdminRole</role-name>

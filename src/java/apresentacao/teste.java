@@ -5,7 +5,7 @@
  */
 package apresentacao;
 
-import javax.inject.Named;
+
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 
