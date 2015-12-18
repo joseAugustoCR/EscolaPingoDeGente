@@ -210,7 +210,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .carousel .item {
     width: 100%; /*slider width*/
-    max-height: 450px; /*slider height*/
+    max-height: 500px; /*slider height*/
 
 }
 
@@ -236,7 +236,7 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .carousel-inner>.item>img {
     margin: 0 auto;
-    height: 400px;
+    height: 500px;
 }
 
 #row_carousel{
