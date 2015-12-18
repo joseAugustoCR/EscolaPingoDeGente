@@ -4,38 +4,31 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-    
     <context-param>
         <param-name>facelets.LIBRARIES</param-name>
         <param-value>/WEB-INF/corejsf.taglib.xml</param-value>
     </context-param>
-    
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
         <param-value>/WEB-INF/faces-config.xml</param-value>
     </context-param>
-    
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
-    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-    
     <security-constraint>
         <display-name>AdminConstraint</display-name>
         <web-resource-collection>
@@ -49,16 +42,10 @@
             <role-name>AdminRole</role-name>
         </auth-constraint>
     </security-constraint>
-    
     <login-config>
-        <auth-method>FORM</auth-method>
+        <auth-method>BASIC</auth-method>
         <realm-name>file</realm-name>
-        <form-login-config>
-            <form-login-page>/faces/login.xhtml</form-login-page>
-            <form-error-page>/faces/loginError.xhtml</form-error-page>
-        </form-login-config>
     </login-config>
-    
     <security-role>
         <description>Administrador</description>
         <role-name>AdminRole</role-name>
@@ -72,7 +59,6 @@
         <servlet-name>ImagemServlet</servlet-name>
         <url-pattern>/image</url-pattern>
     </servlet-mapping>
-    
     <!-- Upload filter configuration -->
     <filter>
         <filter-name>PrimeFaces FileUpload Filter</filter-name>
@@ -90,5 +76,4 @@
         <filter-name>PrimeFaces FileUpload Filter</filter-name>
         <servlet-name>Faces Servlet</servlet-name>
     </filter-mapping>
-    
 </web-app>
