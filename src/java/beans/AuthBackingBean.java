@@ -25,7 +25,7 @@ public class AuthBackingBean {
   private static Logger log = Logger.getLogger(AuthBackingBean.class.getName());
   
   public String logout() {
-    String result="/login?faces-redirect=true";
+    String result="/index?faces-redirect=true";
     
     FacesContext context = FacesContext.getCurrentInstance();
     HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
