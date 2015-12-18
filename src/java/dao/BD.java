@@ -11,7 +11,7 @@ package dao;
  */
 public class BD {
     	public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public static final String SENHA = "123456";
-	public static final String USUARIO = "root";
-	public static final String URL_CONEXAO = "jdbc:mysql://localhost:3306/EscolaPingoDeGenteDB";
+	public static final String SENHA = "XYFypg49341";
+	public static final String USUARIO = "adminDataBase";
+	public static final String URL_CONEXAO = "jdbc:mysql://node77574-pingodegente.jelasticlw.com.br/EscolaPingoDeGenteDB";
 }
