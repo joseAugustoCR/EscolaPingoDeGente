@@ -153,9 +153,12 @@ and open the template in the editor.
           <h:form>
               <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
               <h:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
-                <p:outputLabel for="endereco_input" value="Endereço:"/>
+                <p:outputLabel for="endereco_input" value="Endereço I:"/>
                     <p:inputTextarea id="endereco_input" rows="5" value="#{contatoBD.endereco}" class="input" maxlength="254" required="true" 
                                      requiredMessage="Campo obrigatório"/>
+                <p:outputLabel for="endereco_inputII" value="Endereço II:"/>
+                    <p:inputTextarea id="endereco_inputII" rows="5" value="#{contatoBD.enderecoII}" class="input" maxlength="254" required="true" 
+                                     requiredMessage="Campo obrigatório"/>    
                 <p:outputLabel for="fone1_input" value="Telefone 1:"/>
                     <p:inputTextarea id="fone1_input" rows="5" value="#{contatoBD.fone1}" class="input" maxlength="254" required="true" 
                                      requiredMessage="Campo obrigatório"/>
