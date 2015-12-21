@@ -6,6 +6,8 @@
 package dao;
 
 import apresentacao.Inicio;
+import apresentacao.Noticia;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,8 +16,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -55,16 +57,18 @@ public class InicioDAO {
 		}
 	}
 
-	public void alterar(Inicio c) {
+	public void alterar(Inicio c, UploadedFile logo) throws IOException {
 		Connection conexao = abrir();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
-					"UPDATE Inicio SET quemSomos = ?, qualidade = ?, estrutura = ?, missao = ? WHERE id = ?");
+					"UPDATE Inicio SET quemSomos = ?, qualidade = ?, estrutura = ?, missao = ?, logo = ?  WHERE id = ?");
 			ps.setString(1, c.getQuemSomos());
 			ps.setString(2, c.getQualidade());
 			ps.setString(3, c.getEstrutura());
 			ps.setString(4, c.getMissao());
-                        ps.setInt(5, c.getId());
+                        ps.setBinaryStream(5, logo.getInputstream());
+                        ps.setInt(6, 1);
+                      
 			ps.execute();
 			ps.close();
 			conexao.close();
@@ -72,6 +76,25 @@ public class InicioDAO {
 			e.printStackTrace();
 		}
 	}
+        
+        public void editar(Noticia c, UploadedFile imagem) throws IOException {
+        Connection conexao = abrir();
+        try {
+            PreparedStatement ps = conexao.prepareStatement(
+                    "UPDATE Noticias SET titulo = ?, texto = ?, imagem = ?, timestamp = null, videoURL = ? WHERE id = ?");
+            ps.setString(1, c.getTitulo());
+            ps.setString(2, c.getTexto());
+            ps.setBinaryStream(3, imagem.getInputstream());
+            ps.setString(4, c.getUrl());
+            ps.setInt(5, c.getId());
+
+            ps.execute();
+            ps.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 	/*public void excluir(Inicio c) {
 		Connection conexao = abrir();

@@ -10,8 +10,12 @@ package dao;
  * @author guto
  */
 public class BD {
-    	public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    	/*public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	public static final String SENHA = "XYFypg49341";
 	public static final String USUARIO = "adminDataBase";
-	public static final String URL_CONEXAO = "jdbc:mysql://node77574-pingodegente.jelasticlw.com.br/EscolaPingoDeGenteDB";
+	public static final String URL_CONEXAO = "jdbc:mysql://node77574-pingodegente.jelasticlw.com.br/EscolaPingoDeGenteDB";*/
+    public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	public static final String SENHA = "1234";
+	public static final String USUARIO = "root";
+	public static final String URL_CONEXAO = "jdbc:mysql://127.0.0.1:3306/EscolaPingoDeGenteDB";
 }

@@ -84,7 +84,26 @@ CREATE TABLE `Inicio` (
   `qualidade` varchar(254) DEFAULT NULL,
   `estrutura` varchar(254) DEFAULT NULL,
   `missao` varchar(254) DEFAULT NULL,
+  `logo` mediumblob NOT NULL,
   `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `Carousel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Carousel` (
+  `titulo1` varchar(100) NOT NULL,
+  `legenda1` varchar(254) NOT NULL,
+  `imagem1` mediumblob NOT NULL,
+   `titulo2` varchar(100) NOT NULL,
+  `legenda2` varchar(254) NOT NULL,
+  `imagem2` mediumblob NOT NULL,
+   `titulo3` varchar(100) NOT NULL,
+  `legenda3` varchar(254) NOT NULL,
+  `imagem3` mediumblob NOT NULL,
+  `id` int(11) AUTO_INCREMENT NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

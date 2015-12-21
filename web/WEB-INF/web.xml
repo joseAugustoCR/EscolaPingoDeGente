@@ -8,10 +8,12 @@
         <param-name>facelets.LIBRARIES</param-name>
         <param-value>/WEB-INF/corejsf.taglib.xml</param-value>
     </context-param>
+    <!--
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
         <param-value>/WEB-INF/faces-config.xml</param-value>
-    </context-param>
+    </context-param
+    -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -57,6 +59,15 @@
     <servlet-mapping>
         <servlet-name>ImagemServlet</servlet-name>
         <url-pattern>/image</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>Carousel</servlet-name>
+        <servlet-class>servlets.Carousel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Carousel</servlet-name>
+        <url-pattern>/Carousel</url-pattern>
     </servlet-mapping>
     <!-- Upload filter configuration -->
     <filter>

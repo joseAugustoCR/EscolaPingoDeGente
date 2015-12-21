@@ -50,7 +50,7 @@ public class ImagemServlet extends HttpServlet {
              
             // Create the statement
             // This query is specific to MySQL, it returns only one row (using 'LIMIT 1') - the last uploaded file
-            PreparedStatement statement = c.prepareStatement("SELECT id, imagem FROM Galeria ORDER BY id DESC LIMIT 1");
+            PreparedStatement statement = c.prepareStatement("SELECT id, imagem FROM Imagem ORDER BY id DESC LIMIT 1");
              
             ResultSet rs = statement.executeQuery();
              

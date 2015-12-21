@@ -42,19 +42,7 @@ public class NoticiasDAO {
 
     public void inserir(Noticia c, UploadedFile imagem) throws IOException {
         Connection conexao = abrir();
-        try {/*
-			PreparedStatement ps = conexao.prepareStatement(
-					"INSERT INTO Noticias (titulo, texto, imagem, timestamp) VALUES (?, ?, ?, null)");
-                        
-			
-                        ps.setString(1, c.getTitulo());
-			ps.setString(2, c.getTexto()); 
-                        ps.setBinaryStream(3, null);  //colocar imagem
-			
-                        
-			ps.execute();
-			ps.close();
-			conexao.close();*/
+        try {
             PreparedStatement statement = conexao.prepareStatement("INSERT INTO Noticias (titulo, texto, imagem, timestamp, videoURL) VALUES (?, ?, ?, null, ?)");
             // Set file data
             statement.setString(1, c.getTitulo());

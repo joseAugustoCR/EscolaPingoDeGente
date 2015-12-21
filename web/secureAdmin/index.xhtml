@@ -55,7 +55,8 @@ and open the template in the editor.
                                 </div>
                                 <address class="endereco_contato_header">
 
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> (54) 3015-1155 - Escola I</strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> (54) 3712-3611 - Escola II </strong></div> 
                                 </address>
 
                             </div>
@@ -84,7 +85,19 @@ and open the template in the editor.
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.xhtml">Início <span class="sr-only">(current)</span></a></li>
+                        
+                        <li class="dropdown" id="active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Início<span class="sr-only">(current)</span><strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="index.xhtml">Geral</a>
+                                </li>
+                                <li>
+                                    <a href="carousel.xhtml">Carousel</a>
+                                </li>    
+                            </ul>
+                        </li>
+                        
                         <li><a href="sobre.xhtml">A escola</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galeria de Fotos<strong class="caret"></strong></a>
@@ -170,9 +183,13 @@ and open the template in the editor.
 
 
 
-            <h:form>
+            <h:form enctype="multipart/form-data">
                 <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
                 <p:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
+                    <p:outputLabel for="logo_input" value="Selecionar logo:"/>
+                    <p:fileUpload id="logo_input" label="Selecionar imagem" value="#{inicioBD.logo}" mode="simple" skinSimple="true"
+                                  sizeLimit="1000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                    
                     <p:outputLabel for="quemSomos_input" value="Quem somos:"/>
                     <p:inputTextarea id="quemSomos_input" rows="5" value="#{inicioBD.quemSomos}" class="input" maxlength="254" required="true" 
                                      requiredMessage="Campo obrigatório"/>

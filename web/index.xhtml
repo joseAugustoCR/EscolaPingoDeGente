@@ -17,7 +17,7 @@
         <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'/>
         <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-        
+
 
 
 
@@ -58,16 +58,16 @@
         <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
-                    <div class="col-md-12" id="col_header">
+                    <div class="col-md-12" id="col_header" style="margin-left: 0px; margin-right: 0px; padding-left: 0px;padding-right: 0px;">
 
-                        <div class="col-md-2" id="hidden">
-                            <div class="tb-img"></div>
+                        <div class="col-md-2" id="hidden" style="margin-left: 0px; margin-right: 0px; padding-left: 0px;padding-right: 0px;">
+                            <p:graphicImage class="img-responsive" value="#{inicioBD.logoParaExibir}" id="logo" cache="false"/>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-7" style="margin-left: 0px; margin-right: 0px; padding-left: 0px;padding-right: 0px;">
                             <div class="tb-titulo"><a href="index.xhtml" >Escola de Educação Infantil Pingo de Gente</a>
                                 <div>Aqui sua criança aprende brincando!</div></div>
                         </div>
-                        <div class="col-md-2" id="hidden">
+                        <div class="col-md-3" id="hidden" style="margin-left: 0px; margin-right: 0px; padding-left: 0px;padding-right: 0px;">
                             <div class="tb-social">
                                 <div style="margin-top: 20px" class="wow bounceInRight" >
                                     <a href="https://www.facebook.com/educacaoinfantil.pingodegente?fref=ts"> <i class="fa fa-facebook-official fa-3x"  ></i> </a>
@@ -75,8 +75,9 @@
                                 </div>
                                 <address class="endereco_contato_header">
 
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
-                                </address>
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> (54) 3015-1155 - Escola I</strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> (54) 3712-3611 - Escola II </strong></div> 
+                                 </address>
 
                             </div>
                         </div>
@@ -119,7 +120,7 @@
 
                     </ul>
 
-                    
+
                 </div><!-- /.navbar-collapse -->
                 <!-- /.container-fluid -->
             </div>  
@@ -142,41 +143,42 @@
 
                             <div class="item">
 
-                                <img class="img-responsive center-block"  alt="Carousel Bootstrap First" src="img/apres_final_ano.jpg" />
+                                <img class="img-responsive center-block"  alt="Carousel Bootstrap First" src="Carousel?id=1" />
+
 
 
                                 <div class="carousel-caption">
                                     <h4>
-                                        Apresentações de Fim de Ano
+                                        #{carouselBD.titulo1}
                                     </h4>
                                     <p>
-                                        Aqui seu filho participa de apresentações marcantes de final de ano!
+                                        #{carouselBD.legenda1}
                                     </p>
                                 </div>
 
                             </div>
 
                             <div class="item">
-                                <img class="img-responsive center-block" alt="Carousel Bootstrap Second" src="img/musicalizacao.jpg" />
+                                <img class="img-responsive center-block" alt="Carousel Bootstrap Second" src="Carousel?id=2" />
                                 <div class="carousel-caption">
                                     <h4>
-                                        Aulas de Musicalização
+                                        #{carouselBD.titulo2}
                                     </h4>
                                     <p>
-                                        De extrema importância na educação de crianças, aulas de musicalização são disponibilizadas na Pingo de Gente!
+                                        #{carouselBD.legenda2}
                                     </p>
                                 </div>
                             </div>
 
 
                             <div class="item active">
-                                <img class="img-responsive center-block" alt="Carousel Bootstrap Third" src="img/psicomotricidade.jpg" />
+                                <img class="img-responsive center-block" alt="Carousel Bootstrap Third" src="Carousel?id=3" />
                                 <div class="carousel-caption">
-                                    <h4 >
-                                        Psicomotricidade
+                                    <h4>
+                                        #{carouselBD.titulo3}
                                     </h4>
                                     <p>
-                                        Atividades físicas que contribuem para o desenvolvimento de seu filho(a) são exploradas nas aulas de psicomotricidade!
+                                        #{carouselBD.legenda3}
                                     </p>
                                 </div>
                             </div>
@@ -282,15 +284,15 @@
                             </fieldset>
                             <div class="Flexible-container-video">
                                 <!-- Copy & Pasted from YouTube -->
-                                 Em breve! 
-                        <!--        <iframe style="padding-right: 0px;" width="560" height="349" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&amp;hd=1" frameborder="0" allowfullscreen="true"></iframe> -->
+                                Em breve! 
+                                <!--        <iframe style="padding-right: 0px;" width="560" height="349" src="http://www.youtube.com/embed/n_dZNLr2cME?rel=0&amp;hd=1" frameborder="0" allowfullscreen="true"></iframe> -->
                             </div>
 
                         </div>
                         <div class="col-md-6">
                             <fieldset>
                                 <legend class="text-center header" style="color:black;">Últimas notícias </legend>
-                                
+
                             </fieldset>
                             <div style="padding-top: 0px;margin: 0 auto;width: 100%;">
                                 <p:dataTable class="noticia" value="#{noticiasBD.ultimasNoticias}" var="valor" emptyMessage="Não foram encontradas notícias.">
@@ -325,12 +327,12 @@
                                 <br/>
                                 <br/>
                                 <br/>
-                                
-                                
-                            
-                               <div style="margin:0 auto;margin-top: 30px;width: 20%;">
-                                <a class="btn btn-primary" href="noticias.xhtml" >Ver todas</a>
-                               </div>
+
+
+
+                                <div style="margin:0 auto;margin-top: 30px;width: 20%;">
+                                    <a class="btn btn-primary" href="noticias.xhtml" >Ver todas</a>
+                                </div>
 
                             </div>
                         </div>
@@ -340,39 +342,39 @@
         </div>
 
         <div class="patrocinadores" style="width:100%;">
-        
-               <div class="row" style="margin-left: 0px;margin-right: 0px;padding-left: 0px;padding-right: 0px">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4" id="patrocinador1">
-                                <br/>
-                                <br/>
-                                <br/>
-                                
-                                
-                            </div>
-                            
-                            <div class="col-md-4" id="patrocinador2">
-                                <br/>
-                                <br/>
-                                <br/>
-                                
-                                
-                            </div>
-                            
-                            <div class="col-md-4" id="patrocinador3">
-                                <br/>
-                                <br/>
-                                <br/>
-                                
-                                
-                            </div>
 
-                        </div>     
-                    </div>
-                    </div>
-                
-           
+            <div class="row" style="margin-left: 0px;margin-right: 0px;padding-left: 0px;padding-right: 0px">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4" id="patrocinador1">
+                            <br/>
+                            <br/>
+                            <br/>
+
+
+                        </div>
+
+                        <div class="col-md-4" id="patrocinador2">
+                            <br/>
+                            <br/>
+                            <br/>
+
+
+                        </div>
+
+                        <div class="col-md-4" id="patrocinador3">
+                            <br/>
+                            <br/>
+                            <br/>
+
+
+                        </div>
+
+                    </div>     
+                </div>
+            </div>
+
+
         </div>
 
 

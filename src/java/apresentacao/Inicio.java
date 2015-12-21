@@ -15,6 +15,7 @@ public class Inicio {
     private String qualidade;
     private String estrutura;
     private String missao;
+    private byte[] logo;
 
     public Inicio() {
     }
@@ -37,6 +38,16 @@ public class Inicio {
         this.id = id;
     }
 
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+
+    
+    
     public String getQuemSomos() {
         return quemSomos;
     }
