@@ -41,8 +41,9 @@ public class ContatoDAO {
                 FacesContext facesContext = FacesContext.getCurrentInstance();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
-					"INSERT INTO Contato (endereco, fone1, fone2, fone3) VALUES (?, ?, ?, ?)");
+					"INSERT INTO Contato (endereco, enderecoII,  fone1, fone2, fone3) VALUES (?, ? , ? , ? , ?)");
 			ps.setString(1, c.getEndereco());
+                        ps.setString(1, c.getEnderecoII());
 			ps.setString(2, c.getFone1());
 			ps.setString(3, c.getFone2());
 			ps.setString(4, c.getFone3());
@@ -60,8 +61,9 @@ public class ContatoDAO {
 		Connection conexao = abrir();
 		try {
 			PreparedStatement ps = conexao.prepareStatement(
-					"UPDATE Contato SET endereco = ?, fone1 = ?, fone2 = ?, fone3 = ? WHERE id = ?");
+					"UPDATE Contato SET endereco = ?, enderecoII = ?, fone1 = ?, fone2 = ?, fone3 = ? WHERE id = ?");
 			ps.setString(1, c.getEndereco());
+                        ps.setString(1, c.getEnderecoII());
 			ps.setString(2, c.getFone1());
 			ps.setString(3, c.getFone2());
 			ps.setString(4, c.getFone3());
@@ -87,6 +89,7 @@ public class ContatoDAO {
                         if(rs != null && rs.next()){  
                             contato.setId(rs.getInt("id"));
                             contato.setEndereco(rs.getString("endereco"));
+                            contato.setEnderecoII(rs.getString("enderecoII"));
                             contato.setFone1(rs.getString("fone1"));
                             contato.setFone2(rs.getString("fone2"));
                             contato.setFone3(rs.getString("fone3"));
@@ -110,6 +113,7 @@ public class ContatoDAO {
 				Contato temp = new Contato();
 				temp.setId(rs.getInt("id"));
                                 temp.setEndereco(rs.getString("endereco"));
+                                temp.setEnderecoII(rs.getString("enderecoII"));
                                 temp.setFone1(rs.getString("fone1"));
                                 temp.setFone2(rs.getString("fone2"));
                                 temp.setFone3(rs.getString("fone3"));

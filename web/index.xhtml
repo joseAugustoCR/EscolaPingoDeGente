@@ -74,8 +74,8 @@
                                     <a href="https://www.youtube.com/?gl=BR"> <i class="fa fa-youtube-play fa-3x"  ></i> </a>
                                 </div>
                                 <address class="endereco_contato_header">
-
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong></div>
                                 </address>
 
                             </div>
@@ -194,11 +194,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="jumbotron">
-                            <h2>
+                            <h2 id="jumbotron_text">
                                 Quem somos?
                             </h2>
                             <p>
-                                <h:outputText value="#{inicioBD.quemSomos}" /><br/>
+                                <br/><h:outputText id="jumbotron_text" value="#{inicioBD.quemSomos}" /><br/>
                             </p>
                             <p>
                                 <a class="btn btn-primary btn-large" href="sobre.xhtml">Saiba mais</a>
@@ -381,12 +381,15 @@
                 <div id="bottom_item">
                     <fieldset>
                         <legend class="text-center header" style="font-size: 23px; padding-bottom: 10px; color: white;" ><strong>Onde Estamos?</strong></legend>
-                        <div style="float:left;margin-right: 40px; margin-top: 30px;">
+                        <div style="float:left;margin-right: 40px; margin-top: 5px;">
                             <div class="text-center">
                                 <address class="endereco_contato">
-                                    <strong >Educação Infantil Pingo de Gente</strong><br /> <h:outputText value="#{contatoBD.endereco}"/><br /> Erechim, RS<br /> 
+                                    <strong >Educação Infantil Pingo de Gente</strong> <br /> 
+                                    <h:outputText value="#{contatoBD.endereco}"/> <br />
+                                    <h:outputText value="#{contatoBD.enderecoII}"/> <br /> 
+                                    Erechim, RS<br /> 
                                     <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong></div> 
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-mobile"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong></div> 
                                     <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-mobile"></i> <strong> <h:outputText value="#{contatoBD.fone3}" /> </strong></div> 
                                 </address>
                                 <div><a class="btn btn-primary" href="contato.xhtml">Entre em contato</a></div>

@@ -78,7 +78,7 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
 .tb-social {
     position: absolute;
     right: 20px;
-    top: 5px;
+    top: 15px;
     list-style: outside none none;
     text-align: center;
 }
@@ -94,10 +94,10 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
     width: 550px;
     height: 50px;
     background: transparent url("images/tb-logo-header.png") no-repeat scroll center center / contain;
-    color: #003399;
+    color: #FF751A;
     /*font-family: 'Indie Flower', cursive;*/
     font-family: 'Great Vibes', cursive;
-    font-size: 35px;
+    font-size: 40px;
     // padding-top: 5px;
     //font-weight: bold;
 }
@@ -407,11 +407,12 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
 
 .jumbotron{
     background-image: url(../img/4704152.jpg);
-    max-height: 350px;
+    max-height: 400px;
     margin-top:0px;
     padding-top:20px;
 
 }
+
 
 .row .thumbnail {
     border:0;

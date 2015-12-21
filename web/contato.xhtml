@@ -53,8 +53,8 @@ and open the template in the editor.
                                     <a href="https://www.youtube.com/?gl=BR"> <i class="fa fa-youtube-play fa-3x"  ></i> </a>
                                 </div>
                                 <address class="endereco_contato_header">
-
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong></div> 
+                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong></div>
                                 </address>
 
                             </div>
@@ -110,9 +110,12 @@ and open the template in the editor.
         <div style="float:left;margin-right: 40px; margin-top: 30px;">
             <div class="text-center">
                 <address class="endereco_contato">
-                    <strong >Educação Infantil Pingo de Gente</strong><br /> <h:outputText value="#{contatoBD.endereco}"/><br /> Erechim, RS<br /> 
+                    <strong >Educação Infantil Pingo de Gente</strong> <br /> 
+                    <h:outputText value="#{contatoBD.endereco}"/> <br />
+                    <h:outputText value="#{contatoBD.enderecoII}"/> <br /> 
+                    Erechim, RS<br /> 
                     <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong><br/>
-                    <i class="fa fa-mobile"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong><br/>
+                    <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong><br/>
                     <i class="fa fa-mobile"></i> <strong><h:outputText value="#{contatoBD.fone3}" /> </strong>
                 </address>
              

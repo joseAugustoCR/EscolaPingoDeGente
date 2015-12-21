@@ -36,6 +36,11 @@ public class ContatoBD implements Serializable{
         return contato.getEndereco();
     }
     
+    public String getEnderecoII(){
+        
+        return contato.getEnderecoII();
+    }
+    
     public String getFone1(){
         
         return contato.getFone1();
@@ -53,6 +58,10 @@ public class ContatoBD implements Serializable{
             
     public void setEndereco(String endereco){
         contato.setEndereco(endereco);
+    }
+    
+    public void setEnderecoII(String enderecoII){
+        contato.setEnderecoII(enderecoII);
     }
     
     public void setFone1(String fone1){

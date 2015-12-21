@@ -12,6 +12,7 @@ package apresentacao;
 public class Contato {
     private Integer id;
     private String endereco;
+    private String enderecoII;
     private String fone1;
     private String fone2;
     private String fone3;
@@ -19,9 +20,10 @@ public class Contato {
     public Contato() {
     }
 
-    public Contato(Integer id, String endereco, String fone1, String fone2, String fone3) {
+    public Contato(Integer id, String endereco, String enderecoII, String fone1, String fone2, String fone3) {
         this.id = id;
         this.endereco = endereco;
+        this.enderecoII = enderecoII;
         this.fone1 = fone1;
         this.fone2 = fone2;
         this.fone3 = fone3;
@@ -40,9 +42,17 @@ public class Contato {
     public String getEndereco() {
         return endereco;
     }
+    
+    public String getEnderecoII() {
+        return enderecoII;
+    }
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+    
+    public void setEnderecoII(String enderecoII) {
+        this.enderecoII = enderecoII;
     }
 
     public String getFone1() {
