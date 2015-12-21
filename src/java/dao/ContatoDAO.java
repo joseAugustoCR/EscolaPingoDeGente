@@ -43,10 +43,10 @@ public class ContatoDAO {
 			PreparedStatement ps = conexao.prepareStatement(
 					"INSERT INTO Contato (endereco, enderecoII,  fone1, fone2, fone3) VALUES (?, ? , ? , ? , ?)");
 			ps.setString(1, c.getEndereco());
-                        ps.setString(1, c.getEnderecoII());
-			ps.setString(2, c.getFone1());
-			ps.setString(3, c.getFone2());
-			ps.setString(4, c.getFone3());
+                        ps.setString(2, c.getEnderecoII());
+			ps.setString(3, c.getFone1());
+			ps.setString(4, c.getFone2());
+			ps.setString(5, c.getFone3());
 			ps.execute();
 			ps.close();
 			conexao.close();
@@ -63,11 +63,11 @@ public class ContatoDAO {
 			PreparedStatement ps = conexao.prepareStatement(
 					"UPDATE Contato SET endereco = ?, enderecoII = ?, fone1 = ?, fone2 = ?, fone3 = ? WHERE id = ?");
 			ps.setString(1, c.getEndereco());
-                        ps.setString(1, c.getEnderecoII());
-			ps.setString(2, c.getFone1());
-			ps.setString(3, c.getFone2());
-			ps.setString(4, c.getFone3());
-                        ps.setInt(5, c.getId());
+                        ps.setString(2, c.getEnderecoII());
+			ps.setString(3, c.getFone1());
+			ps.setString(4, c.getFone2());
+			ps.setString(5, c.getFone3());
+                        ps.setInt(6, c.getId());
 			ps.execute();
 			ps.close();
 			conexao.close();
