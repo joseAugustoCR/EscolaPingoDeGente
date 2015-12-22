@@ -184,6 +184,7 @@ DROP TABLE IF EXISTS `Contato`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Contato` (
   `endereco` varchar(254) DEFAULT NULL,
+  `enderecoII` varchar(254) DEFAULT NULL,
   `fone1` varchar(200) DEFAULT NULL,
   `fone2` varchar(200) DEFAULT NULL,
   `fone3` varchar(200) DEFAULT NULL,
@@ -198,7 +199,7 @@ CREATE TABLE `Contato` (
 
 LOCK TABLES `Contato` WRITE;
 /*!40000 ALTER TABLE `Contato` DISABLE KEYS */;
-INSERT INTO `Contato` VALUES ('Rua Nelson Ehlers, 379','054 3015-1155','054 9225-6713','054 9953-0084',1);
+INSERT INTO `Contato` VALUES ('Escola I: Rua Nelson Ehlers, 379','Escola II: Rua Itália, 999','(54) 3015-1155 - I','(54) 3712-3611 - II','(54) 9961-2376',1);
 /*!40000 ALTER TABLE `Contato` ENABLE KEYS */;
 UNLOCK TABLES;
 
