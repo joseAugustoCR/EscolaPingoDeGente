@@ -203,9 +203,17 @@ INSERT INTO `Contato` VALUES ('Escola I: Rua Nelson Ehlers, 379','Escola II: Rua
 /*!40000 ALTER TABLE `Contato` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `Patrocinadores`;
+CREATE TABLE `Patrocinadores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `imagem` mediumblob NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=latin1;
+
 
 --
 -- Table structure for table `Sobre`
+
 --
 
 DROP TABLE IF EXISTS `Sobre`;
