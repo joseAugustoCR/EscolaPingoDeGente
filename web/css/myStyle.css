@@ -67,7 +67,9 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
 
     margin-top: 10px;
 }
-
+#logo{
+    padding-top: 25px;
+}
 
 .tb-titulo {
     text-align: center;
