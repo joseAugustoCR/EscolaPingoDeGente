@@ -14,6 +14,14 @@
         <param-value>/WEB-INF/faces-config.xml</param-value>
     </context-param>
     -->
+     <servlet>
+        <servlet-name>Carousel</servlet-name>
+        <servlet-class>servlets.Carousel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Carousel</servlet-name>
+        <url-pattern>/Carousel</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
