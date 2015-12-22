@@ -159,56 +159,18 @@ and open the template in the editor.
         <div class="container-fluid" id="content">
 
             <fieldset>
-                <legend class="titulo">Bem-vindo, Administrador!</legend>
-            </fieldset>
-
-
-            <h5>Aqui você pode administrar o seu site, editando o conteúdo que é exibido aos visitantes.</h5>          
-            <h5>Ao final da sessão, realize o logout!</h5> 
-
-            <br/>
-
-
-
-        </div>
-
-        <div class="container-fluid" id="content">
-
-            <fieldset>
-                <legend class="titulo">Edite aqui o conteúdo da página inicial!</legend>
+                <legend class="titulo">Altere o logo da escola!</legend>
             </fieldset>
             <br/>
             <br/>
 
-
-
-
+     
             <h:form enctype="multipart/form-data">
-                <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
-                <p:panelGrid style="width:100%;" styleClass="semBorda" columns="2" columnClasses="column_grid">
-              
-                    <p:outputLabel for="quemSomos_input" value="Quem somos:"/>
-                    <p:inputTextarea id="quemSomos_input" rows="5" value="#{inicioBD.quemSomos}" class="input" maxlength="254" required="true" 
-                                     requiredMessage="Campo obrigatório"/>
+                
+                <p:fileUpload fileUploadListener="#{fileUpload.handleFileUploadLogo}" mode="advanced" dragDropSupport="true"
+                              multiple="false" update="messages" auto="true"  sizeLimit="10000000" label="Escolher imagem" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
-
-                    <p:outputLabel for="qualidade_input" value="Qualidade:"/>
-                    <p:inputTextarea id="qualidade_input" rows="3" value="#{inicioBD.qualidade}" class="input" maxlength="254" required="true" 
-                                     requiredMessage="Campo obrigatório"/>
-
-                    <p:outputLabel for="estrutura_input" value="Estrutura:"/>
-                    <p:inputTextarea id="estrutura_input" rows="3" value="#{inicioBD.estrutura}" class="input" maxlength="254" required="true" 
-                                     requiredMessage="Campo obrigatório"/>
-
-                    <p:outputLabel for="missao_input" value="Missão:"/>
-                    <p:inputTextarea id="missao_input" rows="3" value="#{inicioBD.missao}" class="input" maxlength="254" required="true" 
-                                     requiredMessage="Campo obrigatório"/>
-
-                </p:panelGrid>
-                <br/>
-                <br/>
-
-                <p:commandButton value="Salvar" update="msgs" action="#{inicioBD.atualizar}" icon="ui-icon-disk"/>
+                <p:growl id="messages" showDetail="true" />
             </h:form>
 
 

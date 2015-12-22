@@ -24,50 +24,41 @@ import org.primefaces.model.UploadedFile;
  * @author guto
  */
 public class InicioDAO {
+
     
-    public Connection abrir() {
-		Connection c = null;
-		try {
-			Class.forName(BD.JDBC_DRIVER);
-		} catch (ClassNotFoundException e) {
-			System.out.println("Nao encontrou o driver chamado " + BD.JDBC_DRIVER + " na memoria");
-		}
-		try {
-			c = DriverManager.getConnection(BD.URL_CONEXAO, BD.USUARIO, BD.SENHA);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return c;
-	}
+    
+    
+   public Connection abrir() {
+        Connection c = null;
+        try {
+            Class.forName(BD.JDBC_DRIVER);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Nao encontrou o driver chamado " + BD.JDBC_DRIVER + " na memoria");
+        }
+        try {
+            c = DriverManager.getConnection(BD.URL_CONEXAO, BD.USUARIO, BD.SENHA);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return c;
+    }
 
-	public void inserir(Inicio c) {
+
+
+	public void alterar(Inicio c) throws IOException {
 		Connection conexao = abrir();
 		try {
-			PreparedStatement ps = conexao.prepareStatement(
-					"INSERT INTO Inicio (quemSomos, qualdidade, estrutura, missao) VALUES (?, ?, ?, ?)");
-			ps.setString(1, c.getQuemSomos());
+                  
+                    
+                    PreparedStatement ps = conexao.prepareStatement(
+                    "UPDATE Inicio SET quemSomos=?, qualidade=?, estrutura=?, missao=? WHERE id=?");
+			
+                        
+                        ps.setString(1, c.getQuemSomos());
 			ps.setString(2, c.getQualidade());
 			ps.setString(3, c.getEstrutura());
 			ps.setString(4, c.getMissao());
-			ps.execute();
-			ps.close();
-			conexao.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void alterar(Inicio c, UploadedFile logo) throws IOException {
-		Connection conexao = abrir();
-		try {
-			PreparedStatement ps = conexao.prepareStatement(
-					"UPDATE Inicio SET quemSomos = ?, qualidade = ?, estrutura = ?, missao = ?, logo = ?  WHERE id = ?");
-			ps.setString(1, c.getQuemSomos());
-			ps.setString(2, c.getQualidade());
-			ps.setString(3, c.getEstrutura());
-			ps.setString(4, c.getMissao());
-                        ps.setBinaryStream(5, logo.getInputstream());
-                        ps.setInt(6, 1);
+                        ps.setInt(5, 1);
                       
 			ps.execute();
 			ps.close();
@@ -77,39 +68,7 @@ public class InicioDAO {
 		}
 	}
         
-        public void editar(Noticia c, UploadedFile imagem) throws IOException {
-        Connection conexao = abrir();
-        try {
-            PreparedStatement ps = conexao.prepareStatement(
-                    "UPDATE Noticias SET titulo = ?, texto = ?, imagem = ?, timestamp = null, videoURL = ? WHERE id = ?");
-            ps.setString(1, c.getTitulo());
-            ps.setString(2, c.getTexto());
-            ps.setBinaryStream(3, imagem.getInputstream());
-            ps.setString(4, c.getUrl());
-            ps.setInt(5, c.getId());
-
-            ps.execute();
-            ps.close();
-            conexao.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-	/*public void excluir(Inicio c) {
-		Connection conexao = abrir();
-		try {
-			PreparedStatement ps = conexao.prepareStatement(
-					"DELETE FROM clientes WHERE codigo = ?");
-			ps.setInt(1, c.getCodigo());
-			ps.execute();
-			ps.close();
-			conexao.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}*/
-
+   
 	public Inicio buscar(Integer id) {
 		Connection conexao = abrir();
                
@@ -126,7 +85,9 @@ public class InicioDAO {
                             inicio.setQualidade(rs.getString("qualidade"));
                             inicio.setEstrutura(rs.getString("estrutura"));
                             inicio.setMissao(rs.getString("missao"));
+                            
                         }
+                        
 			rs.close();
 			ps.close();
 			conexao.close();
@@ -159,6 +120,22 @@ public class InicioDAO {
 		return inicio;
 	}
         
+        public void alterarLogo(UploadedFile imagem) throws IOException {
+        Connection conexao = abrir();
+        try {
+
+            PreparedStatement ps = conexao.prepareStatement(
+                    "UPDATE Logo SET imagem=? WHERE id=1");
+
+            ps.setBinaryStream(1, imagem.getInputstream());
+
+            ps.execute();
+            ps.close();
+            conexao.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
        
     
 }

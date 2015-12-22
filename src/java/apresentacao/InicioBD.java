@@ -29,20 +29,14 @@ import org.primefaces.model.UploadedFile;
 public class InicioBD implements Serializable{
     private InicioDAO dao;
     private Inicio inicio;
-    private UploadedFile logo;
+   
     
     public InicioBD() {
         dao = new InicioDAO();
         inicio = dao.buscar(1);
     }
 
-    public UploadedFile getLogo() {
-        return logo;
-    }
-
-    public void setLogo(UploadedFile logo) {
-        this.logo = logo;
-    }
+  
     
     
     
@@ -83,27 +77,13 @@ public class InicioBD implements Serializable{
     }
      
     public void atualizar() throws IOException{
-        dao.alterar(inicio, logo);
+        dao.alterar(inicio);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Informações alteradas com sucesso!"));
     }
     
-    public StreamedContent getLogoParaExibir() throws IOException {
-        FacesContext context = FacesContext.getCurrentInstance();
-
-        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-            // So, we're rendering the view. Return a stub StreamedContent so that it will generate right URL.
-            return new DefaultStreamedContent();
-        } else {
-
-            if (inicio.getLogo()==null){
-                return null;
-            }
-            
-            return new DefaultStreamedContent(new ByteArrayInputStream(inicio.getLogo()));
-        }
-    }
     
     
+   
   
     
 }

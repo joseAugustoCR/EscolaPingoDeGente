@@ -36,13 +36,6 @@ public class NoticiasBD implements Serializable{
     private Integer noticiaId;
     private UploadedFile imagemNoticia;
     
-  
-
-  
-
-    /**
-     * Creates a new instance of NoticiasBD
-     */
     public NoticiasBD() {
         dao = new NoticiasDAO();
         noticia = new Noticia();
@@ -130,11 +123,7 @@ public class NoticiasBD implements Serializable{
     public Boolean getImagemSet(){
         return noticia.getImagemSet();
     }
-    
-    
-    
-    
-    
+
     public String editar() throws IOException{
         dao.editar(noticia, imagemNoticia);
          return "noticias.xhtml" + "?faces-redirect=true";
