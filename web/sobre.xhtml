@@ -6,9 +6,10 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
-    <head>
+    <h:head>
         <meta charset="UTF-8"/>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -35,15 +36,15 @@ and open the template in the editor.
         <title>Pingo De Gente</title>
 
 
-    </head>
-    <body>
+    </h:head>
+    <h:body>
         <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
 
-                        <div class="col-md-2" id="hidden">
-                            <div class="tb-img"></div>
+                        <div class="col-md-2" id="hidden" style="margin-left: 0px; margin-right: 0px; padding-left: 0px;padding-right: 0px;">
+                            <p:graphicImage class="img-responsive" value="#{logoBD.logoParaExibir}" id="logo" cache="false"/>
                         </div>
                         <div class="col-md-8">
                             <div class="tb-titulo"><a href="index.xhtml" >Escola de Educação Infantil Pingo de Gente</a>
@@ -190,7 +191,7 @@ and open the template in the editor.
                     </fieldset>
                     <h:outputText value="#{sobreBD.estrutura}" />
                     <br/>
-
+                    <br/>    
                     <div class="row" style="text-align:center;">
                         <div class="col-md-4">
                             <figure>
@@ -241,6 +242,6 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
-    </body>
+    </h:body>
 
 </html>
