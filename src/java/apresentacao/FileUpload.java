@@ -7,6 +7,7 @@ package apresentacao;
 
 import dao.ImagemDAO;
 import dao.LogoDAO;
+import dao.PatrocinadorDAO;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -30,6 +31,7 @@ public class FileUpload implements Serializable {
     private ImagemDAO dao = new ImagemDAO();
     private NoticiasBD noticiaDao = new NoticiasBD();
     private LogoDAO logoDao = new LogoDAO();
+    private PatrocinadorDAO patrocinadorDAO = new PatrocinadorDAO();
     private Integer albumId = 0;
     private String legenda;
 
@@ -78,6 +80,13 @@ public class FileUpload implements Serializable {
     public void handleFileUploadLogo(FileUploadEvent event) throws IOException {
         
             logoDao.alterar(event.getFile());
+        
+
+    }
+    
+    public void handleFileUploadPatrocinador(FileUploadEvent event) throws IOException {
+        
+            patrocinadorDAO.inserir(event.getFile());
         
 
     }

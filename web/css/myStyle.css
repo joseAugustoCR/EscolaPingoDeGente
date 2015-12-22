@@ -448,6 +448,20 @@ navbar-inverse .navbar-brand:hover, navbar-inverse .navbar-brand:focus,navbar-in
     
 }
 
+.ui-carousel-header {
+    margin: 0px 1px;
+    height: 0px;
+    overflow: hidden;
+    padding: 7px 10px 8px;
+    display: none !important;
+    border: 0;
+}
+
+.panelGridCenter td,.panelGridCenter tr {
+    text-align: center;
+    
+}
+
 
 
 #patrocinador1{
