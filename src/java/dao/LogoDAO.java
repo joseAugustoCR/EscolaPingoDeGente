@@ -52,8 +52,8 @@ public class LogoDAO {
             ps.close();
             conexao.close();
 
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo!", " Novo logo salvo!");
-            FacesContext.getCurrentInstance().addMessage(null, msg);
+            //FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo!", " Novo logo salvo!");
+            //FacesContext.getCurrentInstance().addMessage(null, msg);
         } catch (SQLException e) {
             e.printStackTrace();
             FacesMessage errorMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Upload error", e.getMessage());

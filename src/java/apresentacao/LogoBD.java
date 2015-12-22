@@ -66,8 +66,8 @@ public class LogoBD implements Serializable {
     }
     
     public void atualizar() throws IOException{
-        inicioDAO.alterarLogo(imagem);
-        //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo", "Novo logo salvo!"));
+        dao.alterar(imagem);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Salvo", "Novo logo salvo!"));
         
     }
     

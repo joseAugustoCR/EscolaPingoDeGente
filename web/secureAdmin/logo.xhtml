@@ -166,11 +166,13 @@ and open the template in the editor.
 
      
             <h:form enctype="multipart/form-data">
+                <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
                 
                 <p:fileUpload fileUploadListener="#{fileUpload.handleFileUploadLogo}" mode="advanced" dragDropSupport="true"
                               multiple="false" update="messages" auto="true"  sizeLimit="10000000" label="Escolher imagem" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
-                <p:growl id="messages" showDetail="true" />
+               <p:messages id="msgs" showDetail="true" autoUpdate="true" closable="true" />
+                
             </h:form>
 
 
