@@ -46,8 +46,8 @@ and open the template in the editor.
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
 
-                        <div class="col-md-2" id="hidden">
-                            <div class="tb-img"></div>
+                        <div class="col-md-2" id="hidden" style="margin-left: 0px; margin-right: 0px; padding-left: 0px;padding-right: 0px;">
+                            <p:graphicImage class="img-responsive" value="#{logoBD.logoParaExibir}" id="logo" cache="false"/>
                         </div>
                         <div class="col-md-8">
                             <div class="tb-titulo"><a href="index.xhtml" >Escola de Educação Infantil Pingo de Gente</a>
@@ -60,8 +60,8 @@ and open the template in the editor.
                                     <a href="https://www.youtube.com/channel/UC0hZy8kWOMrzJw5xjdAkasw"> <i class="fa fa-youtube-play fa-3x"  ></i> </a>
                                 </div>
                                 <address class="endereco_contato_header">
-
-                                    <div class="wow swing" data-wow-duration="3s" data-wow-delay="0.5s"> <i class="fa fa-phone"></i> <strong> 054 3015-1155 </strong></div> 
+                                    <div > <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong></div> 
+                                    <div > <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong></div>
                                 </address>
 
                             </div>
