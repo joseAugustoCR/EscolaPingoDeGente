@@ -28,7 +28,7 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
 
 /* Cabeçalho */
 .tb-header {
-    height: 150px;
+    height: 165px;
     top: 0px;
     left: 0px;
     
@@ -68,12 +68,12 @@ html,body{height:100%; margin-top: 0px; padding-top: 0px; }
     margin-top: 10px;
 }
 #logo{
-    padding-top: 25px;
+    padding-top: 2px;
 }
 
 .tb-titulo {
     text-align: center;
-    padding-top: 30px; 
+    padding-top: 40px; 
 }
 
 
