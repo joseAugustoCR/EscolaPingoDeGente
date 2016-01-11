@@ -120,12 +120,12 @@ and open the template in the editor.
                             <legend class="titulo">Quem somos</legend>
                         </fieldset>
 
-                        <h:outputText value="#{sobreBD.quemSomos}" /><br/>
+                        <h:outputText value="#{sobreBD.quemSomos}" escape="false" /><br/>
                         <br/>    
                         <fieldset>
                             <legend class="titulo" style="padding-top: 50px;">História</legend>
                         </fieldset>
-                        <h:outputText value="#{sobreBD.historia}" /><br/>
+                        <h:outputText value="#{sobreBD.historia}" escape="false" /><br/>
                         <br/>
                     </div>
 
@@ -145,7 +145,7 @@ and open the template in the editor.
                                     <h3>
                                         MISSÃO
                                     </h3>
-                                    <h:outputText value="#{sobreBD.missao}" /><br/>
+                                    <h:outputText value="#{sobreBD.missao}"  escape="false"/><br/>
 
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ and open the template in the editor.
                                     <h3>
                                         VISÃO
                                     </h3>
-                                    <h:outputText value="#{sobreBD.visao}" />
+                                    <h:outputText value="#{sobreBD.visao}" escape="false"/>
 
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ and open the template in the editor.
                                     <h3>
                                         VALORES
                                     </h3>
-                                    <h:outputText value="#{sobreBD.valores}" />
+                                    <h:outputText value="#{sobreBD.valores}" escape="false"/>
 
                                 </div>
                             </div>
@@ -189,7 +189,7 @@ and open the template in the editor.
                     <fieldset>
                         <legend class="titulo">Estrutura</legend>
                     </fieldset>
-                    <h:outputText value="#{sobreBD.estrutura}" />
+                    <h:outputText value="#{sobreBD.estrutura}" escape="false" />
                     <br/>
                     <br/>    
                     <div class="row" style="text-align:center;">
