@@ -25,17 +25,17 @@ and open the template in the editor.
         <!-- Icone ao lado do título -->
         <link rel="icon" href="img/logo.png"/>
 
-            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-            <!--[if lt IE 9]>
-              <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-              <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-            <![endif]-->
-            <title>Entre em Contato!</title>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <title>Entre em Contato!</title>
     </h:head>
     <h:body>
-        
-  <div class="visible-lg visible-md">
+
+        <div class="visible-lg visible-md">
             <header class="tb-header">
                 <div class="container-fluid">
                     <div class="col-md-12" id="col_header">
@@ -66,78 +66,80 @@ and open the template in the editor.
             </header>
         </div>
 
-    <nav class="navbar navbar-inverse ">
-        <div class="container-fluid">
+        <nav class="navbar navbar-inverse ">
+            <div class="container-fluid">
 
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-            </div>
+                </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.xhtml">Início </a></li>
-                    <li><a href="sobre.xhtml">A escola</a></li>
-                    <li><a href="galeria.xhtml">Galeria de Fotos</a></li>
-                    <li><a href="noticias.xhtml">Notícias</a></li>
-                    <li><a href="calendario.xhtml">Calendário</a></li>
-                    <li class="active"><a href="contato.xhtml">Contato <span class="sr-only">(current)</span></a></li>  
-
-
-                </ul>
-
-                
-            </div><!-- /.navbar-collapse -->
-            <!-- /.container-fluid -->
-        </div>  
-    </nav>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.xhtml">Início </a></li>
+                        <li><a href="sobre.xhtml">A escola</a></li>
+                        <li><a href="galeria.xhtml">Galeria de Fotos</a></li>
+                        <li><a href="noticias.xhtml">Notícias</a></li>
+                        <li><a href="calendario.xhtml">Calendário</a></li>
+                        <li class="active"><a href="contato.xhtml">Contato <span class="sr-only">(current)</span></a></li>  
 
 
+                    </ul>
 
 
-    <div class="container-fluid" id="content">
+                </div><!-- /.navbar-collapse -->
+                <!-- /.container-fluid -->
+            </div>  
+        </nav>
 
 
-        <fieldset>
-            <legend class="titulo">Endereço e Contato</legend>
-        </fieldset>
-        <div style="float:left;margin-right: 40px; margin-top: 30px;">
-            <div class="text-center">
-                <address class="endereco_contato">
-                    <strong >Educação Infantil Pingo de Gente</strong> <br /> 
-                    <h:outputText value="#{contatoBD.endereco}"/> <br />
-                    <h:outputText value="#{contatoBD.enderecoII}"/> <br /> 
-                    Centro - Erechim, RS<br /> 
-                    <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong><br/>
-                    <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong><br/>
-                    <i class="fa fa-mobile"></i> <strong><h:outputText value="#{contatoBD.fone3}" /> </strong>
-                </address>
-             
-                <div style="margin-top: 20px" >
-                    <a href="https://www.facebook.com/educacaoinfantil.pingodegente?fref=ts"> <i class="fa fa-facebook-official fa-3x"  ></i> </a>
-                    <a href="https://www.youtube.com/channel/UC0hZy8kWOMrzJw5xjdAkasw"> <i class="fa fa-youtube-play fa-3x"  ></i> </a>
+
+
+        <div class="container-fluid" id="content">
+
+
+            <fieldset>
+                <legend class="titulo">Endereço e Contato</legend>
+            </fieldset>
+            <div style="float:left;margin-right: 40px; margin-top: 30px;">
+                <div class="text-center">
+                    <address class="endereco_contato">
+                        <strong >Educação Infantil Pingo de Gente</strong> <br /> 
+                        <h:outputText value="#{contatoBD.endereco}"/> <br />
+                        <h:outputText value="#{contatoBD.enderecoII}"/> <br /> 
+                        Centro - Erechim, RS<br /> 
+                        <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone1}" /> </strong><br/>
+                        <i class="fa fa-phone"></i> <strong> <h:outputText value="#{contatoBD.fone2}" /> </strong><br/>
+                        <i class="fa fa-mobile"></i> <strong><h:outputText value="#{contatoBD.fone3}" /> </strong><br/>
+                        <i class="fa fa-envelope"></i> <a href="mailto:example@hotmail.com">example@hotmail.com</a>
+                    </address>
+
+                    <div style="margin-top: 20px" >
+                        <a href="https://www.facebook.com/educacaoinfantil.pingodegente?fref=ts"> <i class="fa fa-facebook-official fa-3x"  ></i> </a>
+                        <a href="https://www.youtube.com/channel/UC0hZy8kWOMrzJw5xjdAkasw"> <i class="fa fa-youtube-play fa-3x"  ></i> </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <div class="Flexible-container">
+            <div>
+                <div class="Flexible-container">
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1767.3715836663316!2d-52.27088855381342!3d-27.632469972853983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sch!4v1443231427794" width="500" height="400" frameborder="0" style="border:0" allowfullscreen="true"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1767.3715836663316!2d-52.27088855381342!3d-27.632469972853983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sch!4v1443231427794" width="500" height="400" frameborder="0" style="border:0" allowfullscreen="true"></iframe>
+                </div>
             </div>
+
+
+
+
         </div>
 
-
-
-
-    </div>
-
+        <!--
 
     <div class="container-fluid" id="content">
         <div class="row">
@@ -185,55 +187,60 @@ and open the template in the editor.
 
 
 
+        -->
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
 
 
 
+        <footer class="footer">
+            <div class="container" >
+                <p> <strong>Desenvolvido por Bernardo Favero Andreeti e José Augusto Comiotto Rottini</strong></p>
+                <p>Engenharia de Computação - UFSM</p>
+            </div>
+        </footer>
 
 
-    <footer class="footer">
-        <div class="container" >
-            <p> <strong>Desenvolvido por Bernardo Favero Andreeti e José Augusto Comiotto Rottini</strong></p>
-            <p>Engenharia de Computação - UFSM</p>
-        </div>
-    </footer>
+        <script src="js/bootstrap.min.js"></script>
 
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script>
 
-    <script src="js/bootstrap.min.js"></script>
-
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script>
-
-        $(function () {
-            $("#contatoForm").validate({
-                rules: {
-                    nome: "required",
-                    email: {
-                        required: true,
-                        email: true
+            $(function () {
+                $("#contatoForm").validate({
+                    rules: {
+                        nome: "required",
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        mensagem: {
+                            required: true,
+                            minlength: 20
+                        }
                     },
-                    mensagem: {
-                        required: true,
-                        minlength: 20
+                    messages: {
+                        nome: "Digite seu nome completo!",
+                        email: "Digite um email valido",
+                        mensagem: {
+                            required: "Digite sua mensagem!",
+                            minlength: "Descreva melhor sua mensagem!"
+                        }
+                    },
+                    submitHandler: function (form) {
+                        window.alert("Mensagem enviada!");
                     }
-                },
-                messages: {
-                    nome: "Digite seu nome completo!",
-                    email: "Digite um email valido",
-                    mensagem: {
-                        required: "Digite sua mensagem!",
-                        minlength: "Descreva melhor sua mensagem!"
-                    }
-                },
-                submitHandler: function (form) {
-                    window.alert("Mensagem enviada!");
-                }
 
+                });
             });
-        });
 
-    </script>
+        </script>
 
     </h:body>
 </html>
